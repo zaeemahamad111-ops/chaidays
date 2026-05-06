@@ -30,8 +30,8 @@ export default function ExperiencePage() {
               alt="Cinematic chai ritual — aromatic steam and warm tones" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-105" 
-              priority 
-
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </ScrollReveal>
         </div>
@@ -46,8 +46,8 @@ export default function ExperiencePage() {
               alt="The fragrance of fresh chai spices" 
               fill 
               className="object-cover" 
-              loading="lazy" 
-
+              loading="lazy"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </ScrollReveal>
           <ScrollReveal delay={200} className="order-1 lg:order-2 space-y-8">
@@ -96,8 +96,8 @@ export default function ExperiencePage() {
                 alt="Tactile stoneware cup texture" 
                 fill 
                 className="object-cover transition-transform duration-[2s] group-hover:scale-110" 
-                loading="lazy" 
-
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 400px"
               />
             </div>
             <div className="absolute -z-10 -right-10 -bottom-10 w-64 h-64 bg-primary-fixed rounded-full blur-[80px] opacity-20" />
@@ -121,8 +121,8 @@ export default function ExperiencePage() {
               alt="Minimalist tea house interior atmosphere" 
               fill 
               className="object-cover" 
-              loading="lazy" 
-
+              loading="lazy"
+              sizes="100vw"
             />
             <div className="absolute bottom-12 left-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-white max-w-2xl">
               {[

@@ -38,8 +38,8 @@ export default function AboutPage() {
             width={1440} 
             height={617} 
             className="w-full h-full object-cover" 
-            priority 
-
+            priority
+            sizes="100vw"
           />
         </ScrollReveal>
       </section>
@@ -60,8 +60,8 @@ export default function AboutPage() {
                 width={600} 
                 height={750} 
                 className="w-full h-full object-cover" 
-                loading="lazy" 
-
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </ScrollReveal>
@@ -78,8 +78,8 @@ export default function AboutPage() {
                 width={600} 
                 height={750} 
                 className="w-full h-full object-cover" 
-                loading="lazy" 
-
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </ScrollReveal>

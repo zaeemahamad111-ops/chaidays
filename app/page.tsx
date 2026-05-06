@@ -59,6 +59,8 @@ export default function HomePage() {
                   width={800}
                   height={1000}
                   className="w-full h-full object-cover scale-105 hover:scale-100 transition-all duration-[1.5s] ease-out"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 58vw"
                 />
               </div>
               
@@ -70,6 +72,8 @@ export default function HomePage() {
                   width={500}
                   height={500}
                   className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-[1.5s] ease-out"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 0vw, 30vw"
                 />
               </div>
 
@@ -145,6 +149,7 @@ export default function HomePage() {
                       height={667}
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                       loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
                   <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-on-surface-variant mb-2 block">
@@ -181,7 +186,7 @@ export default function HomePage() {
                 height={900}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                 loading="lazy"
-
+                sizes="(max-width: 768px) 100vw, 66vw"
               />
             </ScrollReveal>
             <div className="col-span-4 flex flex-col gap-4 h-full">
@@ -193,7 +198,7 @@ export default function HomePage() {
                   height={300}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
                   loading="lazy"
-
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </ScrollReveal>
               <ScrollReveal delay={250} className="h-2/3 overflow-hidden">
@@ -204,7 +209,7 @@ export default function HomePage() {
                   height={600}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                   loading="lazy"
-
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </ScrollReveal>
             </div>
@@ -241,6 +246,7 @@ export default function HomePage() {
             height={900}
             className="w-full h-full object-cover brightness-90 hover:brightness-100 transition-all duration-1000"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </section>
@@ -279,11 +285,12 @@ export default function HomePage() {
             </ScrollReveal>
             <ScrollReveal delay={200} className="aspect-square bg-surface-container-high relative overflow-hidden group">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdlg2_5SKV5EjXYc1Y334R428_ANsqneBFbMGeOU_khqxTYQi3TuxBKlbfv6KT_3L6SNhGguuZ21bBT2XZL7aDD0PyBiHi6ycFwGHBhYL-ynZj9FKUCTBV5Xr-1ATc5IgECcPbCqWO-Y2FHihKw4hg4HYjGFf3S8U2uYU3RomxuCHWMWUMG-b0GNBmtVlZAa2RgoF_eYC2iiu7ViiHNBqlcMLXMtvZZaBn7O7YAFAi96pUOsqxsicLmDQk6dwuXhADUeippnr2M0dQ"
+                src="/images/gallery/space-7.jpg"
                 alt="View on map — Chai Days location"
                 fill
                 className="object-cover opacity-60 transition-transform duration-[2s] group-hover:scale-110"
                 loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-primary/40 pointer-events-none">
                 <span className="material-symbols-outlined text-6xl mb-2">explore</span>

@@ -54,7 +54,7 @@ export default function VisitClient() {
               fill
               className="object-cover"
               priority
-
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </ScrollReveal>
         </div>
@@ -72,7 +72,7 @@ export default function VisitClient() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
-
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">Location</span>
