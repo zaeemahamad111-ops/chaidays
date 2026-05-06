@@ -53,7 +53,7 @@ export default function RootLayout({
         {/* Preload hero video for faster first paint */}
         <link rel="preload" as="video" href="/hero.mp4" type="video/mp4" />
         {/* Preload logo for splash screen */}
-        <link rel="preload" as="image" href="/logo.webp" />
+        <link rel="preload" as="image" href="/chaidays-logo-splash.png" />
         {/* Critical fonts inline so no render blocking */}
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;600;700&display=swap"
