@@ -116,16 +116,17 @@ export default function HeroVideo() {
         <video
           ref={videoRef}
           src={videoSrc}
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{
-          opacity: videoReady ? 1 : 0,
-          transition: 'opacity 1s ease',
-        }}
-      />
+          autoPlay
+          muted
+          playsInline
+          preload="metadata"
+          poster="/images/hero-poster.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            opacity: videoReady ? 1 : 0,
+            transition: 'opacity 1s ease',
+          }}
+        />
       )}
 
       {/* ── Fallback gradient (shows if video not ready) ── */}

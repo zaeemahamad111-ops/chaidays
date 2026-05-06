@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SplashScreen from "@/components/SplashScreen";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chaidays.com'),
@@ -46,17 +47,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        {/* Fonts – preconnect for speed, actual load via CSS */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload hero video for faster first paint */}
+        <link rel="preload" as="video" href="/hero.mp4" type="video/mp4" />
+        {/* Preload logo for splash screen */}
+        <link rel="preload" as="image" href="/logo.webp" />
+        {/* Critical fonts inline so no render blocking */}
         <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
         <link
@@ -65,6 +65,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-surface text-on-surface font-sans antialiased">
+        <SplashScreen />
         <Navbar />
         <main>{children}</main>
         <Footer />

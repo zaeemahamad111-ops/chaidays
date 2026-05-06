@@ -277,15 +277,23 @@ export default function GalleryClient() {
         <div className="grid grid-cols-12 gap-6 mb-32">
           {filtered.map((item, i) => (
             <div key={item.id} className={`${item.colSpan} gallery-item group cursor-pointer`}>
-              <div className={`${item.ratio} overflow-hidden rounded-xl relative`}>
+              <div className={`${item.ratio} overflow-hidden rounded-xl relative bg-surface-container`}>
                 <Image
                   src={item.img}
                   alt={item.alt}
                   fill
-                  className="object-cover"
-                  loading={i < 2 ? 'eager' : 'lazy'}
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                  unoptimized={true}
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading={i < 4 ? 'eager' : 'lazy'}
+                  priority={i < 2}
+                  sizes={
+                    item.colSpan.includes('md:col-span-8')
+                      ? '(max-width: 768px) 100vw, 66vw'
+                      : item.colSpan.includes('md:col-span-6')
+                      ? '(max-width: 768px) 100vw, 50vw'
+                      : item.colSpan.includes('md:col-span-4')
+                      ? '(max-width: 768px) 100vw, 33vw'
+                      : '100vw'
+                  }
                 />
                 <div className="gallery-overlay absolute inset-0 bg-primary/20 flex items-end p-6">
                   <span className="text-white font-sans text-[11px] tracking-widest bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30">

@@ -39,7 +39,7 @@ export default function AboutPage() {
             height={617} 
             className="w-full h-full object-cover" 
             priority 
-            unoptimized={true}
+
           />
         </ScrollReveal>
       </section>
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 height={750} 
                 className="w-full h-full object-cover" 
                 loading="lazy" 
-                unoptimized={true}
+
               />
             </div>
           </ScrollReveal>
@@ -79,7 +79,7 @@ export default function AboutPage() {
                 height={750} 
                 className="w-full h-full object-cover" 
                 loading="lazy" 
-                unoptimized={true}
+
               />
             </div>
           </ScrollReveal>

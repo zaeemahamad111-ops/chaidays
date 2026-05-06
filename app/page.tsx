@@ -181,7 +181,7 @@ export default function HomePage() {
                 height={900}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                 loading="lazy"
-                unoptimized={true}
+
               />
             </ScrollReveal>
             <div className="col-span-4 flex flex-col gap-4 h-full">
@@ -193,7 +193,7 @@ export default function HomePage() {
                   height={300}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
                   loading="lazy"
-                  unoptimized={true}
+
                 />
               </ScrollReveal>
               <ScrollReveal delay={250} className="h-2/3 overflow-hidden">
@@ -204,7 +204,7 @@ export default function HomePage() {
                   height={600}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                   loading="lazy"
-                  unoptimized={true}
+
                 />
               </ScrollReveal>
             </div>

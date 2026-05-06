@@ -47,7 +47,7 @@ export default function MenuPage() {
                 height={437} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
                 loading="lazy" 
-                unoptimized={true}
+
               />
             </div>
             <div className="flex justify-between items-start">
@@ -77,7 +77,7 @@ export default function MenuPage() {
                 height={96} 
                 className="w-24 h-24 rounded-full object-cover flex-shrink-0" 
                 loading="lazy" 
-                unoptimized={true}
+
               />
               <div>
                 <h3 className="font-serif text-2xl text-primary mb-1">Cloud Matcha</h3>
@@ -111,7 +111,7 @@ export default function MenuPage() {
                       height={533} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
                       loading="lazy" 
-                      unoptimized={true}
+
                     />
                   </div>
                   <h3 className="font-serif text-2xl text-primary mb-2 text-center">{item.name}</h3>
@@ -153,7 +153,7 @@ export default function MenuPage() {
                 height={700} 
                 className="w-full aspect-square object-cover" 
                 loading="lazy" 
-                unoptimized={true}
+
               />
             </div>
           </ScrollReveal>

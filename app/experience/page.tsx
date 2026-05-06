@@ -31,7 +31,7 @@ export default function ExperiencePage() {
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-105" 
               priority 
-              unoptimized={true}
+
             />
           </ScrollReveal>
         </div>
@@ -47,7 +47,7 @@ export default function ExperiencePage() {
               fill 
               className="object-cover" 
               loading="lazy" 
-              unoptimized={true}
+
             />
           </ScrollReveal>
           <ScrollReveal delay={200} className="order-1 lg:order-2 space-y-8">
@@ -97,7 +97,7 @@ export default function ExperiencePage() {
                 fill 
                 className="object-cover transition-transform duration-[2s] group-hover:scale-110" 
                 loading="lazy" 
-                unoptimized={true}
+
               />
             </div>
             <div className="absolute -z-10 -right-10 -bottom-10 w-64 h-64 bg-primary-fixed rounded-full blur-[80px] opacity-20" />
@@ -122,7 +122,7 @@ export default function ExperiencePage() {
               fill 
               className="object-cover" 
               loading="lazy" 
-              unoptimized={true}
+
             />
             <div className="absolute bottom-12 left-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-white max-w-2xl">
               {[
