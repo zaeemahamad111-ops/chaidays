@@ -50,8 +50,8 @@ export default function RootLayout({
         {/* Fonts – preconnect for speed, actual load via CSS */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preload hero video for faster first paint */}
-        <link rel="preload" as="video" href="/hero.mp4" type="video/mp4" />
+        {/* Preload chai intro video for faster first paint */}
+        <link rel="preload" as="video" href="/hero-v3-intro.mp4" type="video/mp4" />
         {/* Preload logo for splash screen */}
         <link rel="preload" as="image" href="/chaidays-logo-splash.png" />
         {/* Critical fonts inline so no render blocking */}

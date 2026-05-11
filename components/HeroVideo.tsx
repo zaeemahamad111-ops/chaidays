@@ -2,251 +2,209 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 
-const textStages = [
-  { from: 0,   eyebrow: '', headline: '', sub: '', cta: false },
-  { from: 1.8, eyebrow: 'KICKSTART YOUR DAYS!', headline: 'Chai Days', sub: '', cta: false },
-  { from: 2.4, eyebrow: 'KICKSTART YOUR DAYS!', headline: 'Chai Days', sub: 'Sip, Savor, and Satisfy Your Senses with Chai Days.', cta: false },
-  { from: 3.0, eyebrow: 'KICKSTART YOUR DAYS!', headline: 'Chai Days', sub: 'Sip, Savor, and Satisfy Your Senses with Chai Days.', cta: true  },
-];
-
 export default function HeroVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [stageIdx, setStageIdx] = useState(2); // Start at final stage so content is always visible
-  const [videoReady, setVideoReady] = useState(false);
-  const [videoStarted, setVideoStarted] = useState(false);
-  const [videoSrc, setVideoSrc] = useState<string | null>(null);
-  const scrolledRef = useRef(false);
+  const sectionRef   = useRef<HTMLElement>(null);
+  const videoRef     = useRef<HTMLVideoElement>(null);
+  const pausedAtEnd  = useRef(false);
 
+  const [splashGone,     setSplashGone]     = useState(false);
+  const [isVisible,      setIsVisible]      = useState(false);
+  const [videoStarted,   setVideoStarted]   = useState(false);
+  const [videoReady,     setVideoReady]     = useState(false);
+  const [introTextStage, setIntroTextStage] = useState<'center' | 'left'>('center');
+
+  // Wait for splash screen to fully hide (2s + 0.8s fade + buffer)
   useEffect(() => {
-    // Determine which video to serve based on screen width
-    const mql = window.matchMedia('(max-width: 767px)');
-    setVideoSrc(mql.matches ? '/hero-reversed.mp4' : '/hero.mp4');
-    
-    const handler = (e: MediaQueryListEvent) => {
-      setVideoSrc(e.matches ? '/hero-reversed.mp4' : '/hero.mp4');
-    };
-    mql.addEventListener('change', handler);
-    return () => mql.removeEventListener('change', handler);
+    const t = setTimeout(() => setSplashGone(true), 3000);
+    return () => clearTimeout(t);
   }, []);
 
+  // IntersectionObserver — only play when hero is in view
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Start video only when splash gone AND hero visible
+  useEffect(() => {
+    if (!splashGone || !isVisible || videoStarted) return;
+    const video = videoRef.current;
+    if (!video) return;
+    setVideoStarted(true);
+    video.playbackRate = 0.95;
+    video.play().catch(() => {});
+  }, [splashGone, isVisible, videoStarted]);
+
+  // Pause/resume on viewport leave/enter
+  useEffect(() => {
+    if (!videoStarted) return;
+    if (isVisible) videoRef.current?.play().catch(() => {});
+    else videoRef.current?.pause();
+  }, [isVisible, videoStarted]);
+
+  // On timeupdate: text animation + end-frame freeze + auto-scroll
   const handleTimeUpdate = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
-    const t = video.currentTime;
-    let idx = 0;
-    for (let i = textStages.length - 1; i >= 0; i--) {
-      if (t >= textStages[i].from) { idx = i; break; }
-    }
-    setStageIdx(idx);
 
-    // Auto-scroll slightly before video ends to create a continuous motion
-    if (video.duration && t >= video.duration - 0.2 && !scrolledRef.current) {
-      scrolledRef.current = true;
-      if (window.scrollY < 50) {
-        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-      }
+    // Intro text phase shift
+    if (video.currentTime > 1.2 && introTextStage === 'center') {
+      setIntroTextStage('left');
     }
-  }, []);
+
+    // Freeze on last frame, wait 0.5s, then scroll to next section
+    if (video.duration && video.currentTime >= video.duration - 0.08 && !pausedAtEnd.current) {
+      pausedAtEnd.current = true;
+      video.pause();
+
+      setTimeout(() => {
+        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      }, 500);
+    }
+  }, [introTextStage]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-
-    // When video data is available, start playback and reset to stage 0 for animation
-    const onLoadedData = () => {
-      setVideoReady((prev) => {
-        if (!prev) {
-          setStageIdx(0); // reset to beginning for animation
-          setVideoStarted(false);
-        }
-        return true;
-      });
-    };
-
-    if (video.readyState >= 2) {
-      onLoadedData();
-    }
-
-    const onPlay = () => setVideoStarted(true);
-
-    // Freeze on last frame when video ends and act as a reliable fallback for auto-scroll on mobile
+    const onLoaded = () => setVideoReady(true);
+    // Fallback: ended event
     const onEnded = () => {
-      setStageIdx(textStages.length - 1);
-      if (!scrolledRef.current) {
-        scrolledRef.current = true;
-        if (window.scrollY < 50) {
+      if (!pausedAtEnd.current) {
+        pausedAtEnd.current = true;
+        setTimeout(() => {
           window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-        }
+        }, 500);
       }
     };
-
-    // Fallback: if video can't autoplay, keep stage at last
-    const onError = () => {
-      setStageIdx(textStages.length - 1);
-    };
-
-    video.addEventListener('loadeddata', onLoadedData);
-    video.addEventListener('play', onPlay);
-    video.addEventListener('timeupdate', handleTimeUpdate);
-    video.addEventListener('ended', onEnded);
-    video.addEventListener('error', onError);
-
-    // Try to force play (needed on some browsers)
-    video.play().catch(() => {
-      // Autoplay blocked — stay at final stage
-      setStageIdx(textStages.length - 1);
-    });
-
+    video.addEventListener('loadeddata',  onLoaded);
+    video.addEventListener('timeupdate',  handleTimeUpdate);
+    video.addEventListener('ended',       onEnded);
     return () => {
-      video.removeEventListener('loadeddata', onLoadedData);
-      video.removeEventListener('play', onPlay);
-      video.removeEventListener('timeupdate', handleTimeUpdate);
-      video.removeEventListener('ended', onEnded);
-      video.removeEventListener('error', onError);
+      video.removeEventListener('loadeddata',  onLoaded);
+      video.removeEventListener('timeupdate',  handleTimeUpdate);
+      video.removeEventListener('ended',       onEnded);
     };
-  }, [handleTimeUpdate, videoSrc]);
-
-  const stage = textStages[stageIdx];
+  }, [handleTimeUpdate]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0d0a08]" style={{ height: '100dvh', minHeight: '600px' }}>
-
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden bg-[#0a0806]"
+      style={{ height: '100dvh', minHeight: '600px' }}
+    >
       {/* ── Video ── */}
-      {videoSrc && (
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          autoPlay
-          muted
-          playsInline
-          preload="metadata"
-          poster="/images/hero-poster.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            opacity: videoReady ? 1 : 0,
-            transition: 'opacity 1s ease',
-          }}
-        />
-      )}
-
-      {/* ── Fallback gradient (shows if video not ready) ── */}
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-[#1a0d06] via-[#261206] to-[#0d0a08]"
-        style={{ opacity: videoReady ? 0 : 1, transition: 'opacity 1s ease' }}
+      <video
+        ref={videoRef}
+        src="/hero-v3-intro.mp4"
+        muted
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        className="absolute inset-0 w-full h-full object-cover z-10"
+        style={{
+          opacity: videoReady ? 1 : 0,
+          transition: 'opacity 0.8s ease',
+        }}
       />
 
-      {/* ── Cinematic overlays ── */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/55 pointer-events-none z-10" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent pointer-events-none z-10" />
+      {/* Loading background */}
+      {!videoReady && (
+        <div className="absolute inset-0 z-10 bg-[#0a0806] flex items-center justify-center">
+          <div className="w-10 h-10 border border-white/10 border-t-white/50 rounded-full animate-spin" />
+        </div>
+      )}
 
-      {/* ── Letterbox bars ── */}
-      <div className="absolute top-0 inset-x-0 h-16 bg-black z-20 pointer-events-none" />
-      <div className="absolute bottom-0 inset-x-0 h-16 bg-black z-20 pointer-events-none" />
+      {/* ── Gradient guards for text ── */}
+      <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/65 via-black/5 to-black/35 pointer-events-none" />
+      <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/55 via-transparent to-transparent pointer-events-none" />
 
-      {/* ── Content ── */}
-      <div className="absolute inset-0 z-30 flex flex-col justify-center px-8 md:px-16 lg:px-24 pt-16 pb-20 max-w-[1440px] mx-auto left-0 right-0">
+      {/* ── Text Overlay ── */}
+      <div className="absolute inset-0 z-30 flex flex-col items-center justify-center px-8 pointer-events-none">
 
-        {/* Eyebrow */}
-        <p
-          className="font-sans text-[10px] md:text-[11px] tracking-[0.4em] md:tracking-[0.5em] uppercase mb-6 md:mb-8"
-          style={{
-            color: 'rgba(255,255,255,0.65)',
-            opacity: stage.eyebrow ? 1 : 0,
-            transform: stage.eyebrow ? 'translateY(0)' : 'translateY(10px)',
-            transition: 'opacity 0.8s ease, transform 0.8s ease',
-          }}
-        >
-          {stage.eyebrow}
-        </p>
-
-        {/* Headline */}
-        <h1
-          className="font-serif italic font-light leading-none mb-6 md:mb-8"
-          style={{
-            fontSize: 'clamp(60px, 10vw, 140px)',
-            color: '#ffffff',
-            textShadow: '0 2px 30px rgba(0,0,0,0.4)',
-            opacity: stage.headline ? 1 : 0,
-            transform: stage.headline ? 'translateY(0) skewY(0deg)' : 'translateY(40px) skewY(1.5deg)',
-            transition: 'opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1)',
-          }}
-        >
-          {stage.headline || '\u00A0'}
-        </h1>
-
-        {/* Subtitle */}
-        <p
-          className="font-sans text-base md:text-lg leading-relaxed max-w-lg mb-10 md:mb-12"
-          style={{
-            color: 'rgba(255,255,255,0.78)',
-            opacity: stage.sub ? 1 : 0,
-            transform: stage.sub ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.8s 0.15s ease, transform 0.8s 0.15s ease',
-          }}
-        >
-          {stage.sub || '\u00A0'}
-        </p>
-
-        {/* CTAs */}
+        {/* Phase A — Centered poetic tagline */}
         <div
-          className="flex flex-col sm:flex-row gap-4"
-          style={{
-            opacity: stage.cta ? 1 : 0,
-            transform: stage.cta ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.8s 0.3s ease, transform 0.8s 0.3s ease',
-          }}
+          className={`text-center transition-all duration-[1.4s] ease-in-out ${
+            introTextStage === 'center' ? 'opacity-100 translate-y-0 blur-none' : 'opacity-0 -translate-y-6 blur-[2px]'
+          }`}
         >
-          <Link
-            href="/experience"
-            className="inline-flex items-center justify-center border border-white/50 text-white backdrop-blur-sm px-8 md:px-10 py-3.5 md:py-4 font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-white hover:text-secondary transition-all duration-500 w-fit"
+          <p className="font-sans text-[9px] md:text-[10px] tracking-[0.55em] uppercase text-[#e8c8a0]/80 mb-6 font-medium">
+            A CHAI DAYS RITUAL
+          </p>
+          <h2
+            className="font-serif italic text-5xl md:text-[5.5rem] lg:text-[6.5rem] text-white leading-[1.05] tracking-tight"
+            style={{ textShadow: '0 8px 60px rgba(0,0,0,0.7)' }}
           >
-            The Experience
-          </Link>
-          <Link
-            href="/menu"
-            className="inline-flex items-center justify-center bg-[#8D4F00] text-white px-8 md:px-10 py-3.5 md:py-4 font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-[#6b3b00] hover:text-white transition-all duration-500 w-fit"
+            Crafted Slow.<br />Savoured Long.
+          </h2>
+          <div
+            className="mx-auto mt-8 bg-[#c9874a]/60"
+            style={{
+              height: '1px',
+              width: introTextStage === 'center' ? '60px' : '0px',
+              transition: 'width 1.2s ease 0.4s',
+            }}
+          />
+        </div>
+
+        {/* Phase B — Left-aligned brand reveal */}
+        <div
+          className={`absolute left-8 md:left-16 lg:left-24 bottom-[20%] pointer-events-auto transition-all duration-[1.4s] ease-in-out ${
+            introTextStage === 'left' ? 'opacity-100 translate-x-0 blur-none' : 'opacity-0 translate-x-10 blur-[2px]'
+          }`}
+        >
+          <p className="font-sans text-[9px] tracking-[0.55em] uppercase text-[#e8c8a0]/70 mb-5 font-medium">
+            SINCE 2020 · INDIA
+          </p>
+          <h1
+            className="font-serif italic text-[5rem] md:text-[7rem] lg:text-[9rem] text-white leading-[0.88] mb-10"
+            style={{ textShadow: '0 6px 50px rgba(0,0,0,0.5)' }}
           >
-            Explore Menu
-          </Link>
+            Chai<br />Days
+          </h1>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-3 bg-[#8D4F00] hover:bg-[#7a4300] text-white px-8 py-3.5 font-sans text-[10px] font-bold tracking-[0.25em] uppercase transition-all duration-500 shadow-2xl"
+            >
+              Explore Menu <span className="text-[#e8c8a0]">→</span>
+            </Link>
+            <Link
+              href="/experience"
+              className="font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white/60 hover:text-white border-b border-white/20 hover:border-white pb-0.5 transition-all duration-500"
+            >
+              Our Story
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* ── Progress bar ── */}
-      <VideoProgress videoRef={videoRef} />
-    </section>
-  );
-}
-
-function VideoProgress({ videoRef }: { videoRef: React.RefObject<HTMLVideoElement | null> }) {
-  const [progress, setProgress] = useState(0);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const update = () => {
-      if (video.duration) {
-        setProgress((video.currentTime / video.duration) * 100);
-        setVisible(true);
-      }
-    };
-    video.addEventListener('timeupdate', update);
-    return () => video.removeEventListener('timeupdate', update);
-  }, [videoRef]);
-
-  if (!visible) return null;
-
-  return (
-    <div className="absolute bottom-[72px] inset-x-0 z-30 px-8 md:px-16 lg:px-24 max-w-[1440px] mx-auto left-0 right-0 flex items-center gap-4">
-      <div className="flex-1 h-px bg-white/15 overflow-hidden">
+      {/* ── Scroll hint at bottom ── */}
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
+        style={{
+          opacity: introTextStage === 'left' ? 0.45 : 0,
+          transition: 'opacity 1s 0.5s ease',
+        }}
+      >
+        <span className="font-sans text-[8px] tracking-[0.4em] uppercase text-white/50">Scroll</span>
         <div
-          className="h-full bg-white/50"
-          style={{ width: `${progress}%`, transition: 'width 0.1s linear' }}
+          className="w-px h-8 bg-white/30"
+          style={{ animation: 'scrollPulse 2s ease-in-out infinite' }}
         />
       </div>
-      <span className="font-sans text-[9px] tracking-[0.2em] text-white/35 tabular-nums">
-        {String(Math.min(5, Math.ceil(progress / 20))).padStart(2, '0')} / 05
-      </span>
-    </div>
+
+      <style jsx>{`
+        @keyframes scrollPulse {
+          0%, 100% { opacity: 0.2; transform: scaleY(0.8); }
+          50%       { opacity: 0.7; transform: scaleY(1.2); }
+        }
+      `}</style>
+    </section>
   );
 }

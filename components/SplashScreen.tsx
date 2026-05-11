@@ -4,12 +4,21 @@ import Image from 'next/image';
 
 export default function SplashScreen() {
   const [phase, setPhase] = useState<'visible' | 'fading' | 'done'>('visible');
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const fadeTimer = setTimeout(() => setPhase('fading'), 2000);
-    const doneTimer  = setTimeout(() => setPhase('done'),   2800);
-    return () => { clearTimeout(fadeTimer); clearTimeout(doneTimer); };
+    // Fixed 2s splash — by this time the 13MB intro is buffering and playing
+    const timer = setTimeout(() => setIsReady(true), 2000);
+    return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (isReady) {
+      const fadeTimer = setTimeout(() => setPhase('fading'), 500);
+      const doneTimer = setTimeout(() => setPhase('done'), 1300);
+      return () => { clearTimeout(fadeTimer); clearTimeout(doneTimer); };
+    }
+  }, [isReady]);
 
   if (phase === 'done') return null;
 
@@ -42,7 +51,7 @@ export default function SplashScreen() {
         />
       </div>
 
-      {/* Thin amber progress bar at bottom */}
+      {/* Loading Bar */}
       <div
         style={{
           position: 'absolute',
@@ -50,8 +59,8 @@ export default function SplashScreen() {
           left: 0,
           height: '3px',
           background: 'linear-gradient(90deg, #8d4f00, #fda957)',
-          animation: 'splashProgress 2s ease-in-out forwards',
-          width: 0,
+          width: isReady ? '100%' : '60%',
+          transition: 'width 5s cubic-bezier(0.1, 0, 0, 1)',
           borderRadius: '0 2px 0 0',
         }}
       />
@@ -60,10 +69,6 @@ export default function SplashScreen() {
         @keyframes splashLogoIn {
           from { opacity: 0; transform: scale(0.78) translateY(20px); }
           to   { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        @keyframes splashProgress {
-          from { width: 0; }
-          to   { width: 100%; }
         }
       `}</style>
     </div>
