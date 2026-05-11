@@ -3,66 +3,97 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 
 export default function HeroVideo() {
-  const sectionRef   = useRef<HTMLElement>(null);
-  const videoRef     = useRef<HTMLVideoElement>(null);
-  const pausedAtEnd  = useRef(false);
+  const sectionRef  = useRef<HTMLElement>(null);
+  const videoRef    = useRef<HTMLVideoElement>(null);
+  const pausedAtEnd = useRef(false);
 
-  const [splashGone,     setSplashGone]     = useState(false);
-  const [isVisible,      setIsVisible]      = useState(false);
-  const [videoStarted,   setVideoStarted]   = useState(false);
   const [videoReady,     setVideoReady]     = useState(false);
+  const [videoStarted,   setVideoStarted]   = useState(false);
   const [introTextStage, setIntroTextStage] = useState<'center' | 'left'>('center');
+  const [videoSrc, setVideoSrc] = useState('/hero-v3-intro.mp4');
 
-  // Wait for splash screen to fully hide (2s + 0.8s fade + buffer)
+  // Pick the right video src based on screen size
   useEffect(() => {
-    const t = setTimeout(() => setSplashGone(true), 3000);
-    return () => clearTimeout(t);
+    const mql = window.matchMedia('(max-width: 767px)');
+    setVideoSrc(mql.matches ? '/hero-v3-intro-mobile.mp4' : '/hero-v3-intro.mp4');
+    const h = (e: MediaQueryListEvent) => setVideoSrc(e.matches ? '/hero-v3-intro-mobile.mp4' : '/hero-v3-intro.mp4');
+    mql.addEventListener('change', h);
+    return () => mql.removeEventListener('change', h);
   }, []);
 
-  // IntersectionObserver — only play when hero is in view
+  // ── Make video visible as soon as any data is available ───────
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.3 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  // Start video only when splash gone AND hero visible
-  useEffect(() => {
-    if (!splashGone || !isVisible || videoStarted) return;
     const video = videoRef.current;
     if (!video) return;
-    setVideoStarted(true);
-    video.playbackRate = 0.95;
-    video.play().catch(() => {});
-  }, [splashGone, isVisible, videoStarted]);
 
-  // Pause/resume on viewport leave/enter
+    const markReady = () => setVideoReady(true);
+
+    // If already loaded from preload cache, mark ready immediately
+    if (video.readyState >= 2) {
+      setVideoReady(true);
+    } else {
+      video.addEventListener('loadeddata', markReady, { once: true });
+    }
+
+    // Safety fallback: force visible after 1s regardless
+    const fallback = setTimeout(() => setVideoReady(true), 1000);
+
+    return () => {
+      video.removeEventListener('loadeddata', markReady);
+      clearTimeout(fallback);
+    };
+  }, []);
+
+  // ── IntersectionObserver: play only when hero is visible ──────
+  // (and after splash screen is gone — 3s)
   useEffect(() => {
-    if (!videoStarted) return;
-    if (isVisible) videoRef.current?.play().catch(() => {});
-    else videoRef.current?.pause();
-  }, [isVisible, videoStarted]);
+    const section = sectionRef.current;
+    if (!section) return;
 
-  // On timeupdate: text animation + end-frame freeze + auto-scroll
+    let splashTimer: ReturnType<typeof setTimeout>;
+
+    const tryPlay = () => {
+      if (videoStarted) return;
+      const video = videoRef.current;
+      if (!video) return;
+      setVideoStarted(true);
+      video.playbackRate = 0.95;
+      video.play().catch(() => {});
+    };
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Wait for splash to finish, then play
+          splashTimer = setTimeout(tryPlay, 3000);
+        } else {
+          clearTimeout(splashTimer);
+          videoRef.current?.pause();
+        }
+      },
+      { threshold: 0.1 } // lower threshold — easier to trigger
+    );
+
+    obs.observe(section);
+    return () => {
+      obs.disconnect();
+      clearTimeout(splashTimer);
+    };
+  }, [videoStarted]);
+
+  // ── Timeupdate: text stage + last-frame freeze + scroll ───────
   const handleTimeUpdate = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Intro text phase shift
-    if (video.currentTime > 1.2 && introTextStage === 'center') {
+    if (video.currentTime > 2.5 && introTextStage === 'center') {
       setIntroTextStage('left');
     }
 
-    // Freeze on last frame, wait 0.5s, then scroll to next section
-    if (video.duration && video.currentTime >= video.duration - 0.08 && !pausedAtEnd.current) {
+    // Freeze 0.15s before end, then scroll
+    if (video.duration && video.currentTime >= video.duration - 0.15 && !pausedAtEnd.current) {
       pausedAtEnd.current = true;
       video.pause();
-
       setTimeout(() => {
         window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
       }, 500);
@@ -72,8 +103,7 @@ export default function HeroVideo() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    const onLoaded = () => setVideoReady(true);
-    // Fallback: ended event
+
     const onEnded = () => {
       if (!pausedAtEnd.current) {
         pausedAtEnd.current = true;
@@ -82,13 +112,12 @@ export default function HeroVideo() {
         }, 500);
       }
     };
-    video.addEventListener('loadeddata',  onLoaded);
-    video.addEventListener('timeupdate',  handleTimeUpdate);
-    video.addEventListener('ended',       onEnded);
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended',      onEnded);
     return () => {
-      video.removeEventListener('loadeddata',  onLoaded);
-      video.removeEventListener('timeupdate',  handleTimeUpdate);
-      video.removeEventListener('ended',       onEnded);
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended',      onEnded);
     };
   }, [handleTimeUpdate]);
 
@@ -101,7 +130,7 @@ export default function HeroVideo() {
       {/* ── Video ── */}
       <video
         ref={videoRef}
-        src="/hero-v3-intro.mp4"
+        src={videoSrc}
         muted
         playsInline
         preload="auto"
@@ -109,18 +138,18 @@ export default function HeroVideo() {
         className="absolute inset-0 w-full h-full object-cover z-10"
         style={{
           opacity: videoReady ? 1 : 0,
-          transition: 'opacity 0.8s ease',
+          transition: 'opacity 1s ease',
         }}
       />
 
-      {/* Loading background */}
+      {/* Loading spinner — shown until first frame is decoded */}
       {!videoReady && (
         <div className="absolute inset-0 z-10 bg-[#0a0806] flex items-center justify-center">
           <div className="w-10 h-10 border border-white/10 border-t-white/50 rounded-full animate-spin" />
         </div>
       )}
 
-      {/* ── Gradient guards for text ── */}
+      {/* ── Gradient guards ── */}
       <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/65 via-black/5 to-black/35 pointer-events-none" />
       <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/55 via-transparent to-transparent pointer-events-none" />
 
@@ -130,7 +159,9 @@ export default function HeroVideo() {
         {/* Phase A — Centered poetic tagline */}
         <div
           className={`text-center transition-all duration-[1.4s] ease-in-out ${
-            introTextStage === 'center' ? 'opacity-100 translate-y-0 blur-none' : 'opacity-0 -translate-y-6 blur-[2px]'
+            introTextStage === 'center'
+              ? 'opacity-100 translate-y-0 blur-none'
+              : 'opacity-0 -translate-y-6 blur-[2px]'
           }`}
         >
           <p className="font-sans text-[9px] md:text-[10px] tracking-[0.55em] uppercase text-[#e8c8a0]/80 mb-6 font-medium">
@@ -155,7 +186,9 @@ export default function HeroVideo() {
         {/* Phase B — Left-aligned brand reveal */}
         <div
           className={`absolute left-8 md:left-16 lg:left-24 bottom-[20%] pointer-events-auto transition-all duration-[1.4s] ease-in-out ${
-            introTextStage === 'left' ? 'opacity-100 translate-x-0 blur-none' : 'opacity-0 translate-x-10 blur-[2px]'
+            introTextStage === 'left'
+              ? 'opacity-100 translate-x-0 blur-none'
+              : 'opacity-0 translate-x-10 blur-[2px]'
           }`}
         >
           <p className="font-sans text-[9px] tracking-[0.55em] uppercase text-[#e8c8a0]/70 mb-5 font-medium">
@@ -184,7 +217,7 @@ export default function HeroVideo() {
         </div>
       </div>
 
-      {/* ── Scroll hint at bottom ── */}
+      {/* ── Scroll hint ── */}
       <div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
         style={{
@@ -199,12 +232,6 @@ export default function HeroVideo() {
         />
       </div>
 
-      <style jsx>{`
-        @keyframes scrollPulse {
-          0%, 100% { opacity: 0.2; transform: scaleY(0.8); }
-          50%       { opacity: 0.7; transform: scaleY(1.2); }
-        }
-      `}</style>
     </section>
   );
 }
