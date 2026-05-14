@@ -163,7 +163,7 @@ export default function HeroVideo() {
           Positioned at top of frame (over top-view of cup)
       ───────────────────────────────────────────────────────── */}
       <div
-        className="absolute top-[12%] inset-x-0 z-30 flex flex-col items-center text-center px-8 pointer-events-none"
+        className="absolute top-[20%] md:top-[38%] inset-x-0 z-30 flex flex-col items-center text-center px-8 pointer-events-none"
         style={{
           opacity: introTextStage === 'top' ? 1 : 0,
           transform: introTextStage === 'top' ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.97)',
@@ -195,7 +195,7 @@ export default function HeroVideo() {
           Positioned at bottom — cup stays visible above
       ───────────────────────────────────────────────────────── */}
       <div
-        className="absolute bottom-[3%] md:bottom-[8%] left-6 md:left-16 lg:left-24 z-30 pointer-events-auto"
+        className="absolute bottom-[12%] md:bottom-auto md:top-[38%] left-6 md:left-16 lg:left-24 z-30 pointer-events-auto"
         style={{
           opacity: introTextStage === 'brand' ? 1 : 0,
           transform: introTextStage === 'brand' ? 'translateX(0)' : 'translateX(30px)',
