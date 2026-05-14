@@ -51,7 +51,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload chai intro video for faster first paint */}
-        <link rel="preload" as="video" href="/hero-v3-intro.mp4" type="video/mp4" />
+        <link rel="preload" as="video" href="/hero-final-web.mp4" type="video/mp4" media="(min-width: 768px)" />
+        <link rel="preload" as="video" href="/hero-final-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
         {/* Preload logo for splash screen */}
         <link rel="preload" as="image" href="/chaidays-logo-splash.png" />
         {/* Critical fonts inline so no render blocking */}
