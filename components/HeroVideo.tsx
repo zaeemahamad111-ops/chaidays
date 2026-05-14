@@ -142,7 +142,12 @@ export default function HeroVideo() {
         preload="auto"
         disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover z-10"
-        style={{ opacity: videoReady ? 1 : 0, transition: 'opacity 0.8s ease' }}
+        style={{ 
+          opacity: videoReady ? 1 : 0, 
+          transition: 'opacity 0.8s ease',
+          transform: 'scale(1.1)', // Scales up slightly to crop the watermark
+          transformOrigin: 'center'
+        }}
       />
 
       {/* Loading spinner */}
@@ -152,9 +157,6 @@ export default function HeroVideo() {
         </div>
       )}
 
-      {/* Gradients for text legibility */}
-      <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/50 via-transparent to-black/70 pointer-events-none" />
-      <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
 
       {/* ─────────────────────────────────────────────────────────
           PHASE: TOP — "Crafted Slow. Savoured Long."
