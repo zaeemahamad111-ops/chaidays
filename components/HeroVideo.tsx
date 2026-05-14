@@ -136,16 +136,14 @@ export default function HeroVideo() {
       {/* ── Video — NO autoPlay, controlled purely by IntersectionObserver ── */}
       <video
         ref={videoRef}
+        src={isMobile ? '/hero-final-mobile.mp4' : '/hero-final-web.mp4'}
         muted
         playsInline
         preload="auto"
         disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover z-10"
         style={{ opacity: videoReady ? 1 : 0, transition: 'opacity 0.8s ease' }}
-      >
-        {/* Source set without re-mounting the element */}
-        <source src={isMobile ? '/hero-final-mobile.mp4' : '/hero-final-web.mp4'} type="video/mp4" />
-      </video>
+      />
 
       {/* Loading spinner */}
       {!videoReady && (
