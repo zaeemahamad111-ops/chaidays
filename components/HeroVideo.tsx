@@ -52,6 +52,9 @@ export default function HeroVideo() {
         const v = videoRef.current;
         if (!v) return;
         if (entry.isIntersecting && canPlayRef.current) {
+          v.currentTime = 0;
+          setIntroTextStage('top');
+          pausedAtEnd.current = false;
           v.playbackRate = 0.95;
           v.play().catch(() => {});
         } else if (!entry.isIntersecting) {
@@ -90,8 +93,8 @@ export default function HeroVideo() {
     const video = videoRef.current;
     if (!video || !video.duration) return;
 
-    // Both videos are ~8s long. We shift text at ~3.2s (40% through).
-    const shiftAt = 3.2;
+    // Web video angle changes slightly earlier than mobile.
+    const shiftAt = isMobile ? 3.2 : 2.4;
     if (video.currentTime >= shiftAt && introTextStage === 'top') {
       setIntroTextStage('brand');
     }
