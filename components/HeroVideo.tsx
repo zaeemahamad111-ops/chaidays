@@ -94,7 +94,7 @@ export default function HeroVideo() {
     if (!video || !video.duration) return;
 
     // The camera angle changes rapidly in the new video.
-    const shiftAt = 1.8;
+    const shiftAt = 1.2;
     if (video.currentTime >= shiftAt && introTextStage === 'top') {
       setIntroTextStage('brand');
     }
