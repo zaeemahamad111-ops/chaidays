@@ -13,11 +13,15 @@ export default function HeroVideo() {
   const [isMobile,       setIsMobile]       = useState(false);
   const [introTextStage, setIntroTextStage] = useState<'top' | 'brand'>('top');
 
-  // ── 1. Detect mobile ─────────────────────────────────────────
+  // ── 1. Detect mobile and set initial text stage ──────────────
   useEffect(() => {
     const mql = window.matchMedia('(max-width: 767px)');
-    setIsMobile(mql.matches);
-    const h = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    const update = (matches: boolean) => {
+      setIsMobile(matches);
+      setIntroTextStage(matches ? 'brand' : 'top');
+    };
+    update(mql.matches);
+    const h = (e: MediaQueryListEvent) => update(e.matches);
     mql.addEventListener('change', h);
     return () => mql.removeEventListener('change', h);
   }, []);
@@ -88,8 +92,14 @@ export default function HeroVideo() {
 
     // Both videos are ~8s long. We shift text at ~3.2s (40% through).
     const shiftAt = 3.2;
-    if (video.currentTime >= shiftAt && introTextStage === 'top') {
-      setIntroTextStage('brand');
+    if (isMobile) {
+      if (video.currentTime >= shiftAt && introTextStage === 'brand') {
+        setIntroTextStage('top');
+      }
+    } else {
+      if (video.currentTime >= shiftAt && introTextStage === 'top') {
+        setIntroTextStage('brand');
+      }
     }
 
     // Freeze last frame for 0.5s then scroll
