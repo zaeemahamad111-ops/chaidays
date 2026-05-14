@@ -93,8 +93,8 @@ export default function HeroVideo() {
     const video = videoRef.current;
     if (!video || !video.duration) return;
 
-    // Both videos are 8s long, angle changes around 3.2s.
-    const shiftAt = 3.2;
+    // The camera angle changes rapidly in the new video.
+    const shiftAt = 1.8;
     if (video.currentTime >= shiftAt && introTextStage === 'top') {
       setIntroTextStage('brand');
     }
