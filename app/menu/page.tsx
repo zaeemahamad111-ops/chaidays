@@ -158,6 +158,35 @@ export default function MenuPage() {
             </div>
           </ScrollReveal>
         </div>
+
+        {/* New Pastries Grid */}
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {[
+            { name: 'Almond Croissant', desc: 'A classic buttery croissant filled with rich almond frangipane and topped with toasted almonds.', img: '/images/menu/almond-croissant.webp' },
+            { name: 'Banana Frangipane Tart', desc: 'A delicate shortcrust tart filled with almond cream and caramelized bananas, baked to golden perfection.', img: '/images/menu/banana-tart.webp' },
+            { name: 'Berliner Doughnut', desc: 'Traditional German-style doughnut, dusted with fine sugar and filled with a burst of seasonal fruit jam.', img: '/images/menu/berliner-doughnut.webp' },
+            { name: 'Butter Palmier', desc: 'Crisp, flaky, and golden-brown puff pastry hearts baked with caramelized sugar.', img: '/images/menu/butter-palmier.webp' },
+            { name: 'KitKat Doughnut', desc: 'A decadent, soft doughnut glazed with rich chocolate and topped with crushed KitKat pieces.', img: '/images/menu/kitkat-donut.webp' },
+          ].map((item, i) => (
+            <ScrollReveal key={item.name} delay={i * 100}>
+              <div className="group cursor-default h-full flex flex-col">
+                <div className="aspect-[4/3] overflow-hidden rounded-xl mb-6 bg-surface-container-low">
+                  <Image 
+                    src={item.img} 
+                    alt={item.name} 
+                    width={500} 
+                    height={375} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <h4 className="font-serif text-2xl text-primary mb-2">{item.name}</h4>
+                <p className="font-sans text-sm text-on-surface-variant leading-relaxed flex-grow">{item.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </section>
 
       {/* ── Light Bites ── */}
@@ -168,7 +197,39 @@ export default function MenuPage() {
             <div className="hidden md:block h-px flex-grow mx-8 bg-outline-variant/30" />
             <ScrollReveal delay={100}><span className="font-sans text-[11px] tracking-[0.15em] uppercase text-on-surface-variant">Served All Day</span></ScrollReveal>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+          
+          {/* Featured Visual Bites */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            {[
+              { name: 'Chai Days Special Buns', tag: 'SIGNATURE', desc: 'Our signature soft buns, freshly baked and lightly glazed. Perfect for tearing and dipping into hot chai.', img: '/images/menu/special-buns.webp' },
+              { name: 'Chicken Fatayer', tag: 'SAVORY', desc: 'Middle-Eastern inspired savory pastries stuffed with beautifully spiced minced chicken.', img: '/images/menu/chicken-fatayer.webp' },
+              { name: 'Paneer Pocket', tag: 'VEGETARIAN', desc: 'A flaky, golden crust filled with spiced, crumbled paneer and fresh herbs.', img: '/images/menu/paneer-pocket.webp' },
+              { name: 'Classic Puff Pastry', tag: 'SAVORY', desc: 'Flaky, buttery layers baked until golden and crisp, offering a delightful savory crunch.', img: '/images/menu/puff-pastry.webp' },
+            ].map((item, i) => (
+              <ScrollReveal key={item.name} delay={i * 150}>
+                <div className="group cursor-default">
+                  <div className="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-surface-container-low">
+                    <Image 
+                      src={item.img} 
+                      alt={item.name} 
+                      width={600} 
+                      height={375} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="flex justify-between items-baseline mb-2">
+                    <h4 className="font-serif text-2xl text-primary group-hover:text-secondary transition-colors">{item.name}</h4>
+                    <span className="font-sans text-[10px] text-secondary tracking-widest px-3 py-1 border border-secondary rounded-full ml-4 flex-shrink-0">{item.tag}</span>
+                  </div>
+                  <p className="font-sans text-sm text-on-surface-variant leading-relaxed">{item.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12 pt-16 border-t border-outline-variant/20">
             {[
               { name: 'Truffle Samosa Pav', tag: 'SAVORY', desc: 'Mini spiced potato fritters infused with white truffle oil in a buttery toasted brioche bun.' },
               { name: 'Avocado & Chili Crunch', tag: 'VEGAN', desc: 'Hand-stretched sourdough topped with smashed organic avocado, house-made chili oil, and toasted pepitas.' },
