@@ -93,8 +93,8 @@ export default function HeroVideo() {
     const video = videoRef.current;
     if (!video || !video.duration) return;
 
-    // Web video angle changes slightly earlier than mobile.
-    const shiftAt = isMobile ? 3.2 : 2.4;
+    // Both videos are 8s long, angle changes around 3.2s.
+    const shiftAt = 3.2;
     if (video.currentTime >= shiftAt && introTextStage === 'top') {
       setIntroTextStage('brand');
     }
@@ -192,7 +192,7 @@ export default function HeroVideo() {
           Positioned at bottom — cup stays visible above
       ───────────────────────────────────────────────────────── */}
       <div
-        className="absolute top-[38%] md:top-[42%] left-6 md:left-16 lg:left-24 z-30 pointer-events-auto"
+        className="absolute top-[55%] md:top-[42%] left-6 md:left-16 lg:left-24 z-30 pointer-events-auto"
         style={{
           opacity: introTextStage === 'brand' ? 1 : 0,
           transform: introTextStage === 'brand' ? 'translateX(0)' : 'translateX(30px)',
