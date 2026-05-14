@@ -18,7 +18,7 @@ export default function HeroVideo() {
     const mql = window.matchMedia('(max-width: 767px)');
     const update = (matches: boolean) => {
       setIsMobile(matches);
-      setIntroTextStage(matches ? 'brand' : 'top');
+      setIntroTextStage('top'); // Both mobile and desktop now start with 'top'
     };
     update(mql.matches);
     const h = (e: MediaQueryListEvent) => update(e.matches);
@@ -92,14 +92,8 @@ export default function HeroVideo() {
 
     // Both videos are ~8s long. We shift text at ~3.2s (40% through).
     const shiftAt = 3.2;
-    if (isMobile) {
-      if (video.currentTime >= shiftAt && introTextStage === 'brand') {
-        setIntroTextStage('top');
-      }
-    } else {
-      if (video.currentTime >= shiftAt && introTextStage === 'top') {
-        setIntroTextStage('brand');
-      }
+    if (video.currentTime >= shiftAt && introTextStage === 'top') {
+      setIntroTextStage('brand');
     }
 
     // Freeze last frame for 0.5s then scroll
@@ -160,10 +154,10 @@ export default function HeroVideo() {
 
       {/* ─────────────────────────────────────────────────────────
           PHASE: TOP — "Crafted Slow. Savoured Long."
-          Positioned at top of frame (over top-view of cup)
+          Positioned in the center of the frame (inside the top-view cup)
       ───────────────────────────────────────────────────────── */}
       <div
-        className="absolute top-[20%] md:top-[38%] inset-x-0 z-30 flex flex-col items-center text-center px-8 pointer-events-none"
+        className="absolute top-[38%] md:top-[42%] inset-x-0 z-30 flex flex-col items-center text-center px-8 pointer-events-none"
         style={{
           opacity: introTextStage === 'top' ? 1 : 0,
           transform: introTextStage === 'top' ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.97)',
@@ -195,7 +189,7 @@ export default function HeroVideo() {
           Positioned at bottom — cup stays visible above
       ───────────────────────────────────────────────────────── */}
       <div
-        className="absolute bottom-[12%] md:bottom-auto md:top-[38%] left-6 md:left-16 lg:left-24 z-30 pointer-events-auto"
+        className="absolute top-[38%] md:top-[42%] left-6 md:left-16 lg:left-24 z-30 pointer-events-auto"
         style={{
           opacity: introTextStage === 'brand' ? 1 : 0,
           transform: introTextStage === 'brand' ? 'translateX(0)' : 'translateX(30px)',
