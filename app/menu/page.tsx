@@ -203,7 +203,7 @@ export default function MenuPage() {
             {[
               { name: 'Chai Days Special Buns', tag: 'SIGNATURE', desc: 'Our signature soft buns, freshly baked and lightly glazed. Perfect for tearing and dipping into hot chai.', img: '/images/menu/special-buns.webp' },
               { name: 'Chicken Fatayer', tag: 'SAVORY', desc: 'Middle-Eastern inspired savory pastries stuffed with beautifully spiced minced chicken.', img: '/images/menu/chicken-fatayer.webp' },
-              { name: 'Paneer Pocket', tag: 'VEGETARIAN', desc: 'A flaky, golden crust filled with spiced, crumbled paneer and fresh herbs.', img: '/images/menu/paneer-pocket.webp' },
+              { name: 'Paneer Roll', tag: 'VEGETARIAN', desc: 'A flaky, golden crust filled with spiced, crumbled paneer and fresh herbs.', img: '/images/menu/paneer-roll.webp' },
               { name: 'Classic Puff Pastry', tag: 'SAVORY', desc: 'Flaky, buttery layers baked until golden and crisp, offering a delightful savory crunch.', img: '/images/menu/puff-pastry.webp' },
             ].map((item, i) => (
               <ScrollReveal key={item.name} delay={i * 150}>
