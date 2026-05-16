@@ -11,13 +11,43 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <>
-      {/* Header */}
-      <section className="pt-[140px] pb-16 text-center px-6 md:px-16 max-w-[1440px] mx-auto">
-        <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-4">Curated Collections</p>
-        <h1 className="hero-text-2 font-serif text-[64px] md:text-[80px] text-primary italic mb-6">The Modern Ritual</h1>
-        <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-          A thoughtfully assembled selection of artisanal brews and hand-crafted bites, designed for slow living and intentional moments of pause.
-        </p>
+      {/* Cinematic Video Header */}
+      <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden bg-[#0a0806] flex items-center justify-center">
+        <video
+          src="/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        />
+        {/* Gradients to fade smoothly into the rest of the page */}
+        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        
+        <div className="relative z-10 text-center px-6 mt-16 max-w-[1440px] mx-auto">
+          <ScrollReveal>
+            <p className="font-sans text-[11px] tracking-[0.4em] uppercase text-[#e8c8a0] mb-4">
+              Curated Collections
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <h1 
+              className="font-serif text-[64px] md:text-[90px] text-white italic mb-6 leading-[1.1]" 
+              style={{ textShadow: '0 4px 40px rgba(0,0,0,0.6)' }}
+            >
+              The Modern Ritual
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={300}>
+            <p 
+              className="font-sans text-lg text-white/90 max-w-2xl mx-auto leading-relaxed"
+              style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
+            >
+              A thoughtfully assembled selection of artisanal brews and hand-crafted bites, designed for slow living and intentional moments of pause.
+            </p>
+          </ScrollReveal>
+        </div>
       </section>
 
       {/* Sticky category nav */}
