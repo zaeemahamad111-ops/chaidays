@@ -34,10 +34,16 @@ export default function HeroVideo() {
       canPlayRef.current = true;
       // If section was already visible, start now
       if (visibleRef.current) {
-        const v = videoRef.current;
-        if (v) {
-          v.playbackRate = 0.95;
-          v.play().catch(() => {});
+        const vChai = chaiVideoRef.current;
+        const vPink = pinkVideoRef.current;
+        
+        // Since we start with 'chai', we play the chai video
+        if (vChai && currentVideo === 'chai') {
+          vChai.playbackRate = 0.95;
+          vChai.play().catch(() => {});
+        } else if (vPink && currentVideo === 'pink') {
+          vPink.playbackRate = 0.95;
+          vPink.play().catch(() => {});
         }
       }
     }, 3000);
@@ -270,6 +276,50 @@ export default function HeroVideo() {
       >
         <div className="w-px h-7 bg-white/40" />
         <span className="font-sans text-[7px] tracking-[0.4em] uppercase text-white/40">scroll</span>
+      </div>
+      {/* ── Manual Video Controls ── */}
+      <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-4">
+        {currentVideo === 'chai' && (
+          <button 
+            onClick={() => {
+              const vChai = chaiVideoRef.current;
+              const vPink = pinkVideoRef.current;
+              if (vChai) vChai.pause();
+              setCurrentVideo('pink');
+              if (vPink) {
+                vPink.currentTime = 0;
+                vPink.play().catch(()=>{});
+              }
+            }}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 transition-all cursor-pointer group"
+            aria-label="Skip to Pink Drink Video"
+          >
+            <svg className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
+        {currentVideo === 'pink' && (
+          <button 
+            onClick={() => {
+              const vChai = chaiVideoRef.current;
+              const vPink = pinkVideoRef.current;
+              if (vPink) vPink.pause();
+              setCurrentVideo('chai');
+              setIntroTextStage('brand'); // Keep brand text visible
+              if (vChai) {
+                vChai.currentTime = 0;
+                vChai.play().catch(()=>{});
+              }
+            }}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 transition-all cursor-pointer group"
+            aria-label="Previous Video"
+          >
+            <svg className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
       </div>
     </section>
   );
