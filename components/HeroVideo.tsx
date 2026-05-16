@@ -4,7 +4,8 @@ import Link from 'next/link';
 
 export default function HeroVideo() {
   const sectionRef  = useRef<HTMLElement>(null);
-  const videoRef    = useRef<HTMLVideoElement>(null);
+  const chaiVideoRef = useRef<HTMLVideoElement>(null);
+  const pinkVideoRef = useRef<HTMLVideoElement>(null);
   const pausedAtEnd = useRef(false);
   const canPlayRef  = useRef(false);    // true after splash clears
   const visibleRef  = useRef(false);    // true when section in viewport
@@ -12,6 +13,7 @@ export default function HeroVideo() {
   const [videoReady,     setVideoReady]     = useState(false);
   const [isMobile,       setIsMobile]       = useState(false);
   const [introTextStage, setIntroTextStage] = useState<'top' | 'brand'>('top');
+  const [currentVideo,   setCurrentVideo]   = useState<'chai' | 'pink'>('chai');
 
   // ── 1. Detect mobile and set initial text stage ──────────────
   useEffect(() => {
@@ -49,16 +51,22 @@ export default function HeroVideo() {
     const obs = new IntersectionObserver(
       ([entry]) => {
         visibleRef.current = entry.isIntersecting;
-        const v = videoRef.current;
-        if (!v) return;
+        const vChai = chaiVideoRef.current;
+        const vPink = pinkVideoRef.current;
+        if (!vChai || !vPink) return;
+        
         if (entry.isIntersecting && canPlayRef.current) {
-          v.currentTime = 0;
-          setIntroTextStage('top');
-          pausedAtEnd.current = false;
-          v.playbackRate = 0.95;
-          v.play().catch(() => {});
+          // Play the currently active video
+          if (currentVideo === 'chai') {
+            vChai.playbackRate = 0.95;
+            vChai.play().catch(() => {});
+          } else {
+            vPink.playbackRate = 0.95;
+            vPink.play().catch(() => {});
+          }
         } else if (!entry.isIntersecting) {
-          v.pause();
+          vChai.pause();
+          vPink.pause();
         }
       },
       { threshold: 0.5 }
@@ -67,9 +75,9 @@ export default function HeroVideo() {
     return () => obs.disconnect();
   }, []);
 
-  // ── 4. Video ready detection ──────────────────────────────────
+  // ── 4. Video ready detection (only care about first video) ───
   useEffect(() => {
-    const video = videoRef.current;
+    const video = chaiVideoRef.current;
     if (!video) return;
     setVideoReady(false); // reset on re-render
     pausedAtEnd.current = false;
@@ -89,9 +97,10 @@ export default function HeroVideo() {
   }, []);
 
   // ── 5. Time-based text transitions + end-freeze + scroll ─────
-  const handleTimeUpdate = useCallback(() => {
-    const video = videoRef.current;
-    if (!video || !video.duration) return;
+  const handleTimeUpdateChai = useCallback(() => {
+    const video = chaiVideoRef.current;
+    const vPink = pinkVideoRef.current;
+    if (!video || !video.duration || !vPink) return;
 
     // The camera angle changes rapidly in the new video.
     const shiftAt = 1.2;
@@ -99,30 +108,40 @@ export default function HeroVideo() {
       setIntroTextStage('brand');
     }
 
+    // Switch to pink video at the end of chai video
+    if (video.currentTime >= video.duration - 0.15 && currentVideo === 'chai') {
+      video.pause();
+      setCurrentVideo('pink');
+      vPink.currentTime = 0;
+      vPink.play().catch(() => {});
+    }
+  }, [introTextStage, currentVideo]);
+
+  const handleTimeUpdatePink = useCallback(() => {
+    const video = pinkVideoRef.current;
+    if (!video || !video.duration) return;
+
     // Freeze last frame for 0.5s then scroll
     if (video.currentTime >= video.duration - 0.15 && !pausedAtEnd.current) {
       pausedAtEnd.current = true;
       video.pause();
       setTimeout(() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' }), 500);
     }
-  }, [introTextStage]);
+  }, []);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const onEnded = () => {
-      if (!pausedAtEnd.current) {
-        pausedAtEnd.current = true;
-        setTimeout(() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' }), 500);
-      }
-    };
-    video.addEventListener('timeupdate', handleTimeUpdate);
-    video.addEventListener('ended',      onEnded);
+    const vChai = chaiVideoRef.current;
+    const vPink = pinkVideoRef.current;
+    if (!vChai || !vPink) return;
+
+    vChai.addEventListener('timeupdate', handleTimeUpdateChai);
+    vPink.addEventListener('timeupdate', handleTimeUpdatePink);
+    
     return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate);
-      video.removeEventListener('ended',      onEnded);
+      vChai.removeEventListener('timeupdate', handleTimeUpdateChai);
+      vPink.removeEventListener('timeupdate', handleTimeUpdatePink);
     };
-  }, [handleTimeUpdate]);
+  }, [handleTimeUpdateChai, handleTimeUpdatePink]);
 
   return (
     <section
@@ -130,9 +149,9 @@ export default function HeroVideo() {
       className="relative w-full overflow-hidden bg-[#0a0806]"
       style={{ height: '100dvh', minHeight: '600px' }}
     >
-      {/* ── Video — NO autoPlay, controlled purely by IntersectionObserver ── */}
+      {/* ── Video 1 (Chai) ── */}
       <video
-        ref={videoRef}
+        ref={chaiVideoRef}
         src={isMobile ? '/hero-final-mobile.mp4' : '/hero-final-web.mp4'}
         muted
         playsInline
@@ -140,10 +159,25 @@ export default function HeroVideo() {
         disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover z-10"
         style={{ 
-          opacity: videoReady ? 1 : 0, 
+          opacity: (videoReady && currentVideo === 'chai') ? 1 : 0, 
           transition: 'opacity 0.8s ease',
           transform: 'scale(1.1)', // Scales up slightly to crop the watermark
           transformOrigin: 'center'
+        }}
+      />
+
+      {/* ── Video 2 (Pink Drink) ── */}
+      <video
+        ref={pinkVideoRef}
+        src="/hero.mp4"
+        muted
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        className="absolute inset-0 w-full h-full object-cover z-10"
+        style={{ 
+          opacity: currentVideo === 'pink' ? 1 : 0, 
+          transition: 'opacity 1.2s ease',
         }}
       />
 
