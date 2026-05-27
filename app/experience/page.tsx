@@ -3,21 +3,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 
-export const metadata: Metadata = {
-  title: 'The Experience',
-  description: 'Step into the Chai Days sensory experience — the scent of freshly ground spices, the texture of hand-thrown stoneware, and a curated atmosphere for slow living.',
-  openGraph: { title: 'The Experience | Chai Days', url: 'https://chaidays.com/experience' },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  let seo: any = {};
+  try {
+    const data = await getSiteData();
+    seo = data?.pages?.experience?.seo || {};
+  } catch (e) {}
 
-import fs from 'fs';
-import path from 'path';
+  return {
+    title: seo.title || 'The Experience',
+    description: seo.description || 'Step into the Chai Days sensory experience — the scent of freshly ground spices, the texture of hand-thrown stoneware, and a curated atmosphere for slow living.',
+    keywords: seo.keywords || [],
+    openGraph: { title: seo.title || 'The Experience | Chai Days', url: seo.canonical || 'https://chaidays.com/experience' },
+  };
+}
+
+import { getSiteData } from '@/lib/data';
 
 export default async function ExperiencePage() {
   let contentData: any = {};
   try {
-    const filePath = path.join(process.cwd(), 'data', 'content.json');
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    contentData = data.pages?.experience?.content || {};
+    const data = await getSiteData();
+    contentData = data?.pages?.experience?.content || {};
   } catch (e) {
     console.error(e);
   }

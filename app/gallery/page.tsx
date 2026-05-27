@@ -7,9 +7,8 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   let seo: any = {};
   try {
-    const filePath = path.join(process.cwd(), 'data', 'content.json');
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    seo = data.pages?.gallery?.seo || {};
+    const data = await getSiteData();
+      seo = data?.pages?.gallery?.seo || {};
   } catch (e) {}
 
   return {
@@ -23,9 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function GalleryPage() {
   let contentData: any = {};
   try {
-    const filePath = path.join(process.cwd(), 'data', 'content.json');
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    contentData = data.pages?.gallery?.content || {};
+    const data = await getSiteData();
+    contentData = data?.pages?.gallery?.content || {};
   } catch (e) {
     console.error(e);
   }

@@ -2,15 +2,13 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
 
-import fs from 'fs';
-import path from 'path';
+import { getSiteData } from '@/lib/data';
 
 export async function generateMetadata(): Promise<Metadata> {
   let seo: any = {};
   try {
-    const filePath = path.join(process.cwd(), 'data', 'content.json');
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    seo = data.pages?.about?.seo || {};
+    const data = await getSiteData();
+    seo = data?.pages?.about?.seo || {};
   } catch (e) {}
 
   return {
@@ -29,9 +27,8 @@ const pillars = [
 export default async function AboutPage() {
   let contentData: any = {};
   try {
-    const filePath = path.join(process.cwd(), 'data', 'content.json');
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    contentData = data.pages?.about?.content || {};
+    const data = await getSiteData();
+    contentData = data?.pages?.about?.content || {};
   } catch (e) {
     console.error(e);
   }
