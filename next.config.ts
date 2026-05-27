@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: 'lh3.googleusercontent.com',
         pathname: '/aida-public/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'pagitbjgyozdsurswbsj.supabase.co',
+        pathname: '/**',
+      },
     ],
   },
 };

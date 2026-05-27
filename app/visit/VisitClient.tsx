@@ -24,7 +24,7 @@ const jsonLd = {
   email: 'info@chaidays.in',
 };
 
-export default function VisitClient() {
+export default function VisitClient({ contentData = {} }: { contentData?: any }) {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -41,15 +41,15 @@ export default function VisitClient() {
       <section className="pt-[140px] pb-24 px-6 md:px-16 max-w-[1440px] mx-auto">
         <div className="flex flex-col lg:flex-row items-end gap-12 border-b border-outline-variant pb-24">
           <div className="lg:w-1/2 space-y-8">
-            <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary">Guest Experience</p>
-            <h1 className="hero-text-2 font-serif text-[64px] md:text-[80px] text-primary leading-none">An Invitation to Pause</h1>
+            <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary">{contentData.heroSubtitle || 'Guest Experience'}</p>
+            <h1 className="hero-text-2 font-serif text-[64px] md:text-[80px] text-primary leading-none">{contentData.heroTitle || 'An Invitation to Pause'}</h1>
             <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-xl leading-relaxed">
-              Step away from the noise and rediscover intentional presence in a sanctuary curated for the art of the moment.
+              {contentData.heroDesc || 'Step away from the noise and rediscover intentional presence in a sanctuary curated for the art of the moment.'}
             </p>
           </div>
           <ScrollReveal delay={150} className="lg:w-1/2 w-full h-[400px] md:h-[500px] overflow-hidden rounded-2xl shadow-xl relative">
             <Image
-              src="/images/gallery/space-1.jpg"
+              src={contentData.heroImg || "/images/gallery/space-1.jpg"}
               alt="Serene Chai Days tea house interior with warm light"
               fill
               className="object-cover"
@@ -67,7 +67,7 @@ export default function VisitClient() {
             <div className="group">
               <div className="mb-6 overflow-hidden rounded-xl border border-outline-variant h-48 relative">
                 <Image
-                  src="/images/gallery/space-4.jpg"
+                  src={contentData.locImg || "/images/gallery/space-4.jpg"}
                   alt="Stone Harbor district location map"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -75,11 +75,9 @@ export default function VisitClient() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
-              <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">Location</span>
-              <h3 className="font-serif text-2xl text-primary mb-4">Krishnappa Compound</h3>
-              <address className="font-sans text-sm text-on-surface-variant not-italic leading-relaxed mb-6">
-                NO.1 & 2, NO.26/10, 80 FT ROAD<br />Mangammana Palya Main Road<br />Bangalore, Karnataka 560068
-              </address>
+              <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.locTitle || 'Location'}</span>
+              <h3 className="font-serif text-2xl text-primary mb-4">{contentData.locName || 'Krishnappa Compound'}</h3>
+              <address className="font-sans text-sm text-on-surface-variant not-italic leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: contentData.locAddress || 'NO.1 & 2, NO.26/10, 80 FT ROAD<br />Mangammana Palya Main Road<br />Bangalore, Karnataka 560068' }} />
               <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-sans font-semibold text-sm hover:text-secondary transition-colors">
                 View Map <span className="material-symbols-outlined text-[18px]">arrow_outward</span>
               </a>
@@ -90,8 +88,8 @@ export default function VisitClient() {
             <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
               <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>pace</span>
             </div>
-            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">Service Hours</span>
-            <h3 className="font-serif text-2xl text-primary mb-6">Opening Hours</h3>
+            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.hoursTitle || 'Service Hours'}</span>
+            <h3 className="font-serif text-2xl text-primary mb-6">{contentData.hoursName || 'Opening Hours'}</h3>
             <div className="space-y-3 font-sans text-sm text-on-surface-variant">
               {[['Daily Service', '08:00 – 22:00']].map(([day, hours]) => (
                 <div key={day} className="flex justify-between border-b border-outline-variant pb-3">
@@ -107,11 +105,11 @@ export default function VisitClient() {
             <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
               <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>contact_mail</span>
             </div>
-            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">Get in Touch</span>
-            <h3 className="font-serif text-2xl text-primary mb-6">Contact</h3>
+            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.contactTitle || 'Get in Touch'}</span>
+            <h3 className="font-serif text-2xl text-primary mb-6">{contentData.contactName || 'Contact'}</h3>
             <div className="space-y-2 mb-8">
-              <p className="font-sans text-sm text-on-surface-variant">info@chaidays.in</p>
-              <p className="font-sans text-sm text-on-surface-variant">+91 99800 84666</p>
+              <p className="font-sans text-sm text-on-surface-variant">{contentData.contactEmail || 'info@chaidays.in'}</p>
+              <p className="font-sans text-sm text-on-surface-variant">{contentData.contactPhone || '+91 99800 84666'}</p>
             </div>
             <div className="flex gap-5">
               <a href="https://wa.me/919980084666" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
@@ -129,9 +127,9 @@ export default function VisitClient() {
       <section className="py-32 bg-surface-container-low">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <ScrollReveal className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6">Concierge Inquiry</h2>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6">{contentData.formTitle || 'Concierge Inquiry'}</h2>
             <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-              Planning a visit or have a special request? Our concierge team is here to assist with your journey.
+              {contentData.formDesc || 'Planning a visit or have a special request? Our concierge team is here to assist with your journey.'}
             </p>
           </ScrollReveal>
 
@@ -171,14 +169,14 @@ export default function VisitClient() {
       <section className="py-24 bg-surface-container-highest/20 border-t border-outline-variant/30">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 text-center">
           <ScrollReveal className="max-w-2xl mx-auto space-y-8">
-            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary">Career Opportunities</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-primary">We&apos;re Hiring!</h2>
+            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary">{contentData.hiringSubtitle || 'Career Opportunities'}</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary">{contentData.hiringTitle || 'We\'re Hiring!'}</h2>
             <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-              If helping people start their day off right makes your day, we&apos;re the team for you. Multiple positions available at our Bangalore locations.
+              {contentData.hiringDesc || 'If helping people start their day off right makes your day, we\'re the team for you. Multiple positions available at our Bangalore locations.'}
             </p>
             <div className="pt-4">
               <a href="mailto:info@chaidays.in" className="inline-block bg-primary text-white px-12 py-5 rounded-full font-sans text-[11px] tracking-widest uppercase hover:bg-secondary transition-all">
-                Join the Team
+                {contentData.hiringBtnText || 'Join the Team'}
               </a>
             </div>
           </ScrollReveal>
@@ -188,9 +186,7 @@ export default function VisitClient() {
       {/* ── Pull Quote ── */}
       <section className="py-32 text-center px-6">
         <ScrollReveal>
-          <blockquote className="font-serif text-2xl md:text-3xl text-primary-container max-w-2xl mx-auto italic leading-relaxed">
-            &ldquo;We believe every cup of chai is an invitation to slow down and connect with oneself and others.&rdquo;
-          </blockquote>
+          <blockquote className="font-serif text-2xl md:text-3xl text-primary-container max-w-2xl mx-auto italic leading-relaxed" dangerouslySetInnerHTML={{ __html: contentData.quoteText || '&ldquo;We believe every cup of chai is an invitation to slow down and connect with oneself and others.&rdquo;' }} />
         </ScrollReveal>
       </section>
     </>

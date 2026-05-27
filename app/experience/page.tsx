@@ -9,24 +9,34 @@ export const metadata: Metadata = {
   openGraph: { title: 'The Experience | Chai Days', url: 'https://chaidays.com/experience' },
 };
 
-export default function ExperiencePage() {
+import fs from 'fs';
+import path from 'path';
+
+export default async function ExperiencePage() {
+  let contentData: any = {};
+  try {
+    const filePath = path.join(process.cwd(), 'data', 'content.json');
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    contentData = data.pages?.experience?.content || {};
+  } catch (e) {
+    console.error(e);
+  }
+
   return (
     <>
       {/* ── Hero ── */}
       <section className="pt-[140px] pb-0 px-6 md:px-16 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
           <div className="space-y-8">
-            <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary">The Sensory Experience</p>
-            <h1 className="hero-text-2 font-serif text-[56px] md:text-[72px] text-primary-container leading-tight">
-              Elevating the everyday through intentional sips.
-            </h1>
+            <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary">{contentData.heroSubtitle || 'The Sensory Experience'}</p>
+            <h1 className="hero-text-2 font-serif text-[56px] md:text-[72px] text-primary-container leading-tight" dangerouslySetInnerHTML={{ __html: contentData.heroTitle || 'Elevating the everyday through intentional sips.' }} />
             <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-lg leading-relaxed">
-              Step into a space where time slows down. Chai Days is more than a café; it is a curated sensory journey designed for the modern connoisseur of slow living.
+              {contentData.heroDesc || 'Step into a space where time slows down. Chai Days is more than a café; it is a curated sensory journey designed for the modern connoisseur of slow living.'}
             </p>
           </div>
           <ScrollReveal delay={150} className="relative aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl group">
             <Image 
-              src="/images/gallery/space-3.jpg" 
+              src={contentData.heroImg || "/images/gallery/space-3.jpg"} 
               alt="Cinematic chai ritual — aromatic steam and warm tones" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-105" 
@@ -42,7 +52,7 @@ export default function ExperiencePage() {
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <ScrollReveal className="order-2 lg:order-1 rounded-2xl overflow-hidden h-[500px] relative">
             <Image 
-              src="/images/gallery/drink-10.jpg" 
+              src={contentData.pillar1Img || "/images/gallery/drink-10.jpg"} 
               alt="The fragrance of fresh chai spices" 
               fill 
               className="object-cover" 
@@ -51,11 +61,11 @@ export default function ExperiencePage() {
             />
           </ScrollReveal>
           <ScrollReveal delay={200} className="order-1 lg:order-2 space-y-8">
-            <span className="font-sans text-[11px] tracking-widest uppercase text-secondary-fixed">Sensory Pillar I</span>
-            <h2 className="font-serif text-5xl text-primary-fixed">The Scent</h2>
+            <span className="font-sans text-[11px] tracking-widest uppercase text-secondary-fixed">{contentData.pillar1Subtitle || 'Sensory Pillar I'}</span>
+            <h2 className="font-serif text-5xl text-primary-fixed">{contentData.pillar1Title || 'The Scent'}</h2>
             <div className="w-16 h-1 bg-secondary-fixed" />
             <p className="font-sans text-lg text-primary-fixed-dim leading-relaxed">
-              The intoxicating aroma of freshly ground cardamom, ginger, and cinnamon bark greeting you at the threshold. It is a warm, spice-laden embrace that instantly anchors you in the present moment.
+              {contentData.pillar1Desc || 'The intoxicating aroma of freshly ground cardamom, ginger, and cinnamon bark greeting you at the threshold. It is a warm, spice-laden embrace that instantly anchors you in the present moment.'}
             </p>
             <div className="space-y-5 pt-4">
               {[
@@ -77,11 +87,11 @@ export default function ExperiencePage() {
       <section className="py-32 bg-surface overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <ScrollReveal className="space-y-8">
-            <span className="font-sans text-[11px] tracking-widest uppercase text-secondary">Sensory Pillar II</span>
-            <h2 className="font-serif text-5xl text-primary-container">The Texture</h2>
+            <span className="font-sans text-[11px] tracking-widest uppercase text-secondary">{contentData.pillar2Subtitle || 'Sensory Pillar II'}</span>
+            <h2 className="font-serif text-5xl text-primary-container">{contentData.pillar2Title || 'The Texture'}</h2>
             <div className="w-16 h-1 bg-secondary" />
             <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-              The velvety micro-foam of steamed whole milk meeting the raw, gritty finish of our custom-thrown stoneware cups. We believe the vessel is as important as the brew, offering a tactile connection to the earth.
+              {contentData.pillar2Desc || 'The velvety micro-foam of steamed whole milk meeting the raw, gritty finish of our custom-thrown stoneware cups. We believe the vessel is as important as the brew, offering a tactile connection to the earth.'}
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
               {['Hand-Thrown Stoneware', 'Velvety Microfoam', 'Organic Textiles'].map((tag) => (
@@ -92,7 +102,7 @@ export default function ExperiencePage() {
           <ScrollReveal delay={200} className="relative flex justify-center">
             <div className="w-full max-w-sm aspect-square rounded-full overflow-hidden border-[16px] border-surface-container-high shadow-xl relative group">
               <Image 
-                src="/images/gallery/drink-1.jpg" 
+                src={contentData.pillar2Img || "/images/gallery/drink-1.jpg"} 
                 alt="Tactile stoneware cup texture" 
                 fill 
                 className="object-cover transition-transform duration-[2s] group-hover:scale-110" 
@@ -109,15 +119,15 @@ export default function ExperiencePage() {
       <section className="py-32 bg-surface-container-high">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
-            <span className="font-sans text-[11px] tracking-widest uppercase text-secondary block mb-4">Sensory Pillar III</span>
-            <h2 className="font-serif text-5xl text-primary-container mb-6">The Atmosphere</h2>
+            <span className="font-sans text-[11px] tracking-widest uppercase text-secondary block mb-4">{contentData.pillar3Subtitle || 'Sensory Pillar III'}</span>
+            <h2 className="font-serif text-5xl text-primary-container mb-6">{contentData.pillar3Title || 'The Atmosphere'}</h2>
             <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-              Inspired by the soft curves of ceramic art and the tonal warmth of earth, our flagship space features tactile linen, natural oak, and a quietude that filters out the noise of the city.
+              {contentData.pillar3Desc || 'Inspired by the soft curves of ceramic art and the tonal warmth of earth, our flagship space features tactile linen, natural oak, and a quietude that filters out the noise of the city.'}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={200} className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
             <Image 
-              src="/images/gallery/space-5.jpg" 
+              src={contentData.pillar3Img || "/images/gallery/space-5.jpg"} 
               alt="Minimalist tea house interior atmosphere" 
               fill 
               className="object-cover" 
@@ -144,16 +154,16 @@ export default function ExperiencePage() {
         <div className="max-w-[1200px] mx-auto bg-primary-container rounded-[2rem] p-16 flex flex-col items-center text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
           <ScrollReveal>
-            <h2 className="font-serif text-5xl md:text-6xl text-primary-fixed mb-8 relative z-10">Experience the Ritual.</h2>
+            <h2 className="font-serif text-5xl md:text-6xl text-primary-fixed mb-8 relative z-10">{contentData.ctaTitle || 'Experience the Ritual.'}</h2>
             <p className="font-sans text-lg text-primary-fixed-dim max-w-2xl mb-12 leading-relaxed relative z-10">
-              We invite you to join us for a seated experience. Reservations are encouraged to ensure the proper time is dedicated to your brew.
+              {contentData.ctaDesc || 'We invite you to join us for a seated experience. Reservations are encouraged to ensure the proper time is dedicated to your brew.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 relative z-10">
-              <Link href="/visit" className="bg-secondary text-white px-12 py-4 rounded-full font-sans text-[11px] tracking-[0.15em] uppercase hover:bg-on-secondary-fixed-variant transition-all hover:-translate-y-1 duration-300">
-                Book a Table
+              <Link href={contentData.ctaBtn1Link || "/visit"} className="bg-secondary text-white px-12 py-4 rounded-full font-sans text-[11px] tracking-[0.15em] uppercase hover:bg-on-secondary-fixed-variant transition-all hover:-translate-y-1 duration-300">
+                {contentData.ctaBtn1Text || 'Book a Table'}
               </Link>
-              <Link href="/menu" className="border border-primary-fixed text-primary-fixed px-12 py-4 rounded-full font-sans text-[11px] tracking-[0.15em] uppercase hover:bg-white/10 transition-all duration-300">
-                View the Menu
+              <Link href={contentData.ctaBtn2Link || "/menu"} className="border border-primary-fixed text-primary-fixed px-12 py-4 rounded-full font-sans text-[11px] tracking-[0.15em] uppercase hover:bg-white/10 transition-all duration-300">
+                {contentData.ctaBtn2Text || 'View the Menu'}
               </Link>
             </div>
           </ScrollReveal>

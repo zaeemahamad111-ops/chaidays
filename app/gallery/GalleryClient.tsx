@@ -243,17 +243,17 @@ const galleryItems = [
 
 const categories = ['all', 'drinks', 'space', 'desserts'];
 
-export default function GalleryClient() {
+export default function GalleryClient({ contentData = {} }: { contentData?: any }) {
   const [active, setActive] = useState('all');
   const filtered = active === 'all' ? galleryItems : galleryItems.filter((i) => i.category === active);
 
   return (
     <>
       <section className="pt-[140px] pb-16 text-center px-6 md:px-16 max-w-[1440px] mx-auto">
-        <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-4">Moments of Mindfulness</p>
-        <h1 className="hero-text-2 font-serif text-[56px] md:text-[72px] text-primary mb-6">Our Visual Journal</h1>
+        <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-4">{contentData.heroSubtitle || 'Moments of Mindfulness'}</p>
+        <h1 className="hero-text-2 font-serif text-[56px] md:text-[72px] text-primary mb-6">{contentData.heroTitle || 'Our Visual Journal'}</h1>
         <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-          An intimate collection of the rituals we cherish. From the delicate steam of a morning pour to the architectural silence of our space.
+          {contentData.heroDesc || 'An intimate collection of the rituals we cherish. From the delicate steam of a morning pour to the architectural silence of our space.'}
         </p>
       </section>
 
@@ -306,12 +306,12 @@ export default function GalleryClient() {
         </div>
 
         <ScrollReveal className="text-center border-t border-outline-variant pt-24 pb-32 max-w-3xl mx-auto">
-          <h2 className="font-serif text-4xl text-primary mb-6">Ready to experience the ritual?</h2>
+          <h2 className="font-serif text-4xl text-primary mb-6">{contentData.ctaTitle || 'Ready to experience the ritual?'}</h2>
           <p className="font-sans text-lg text-on-surface-variant mb-10 leading-relaxed">
-            We invite you to step into our world and witness these moments firsthand. Our doors are open for slow living and fine tea.
+            {contentData.ctaDesc || 'We invite you to step into our world and witness these moments firsthand. Our doors are open for slow living and fine tea.'}
           </p>
-          <Link href="/visit" className="inline-flex items-center bg-primary text-white px-12 py-4 rounded-full font-sans text-[11px] tracking-widest uppercase hover:bg-primary-container transition-colors duration-300 shadow-xl shadow-primary/20">
-            Plan Your Visit
+          <Link href={contentData.ctaBtnLink || "/visit"} className="inline-flex items-center bg-primary text-white px-12 py-4 rounded-full font-sans text-[11px] tracking-widest uppercase hover:bg-primary-container transition-colors duration-300 shadow-xl shadow-primary/20">
+            {contentData.ctaBtnText || 'Plan Your Visit'}
           </Link>
         </ScrollReveal>
       </div>

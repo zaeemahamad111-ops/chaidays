@@ -3,17 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 import HeroVideo from '@/components/HeroVideo';
+import { getSiteData } from "@/lib/data";
 
-export const metadata: Metadata = {
-  title: 'Chai Days | The Art of the Modern Ritual',
-  description:
-    'Step into Chai Days — a premium artisan chai café where every sip is a meditation. Discover our signature blends, curated atmosphere, and slow living philosophy.',
-  openGraph: {
-    title: 'Chai Days | The Art of the Modern Ritual',
-    description: 'A sanctuary of slow sips and intentional moments.',
-    url: 'https://chaidays.com',
-  },
-};
+export const revalidate = 0;
+
+// Inherits dynamic metadata from layout.tsx
 
 const signatureItems = [
   {
@@ -36,10 +30,22 @@ const signatureItems = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  let heroData = undefined;
+  let contentData: any = {};
+  try {
+    const data = await getSiteData();
+    if (data) {
+      if (data.hero) heroData = data.hero;
+      contentData = data.pages?.home?.content || {};
+    }
+  } catch (error) {
+    console.error("Error loading home data:", error);
+  }
+
   return (
     <>
-      <HeroVideo />
+      <HeroVideo heroData={heroData} />
 
       {/* ── Experience Section ── */}
       <section className="min-h-screen flex items-center py-32 md:py-48 bg-[#ebdcd0] relative overflow-hidden">
@@ -54,7 +60,7 @@ export default function HomePage() {
               {/* Main Image */}
               <div className="aspect-[4/5] overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/curated-main.jpg"
+                  src={contentData.expMainImg || "/images/curated-main.jpg"}
                   alt="Barista crafting artisan chai at Chai Days"
                   width={800}
                   height={1000}
@@ -67,7 +73,7 @@ export default function HomePage() {
               {/* Overlapping smaller accent image */}
               <div className="absolute -bottom-12 -right-6 md:-right-16 w-[55%] aspect-square overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[8px] border-[#ebdcd0] hidden sm:block">
                 <Image
-                  src="/images/curated-accent.jpg"
+                  src={contentData.expAccentImg || "/images/curated-accent.jpg"}
                   alt="Leather reading nook"
                   width={500}
                   height={500}
@@ -90,26 +96,24 @@ export default function HomePage() {
             <div className="flex items-center gap-4">
               <span className="w-12 h-[1px] bg-secondary" />
               <span className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-secondary">
-                Curated Atmosphere
+                {contentData.expSubtitle || 'Curated Atmosphere'}
               </span>
             </div>
             
-            <h2 className="font-serif text-5xl md:text-6xl text-primary leading-[1.1] tracking-tight">
-              A Space Designed for <span className="italic">Intentionality.</span>
-            </h2>
+            <h2 className="font-serif text-5xl md:text-6xl text-primary leading-[1.1] tracking-tight" dangerouslySetInnerHTML={{ __html: contentData.expTitle || 'A Space Designed for <span class="italic">Intentionality.</span>' }} />
             <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-lg leading-relaxed">
-              Every sip is a meditation. Our environments are sculpted to foster restored focus and organic community.
+              {contentData.expDesc || 'Every sip is a meditation. Our environments are sculpted to foster restored focus and organic community.'}
             </p>
             
             <div className="space-y-10 border-t border-outline-variant/40 pt-10">
               <div className="space-y-6">
-                <h2 className="font-serif text-4xl md:text-5xl text-primary leading-tight">Stay Awhile</h2>
+                <h2 className="font-serif text-4xl md:text-5xl text-primary leading-tight">{contentData.stayTitle || 'Stay Awhile'}</h2>
                 <div className="w-16 h-1 bg-secondary-container" />
                 <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-                  More than a café—a warm sanctuary to relax, unwind, and escape the daily bustle. Our cozy, vibrant spaces are designed to make you feel right at home.
+                  {contentData.stayDesc || 'More than a café—a warm sanctuary to relax, unwind, and escape the daily bustle. Our cozy, vibrant spaces are designed to make you feel right at home.'}
                 </p>
                 <div className="pt-2">
-                  <Link href="/visit" className="inline-block border-b border-primary pb-1 font-sans text-xs tracking-widest uppercase text-primary hover:text-secondary hover:border-secondary transition-all">Find Your Sanctuary</Link>
+                  <Link href={contentData.stayBtnLink || "/visit"} className="inline-block border-b border-primary pb-1 font-sans text-xs tracking-widest uppercase text-primary hover:text-secondary hover:border-secondary transition-all">{contentData.stayBtnText || 'Find Your Sanctuary'}</Link>
                 </div>
               </div>
             </div>
@@ -222,16 +226,16 @@ export default function HomePage() {
         <div className="w-full md:w-1/2 bg-primary flex items-center justify-center p-16">
           <ScrollReveal className="max-w-md">
             <span className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-primary-fixed-dim mb-6 block">
-              Our Philosophy
+              {contentData.philSubtitle || 'Our Philosophy'}
             </span>
             <h2 className="font-serif text-4xl md:text-5xl text-surface mb-8 leading-tight">
-              A Sanctuary to Feel Different
+              {contentData.philTitle || 'A Sanctuary to Feel Different'}
             </h2>
             <p className="font-sans text-lg text-primary-fixed mb-10 opacity-80 leading-relaxed">
-              From tactile ceramics to acoustic dampening, every square inch of Chai Days is engineered for calm. Leave the city&rsquo;s pulse at our threshold.
+              {contentData.philDesc || 'From tactile ceramics to acoustic dampening, every square inch of Chai Days is engineered for calm. Leave the city\'s pulse at our threshold.'}
             </p>
             <Link
-              href="/about"
+              href={contentData.philBtnLink || "/about"}
               className="inline-block text-surface-bright font-sans text-[11px] font-semibold tracking-widest border-b border-surface-bright pb-1 uppercase hover:text-secondary-fixed transition-colors animated-link"
             >
               The Design Story
@@ -240,7 +244,7 @@ export default function HomePage() {
         </div>
         <div className="w-full md:w-1/2 overflow-hidden min-h-[400px] md:min-h-0">
           <Image
-            src="/images/philosophy.jpg"
+            src={contentData.philImg || "/images/philosophy.jpg"}
             alt="Minimalist Chai Days interior ambience"
             width={900}
             height={900}

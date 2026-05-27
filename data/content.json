@@ -1,0 +1,488 @@
+{
+  "seo": {
+    "title": "Chai Days | The Art of the Modern Ritual",
+    "keywords": [
+      "chai",
+      "artisan tea",
+      "luxury café",
+      "slow living",
+      "masala chai",
+      "tea house"
+    ],
+    "description": "Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and intentional rituals in every cup."
+  },
+  "hero": {
+    "cta1Link": "/menu",
+    "cta1Text": "Explore Menu",
+    "cta2Link": "/experience",
+    "cta2Text": "Our Story",
+    "topTextLarge": "Crafted Slow.<br />Savoured Long.",
+    "topTextSmall": "A CHAI DAYS RITUAL",
+    "brandTextLarge": "Chai<br />Days",
+    "brandTextSmall": "SINCE 2020 · INDIA",
+    "mobileVideoUrl": "/hero-final-mobile.mp4",
+    "desktopVideoUrl": "/hero-final-web.mp4",
+    "secondaryVideoUrl": "/hero.mp4"
+  },
+  "menu": [
+    {
+      "items": [
+        {
+          "id": "item-1",
+          "img": "/images/gallery/drink-2.jpg",
+          "tag": "OUR SIGNATURE",
+          "desc": "Fresh watermelon blended into a chilled tropical cooler with icy citrus notes and a smooth refreshing finish. Light, vibrant, and perfect for cooling down on a warm day.",
+          "name": "Watermelon Ice Breaker"
+        },
+        {
+          "id": "item-4",
+          "img": "/images/gallery/drink-8.jpg",
+          "desc": "Ceremonial grade matcha whisked into a cold coconut milk foam.",
+          "name": "Cloud Matcha"
+        },
+        {
+          "id": "new-item-1779908713174",
+          "name": "Berry Cloud Latte",
+          "desc": "Creamy layered berry latte finished with biscuit crumble and fresh plum notes for a smooth dessert-style café experience.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908737713-vvx4dmrrv9j.jpeg"
+        },
+        {
+          "id": "new-item-1779908914548",
+          "name": "Crystal Bloom Refresher",
+          "desc": "Minimal sparkling botanical cooler finished with airy foam, edible flowers, and modern luxury café styling.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909009646-mk55rx6ntrc.jpeg"
+        },
+        {
+          "id": "new-item-1779908782701",
+          "name": "Midnight Lavender Spark",
+          "desc": "Refreshing floral berry cooler with sparkling textures, citrus garnish, and elevated artisanal cocktail aesthetics.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908814834-8aeh7kvolgq.jpeg"
+        },
+        {
+          "id": "new-item-1779908822494",
+          "name": "Matcha Tropic Pearl",
+          "desc": "Premium tropical matcha fusion layered with fruit pearls, mango essence, and velvety cream foam.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908907820-im511pyat1.jpeg"
+        },
+        {
+          "id": "new-item-1779909013562",
+          "name": "Rosé Citrus Mojito",
+          "desc": "Bright pink citrus cooler infused with mint, lime, and crushed ice in a Mediterranean garden café atmosphere.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909079863-d68chxhzdy.jpeg"
+        }
+      ],
+      "category": "Signature Drinks",
+      "description": "A harmonious blend of tradition and contemporary precision."
+    },
+    {
+      "items": [
+        {
+          "id": "item-7",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909180148-dt82pbnyg4r.jpeg",
+          "desc": "Steeped for 18 hours. Smooth, low-acidity, with naturally sweet cocoa undertones.",
+          "name": "Midnight Cold Brew"
+        }
+      ],
+      "category": "Curated Coffee"
+    },
+    {
+      "items": [
+        {
+          "id": "item-8",
+          "img": "/images/gallery/dessert-1.jpg",
+          "desc": "A light, moist cake crafted with premium cold-pressed olive oil, accented with freshly ground cardamom and finished with a bright citrus glaze.",
+          "name": "Chocolate Lava MeltDown"
+        },
+        {
+          "id": "item-9",
+          "img": "/images/menu/almond-croissant.webp",
+          "desc": "A classic buttery croissant filled with rich almond frangipane and topped with toasted almonds.",
+          "name": "Almond Croissant"
+        },
+        {
+          "id": "item-10",
+          "img": "/images/menu/banana-tart.webp",
+          "desc": "A delicate shortcrust tart filled with almond cream and caramelized bananas, baked to golden perfection.",
+          "name": "Banana Frangipane Tart"
+        },
+        {
+          "id": "item-11",
+          "img": "/images/menu/berliner-doughnut.webp",
+          "desc": "Traditional German-style doughnut, dusted with fine sugar and filled with a burst of seasonal fruit jam.",
+          "name": "Berliner Doughnut"
+        },
+        {
+          "id": "item-12",
+          "img": "/images/menu/butter-palmier.webp",
+          "desc": "Crisp, flaky, and golden-brown puff pastry hearts baked with caramelized sugar.",
+          "name": "Butter Palmier"
+        },
+        {
+          "id": "item-13",
+          "img": "/images/menu/kitkat-donut.webp",
+          "desc": "A decadent, soft doughnut glazed with rich chocolate and topped with crushed KitKat pieces.",
+          "name": "KitKat Doughnut"
+        },
+        {
+          "id": "new-item-1779907266755",
+          "name": "Lotus Biscoff Cruffin",
+          "desc": "Warm laminated pastry layered with silky Biscoff glaze and crunchy biscuit crumble.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907282417-7qyurffsd1h.jpeg",
+          "tag": "sweet"
+        },
+        {
+          "id": "new-item-1779907479021",
+          "name": "Dark Chocolate Raspberry Mousse Cup",
+          "desc": "Rich chocolate mousse layered with vibrant raspberry compote and delicate chocolate shards.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907485133-6fdp64iv772.jpeg",
+          "tag": "sweet"
+        },
+        {
+          "id": "new-item-1779907536358",
+          "name": "Strawberry Cheesecake Verrine",
+          "desc": "Creamy cheesecake layers with fresh strawberry compote served in a refined dessert cup.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907712255-34y1ehcj0bs.jpeg",
+          "tag": "SWeet"
+        },
+        {
+          "id": "new-item-1779907606602",
+          "name": "Nutella Crunch Crepe Bowl",
+          "desc": "Soft folded crepes topped with chocolate drizzle, crispy flakes, and creamy vanilla sauce.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907697369-eo6rt308x1o.jpeg"
+        },
+        {
+          "id": "new-item-1779907725641",
+          "name": "Chocolate Croissant Supreme",
+          "desc": "Flaky laminated pastry finished with a smooth dark chocolate glaze in a minimalist luxury setting.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907810393-q8oeeyyo24.jpeg"
+        },
+        {
+          "id": "new-item-1779907812679",
+          "name": "Classic Lattice Butter Pie",
+          "desc": "Golden buttery pie with delicate lattice crust served in a warm rustic café atmosphere.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907839147-nzdk86i4hgs.jpeg"
+        },
+        {
+          "id": "new-item-1779907840633",
+          "name": "Vanilla Tea Cake Royale",
+          "desc": "Soft vanilla sponge cake paired with vintage tea-room elegance and cozy premium styling.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907871559-9llw91lk3eg.jpeg"
+        },
+        {
+          "id": "new-item-1779907875775",
+          "name": "Vanilla Ice Cream Choux Bun",
+          "desc": "Crispy craquelin bun filled with creamy vanilla ice cream, plated in a dark luxury dessert aesthetic.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907979472-d3zsv9dn2bb.jpeg"
+        },
+        {
+          "id": "new-item-1779907985001",
+          "name": "Pistachio Kunafa Cloud",
+          "desc": "Warm pistachio dessert topped with airy cotton-candy floss and delicate crumble textures in an elegant Middle Eastern-inspired presentation.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908010380-u3eo0camrj.jpeg"
+        },
+        {
+          "id": "new-item-1779908014765",
+          "name": "Midnight Hazelnut Wheels",
+          "desc": "Crispy laminated pastry spirals finished with glossy dark chocolate drizzle and roasted nut crumble.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908109787-1sevgkpc3qw.jpeg"
+        },
+        {
+          "id": "new-item-1779908111373",
+          "name": "Golden Layered Viennoiserie",
+          "desc": "Buttery handcrafted laminated pastries with delicate flaky layers and warm artisan bakery aesthetics.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908147378-f469knbivwn.jpeg"
+        },
+        {
+          "id": "new-item-1779908226908",
+          "name": "Tropical Morning Harmony",
+          "desc": "Creamy breakfast bowl layered with crunchy granola, seasonal fruits, fresh berries, kiwi, mango, banana, and pomegranate pearls for a refreshing luxury brunch experience.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908243743-ihblhym2poh.jpeg"
+        },
+        {
+          "id": "new-item-1779908257078",
+          "name": "Midnight Berry French Toast",
+          "desc": "Thick-cut golden brioche French toast finished with glossy berry compote, fresh strawberries, blueberries, and silky whipped cream in an upscale café setting.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908319584-xiwxzjb9zrd.jpeg"
+        },
+        {
+          "id": "new-item-1779908322303",
+          "name": "Velvet Brunch Toast",
+          "desc": "Soft caramelized French toast dusted with powdered sugar, served with berry preserve and cream for an elegant all-day brunch presentation.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908376509-2s24k3i29rb.jpeg"
+        },
+        {
+          "id": "new-item-1779908387994",
+          "name": "Maison Classic French Toast",
+          "desc": "Rustic artisan French toast plated with fresh berries, mint, and maple syrup in a warm premium fine-dining café ambience.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908425221-zltmoe6x74.jpeg"
+        }
+      ],
+      "category": "Sweet Endings"
+    },
+    {
+      "items": [
+        {
+          "id": "item-14",
+          "img": "/images/menu/special-buns.webp",
+          "tag": "SIGNATURE",
+          "desc": "Our signature soft buns, freshly baked and lightly glazed. Perfect for tearing and dipping into hot chai.",
+          "name": "Chai Days Special Buns"
+        },
+        {
+          "id": "item-15",
+          "img": "/images/menu/chicken-fatayer.webp",
+          "tag": "SAVORY",
+          "desc": "Middle-Eastern inspired savory pastries stuffed with beautifully spiced minced chicken.",
+          "name": "Chicken Fatayer"
+        },
+        {
+          "id": "item-16",
+          "img": "/images/menu/paneer-roll.webp",
+          "tag": "VEGETARIAN",
+          "desc": "A flaky, golden crust filled with spiced, crumbled paneer and fresh herbs.",
+          "name": "Paneer Roll"
+        },
+        {
+          "id": "item-17",
+          "img": "/images/menu/puff-pastry.webp",
+          "tag": "SAVORY",
+          "desc": "Flaky, buttery layers baked until golden and crisp, offering a delightful savory crunch.",
+          "name": "Classic Puff Pastry"
+        },
+        {
+          "id": "new-item-1779886002734",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779891837859-etpvnngoav.jpeg",
+          "tag": "Healthy",
+          "desc": "Fresh gourmet quinoa salad layered with seasonal fruits, crunchy vegetables, vibrant garnishes, and artisan bread accompaniment.",
+          "name": "Garden Quinoa Harvest Bowl"
+        },
+        {
+          "id": "new-item-1779909620865",
+          "name": "Rustic Truffle Flatbread",
+          "desc": "Wood-fired artisan flatbread layered with creamy cheese, roasted mushrooms, cherry tomatoes, and gourmet sausage.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909634971-9daoqfkmgqs.jpeg"
+        },
+        {
+          "id": "new-item-1779909640120",
+          "name": "Vanilla Bloom Danish",
+          "desc": "Flaky handcrafted pastry finished with silky vanilla cream and delicate caramelized layers in a soft bakery aesthetic.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909674313-6yjw953ul4x.jpeg"
+        },
+        {
+          "id": "new-item-1779909684122",
+          "name": "Signature Loaded Hotdogs",
+          "desc": "Premium gourmet hotdogs topped with house sauces, herb garnish, and rich café-style presentation.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909730997-vr5gow7m7no.jpeg"
+        },
+        {
+          "id": "new-item-1779909741702",
+          "name": "Mini Pav Bun Sliders",
+          "desc": "Soft toasted pav buns stuffed with flavorful filling, served with creamy dip and elegant café-style plating.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909879694-02aqx85y2rw3.jpeg"
+        },
+        {
+          "id": "new-item-1779909885699",
+          "name": "Steakhouse Sandwich Board",
+          "desc": "Grilled beef sandwich platter served with crispy fries and signature creamy sauce on rustic wooden presentation.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909927643-0pit32v0thpk.jpeg"
+        },
+        {
+          "id": "new-item-1779909932245",
+          "name": "Twilight Loaded Fries Bowl",
+          "desc": "Crispy golden fries tossed with creamy spicy sauce, fresh herbs, and chef-style evening café plating.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909974642-rvuu494vrri.jpeg"
+        },
+        {
+          "id": "new-item-1779909978284",
+          "name": "Herb Fusion Paneer Plate",
+          "desc": "Modern chef-plated paneer entrée with herb cream sauce, microgreens, and artisanal bread pairing.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910285635-sbkghb9pn0b.jpeg"
+        },
+        {
+          "id": "new-item-1779910015536",
+          "name": "Grilled Herb Chicken Supreme",
+          "desc": "Juicy grilled chicken served with creamy potato mash, roasted tomatoes, and refined fine-dining aesthetics.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910300807-ez8018x58l.jpeg"
+        },
+        {
+          "id": "new-item-1779910118191",
+          "name": "Classic Sunrise Omelette",
+          "desc": "Soft folded omelette served with toasted artisan bread and fresh greens in a luxury breakfast café ambience.",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910159200-w5gweaw23jl.jpeg"
+        }
+      ],
+      "category": "Light Bites",
+      "description": "Served All Day"
+    }
+  ],
+  "pages": {
+    "home": {
+      "seo": {
+        "title": "Home | Chai Days",
+        "keywords": [
+          "chai",
+          "artisan tea",
+          "luxury café",
+          "slow living",
+          "masala chai",
+          "tea house"
+        ],
+        "canonical": "https://chaidays.com/",
+        "description": "Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and intentional rituals in every cup."
+      },
+      "content": {
+        "ambImg": "/images/philosophy.jpg",
+        "ambDesc": "From tactile ceramics to acoustic dampening, every square inch of Chai Days is engineered for calm. Leave the city's pulse at our threshold.",
+        "expDesc": "Every sip is a meditation. Our environments are sculpted to foster restored focus and organic community.",
+        "galImg1": "/images/gallery/drink-1.jpg",
+        "galImg2": "/images/gallery/space-2.jpg",
+        "galImg3": "/images/gallery/dessert-2.jpg",
+        "sigDesc": "A curation of our most revered blends, each a chapter in our heritage.",
+        "ambTitle": "A Sanctuary to Feel Different",
+        "expTitle": "A Space Designed for <span class=\"italic\">Intentionality.</span>",
+        "galTitle": "Glimpses of the Ritual",
+        "sigTitle": "The Signature Selection",
+        "badgeText": "Quiet Luxury",
+        "visitTitle": "Inhabit Our World",
+        "ambLinkDest": "/about",
+        "ambLinkText": "The Design Story",
+        "ambSubtitle": "Our Philosophy",
+        "expStayDesc": "More than a café—a warm sanctuary to relax, unwind, and escape the daily bustle. Our cozy, vibrant spaces are designed to make you feel right at home.",
+        "expSubtitle": "Curated Atmosphere",
+        "sigMoreDesc": "Chai Days is an experience—a blend of culture, innovation, and love. From the first aroma to the last sip, we take you on a journey beyond the ordinary.",
+        "visitMapImg": "/images/gallery/space-7.jpg",
+        "expStayTitle": "Stay Awhile",
+        "sigMoreTitle": "More than Drinks",
+        "visitBtnLink": "/visit",
+        "visitBtnText": "Plan Your Visit",
+        "curatedMainImg": "/images/curated-main.jpg",
+        "expExploreLink": "/gallery",
+        "expExploreText": "Explore Spaces",
+        "expStayLinkDest": "/visit",
+        "expStayLinkText": "Find Your Sanctuary",
+        "curatedAccentImg": "/images/curated-accent.jpg",
+        "visitAddressLine1": "124 Ritual Lane, Spiced Quarter",
+        "visitAddressLine2": "London, EC1V 4PW"
+      }
+    },
+    "about": {
+      "seo": {
+        "title": "Our Story | Chai Days",
+        "keywords": [
+          "story",
+          "history",
+          "chai"
+        ],
+        "canonical": "https://chaidays.com/about",
+        "description": "Discover the journey of Chai Days."
+      },
+      "content": {
+        "heroImg": "/images/philosophy.jpg",
+        "heroDesc": "At Chai Days, we've spent over four years perfecting the art of crafting the finest teas, snacks, and beverages.",
+        "heroTitle": "The Art of the<br /><em class=\"text-secondary-container\">Slow Steam.</em>",
+        "modernImg": "/images/gallery/space-6.jpg",
+        "quoteText": "&ldquo;Chai is not just a beverage; it is a pause button for the soul.&rdquo;",
+        "qualityImg": "/images/gallery/drink-14.jpg",
+        "modernDesc1": "Today, Chai Days brings that sanctuary to the modern landscape. We bridge the gap between traditional spice-blending techniques and a clean, minimalist lifestyle.",
+        "modernDesc2": "Our vision is to cultivate a global community that values quality over quantity, and presence over productivity. We believe in the power of the pause.",
+        "modernTitle": "Modern Presence",
+        "qualityDesc": "Quality is our way of life. We source from the best estates and use expert techniques to ensure every item reflects our dedication to excellence.",
+        "heroSubtitle": "Est. 2024",
+        "qualityTitle": "Uncompromising Quality",
+        "quoteSubtitle": "The Chai Days Philosophy",
+        "philosophyTitle": "Philosophy in Practice",
+        "philosophySubtitle": "Our Core Pillars"
+      }
+    },
+    "visit": {
+      "seo": {
+        "title": "Visit Us | Chai Days",
+        "keywords": [
+          "location",
+          "visit",
+          "hours"
+        ],
+        "canonical": "https://chaidays.com/visit",
+        "description": "Location and hours."
+      },
+      "content": {
+        "locImg": "/images/gallery/space-4.jpg",
+        "heroImg": "/images/gallery/space-1.jpg",
+        "locName": "Krishnappa Compound",
+        "formDesc": "Planning a visit or have a special request? Our concierge team is here to assist with your journey.",
+        "heroDesc": "Step away from the noise and rediscover intentional presence in a sanctuary curated for the art of the moment.",
+        "locTitle": "Location",
+        "formTitle": "Concierge Inquiry",
+        "heroTitle": "An Invitation to Pause",
+        "hoursName": "Opening Hours",
+        "quoteText": "&ldquo;We believe every cup of chai is an invitation to slow down and connect with oneself and others.&rdquo;",
+        "hiringDesc": "If helping people start their day off right makes your day, we're the team for you. Multiple positions available at our Bangalore locations.",
+        "hoursTitle": "Service Hours",
+        "locAddress": "NO.1 & 2, NO.26/10, 80 FT ROAD<br />Mangammana Palya Main Road<br />Bangalore, Karnataka 560068",
+        "contactName": "Contact",
+        "hiringTitle": "We're Hiring!",
+        "contactEmail": "info@chaidays.in",
+        "contactPhone": "+91 99800 84666",
+        "contactTitle": "Get in Touch",
+        "heroSubtitle": "Guest Experience",
+        "hiringBtnText": "Join the Team",
+        "hiringSubtitle": "Career Opportunities"
+      }
+    },
+    "gallery": {
+      "seo": {
+        "title": "Gallery | Chai Days",
+        "keywords": [
+          "gallery",
+          "photos"
+        ],
+        "canonical": "https://chaidays.com/gallery",
+        "description": "Visuals of Chai Days."
+      },
+      "content": {
+        "ctaDesc": "We invite you to step into our world and witness these moments firsthand. Our doors are open for slow living and fine tea.",
+        "ctaTitle": "Ready to experience the ritual?",
+        "heroDesc": "An intimate collection of the rituals we cherish. From the delicate steam of a morning pour to the architectural silence of our space.",
+        "heroTitle": "Our Visual Journal",
+        "ctaBtnLink": "/visit",
+        "ctaBtnText": "Plan Your Visit",
+        "heroSubtitle": "Moments of Mindfulness"
+      }
+    },
+    "experience": {
+      "seo": {
+        "title": "Experience | Chai Days",
+        "keywords": [
+          "experience",
+          "cafe"
+        ],
+        "canonical": "https://chaidays.com/experience",
+        "description": "The Chai Days experience."
+      },
+      "content": {
+        "ctaDesc": "We invite you to join us for a seated experience. Reservations are encouraged to ensure the proper time is dedicated to your brew.",
+        "heroImg": "/images/gallery/space-3.jpg",
+        "ctaTitle": "Experience the Ritual.",
+        "heroDesc": "Step into a space where time slows down. Chai Days is more than a café; it is a curated sensory journey designed for the modern connoisseur of slow living.",
+        "heroTitle": "Elevating the everyday through intentional sips.",
+        "pillar1Img": "/images/gallery/drink-10.jpg",
+        "pillar2Img": "/images/gallery/drink-1.jpg",
+        "pillar3Img": "/images/gallery/space-5.jpg",
+        "ctaBtn1Link": "/visit",
+        "ctaBtn1Text": "Book a Table",
+        "ctaBtn2Link": "/menu",
+        "ctaBtn2Text": "View the Menu",
+        "pillar1Desc": "The intoxicating aroma of freshly ground cardamom, ginger, and cinnamon bark greeting you at the threshold. It is a warm, spice-laden embrace that instantly anchors you in the present moment.",
+        "pillar2Desc": "The velvety micro-foam of steamed whole milk meeting the raw, gritty finish of our custom-thrown stoneware cups. We believe the vessel is as important as the brew, offering a tactile connection to the earth.",
+        "pillar3Desc": "Inspired by the soft curves of ceramic art and the tonal warmth of earth, our flagship space features tactile linen, natural oak, and a quietude that filters out the noise of the city.",
+        "heroSubtitle": "The Sensory Experience",
+        "pillar1Title": "The Scent",
+        "pillar2Title": "The Texture",
+        "pillar3Title": "The Atmosphere",
+        "pillar1Subtitle": "Sensory Pillar I",
+        "pillar2Subtitle": "Sensory Pillar II",
+        "pillar3Subtitle": "Sensory Pillar III"
+      }
+    }
+  }
+}
