@@ -17,19 +17,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
 
-    // Convert File to Buffer/ArrayBuffer for Supabase
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
     // Create a unique filename
     const fileExt = file.name.split('.').pop();
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}.${fileExt}`;
     const filePath = `uploads/${fileName}`;
 
-    // Upload to Supabase Storage
+    // Upload to Supabase Storage (passing the File object directly)
     const { data, error } = await supabase.storage
       .from('chaidays-media')
-      .upload(filePath, buffer, {
+      .upload(filePath, file, {
         contentType: file.type,
         upsert: false
       });
