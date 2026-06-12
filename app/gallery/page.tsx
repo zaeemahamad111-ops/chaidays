@@ -21,14 +21,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function GalleryPage() {
   let contentData: any = {};
-  let gallery: any[] = [];
   try {
     const data = await getSiteData();
     contentData = data?.pages?.gallery?.content || {};
-    gallery = data?.gallery || [];
   } catch (e) {
     console.error(e);
   }
 
-  return <GalleryClient contentData={contentData} initialGallery={gallery} />;
+  return <GalleryClient contentData={contentData} />;
 }

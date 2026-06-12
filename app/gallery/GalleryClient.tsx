@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 
-const fallbackGalleryItems = [
+const galleryItems = [
   {
     id: 1,
     category: "space",
@@ -13,16 +13,239 @@ const fallbackGalleryItems = [
     ratio: "aspect-[16/9]",
     img: "/images/gallery/space-1.jpg",
     alt: "Chai Days space 1"
+  },
+  {
+    id: 2,
+    category: "space",
+    label: "SPACE • 02",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/space-2.jpg",
+    alt: "Chai Days space 2"
+  },
+  {
+    id: 3,
+    category: "space",
+    label: "SPACE • 03",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-square",
+    img: "/images/gallery/space-3.jpg",
+    alt: "Chai Days space 3"
+  },
+  {
+    id: 4,
+    category: "space",
+    label: "SPACE • 04",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-square",
+    img: "/images/gallery/space-4.jpg",
+    alt: "Chai Days space 4"
+  },
+  {
+    id: 5,
+    category: "space",
+    label: "SPACE • 05",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/space-5.jpg",
+    alt: "Chai Days space 5"
+  },
+  {
+    id: 6,
+    category: "space",
+    label: "SPACE • 06",
+    colSpan: "col-span-12 md:col-span-8",
+    ratio: "aspect-[16/9]",
+    img: "/images/gallery/space-6.jpg",
+    alt: "Chai Days space 6"
+  },
+  {
+    id: 7,
+    category: "space",
+    label: "SPACE • 07",
+    colSpan: "col-span-12 md:col-span-6",
+    ratio: "aspect-[4/3]",
+    img: "/images/gallery/space-7.jpg",
+    alt: "Chai Days space 7"
+  },
+  {
+    id: 8,
+    category: "drinks",
+    label: "DRINKS • 01",
+    colSpan: "col-span-12 md:col-span-6",
+    ratio: "aspect-[4/3]",
+    img: "/images/gallery/drink-1.jpg",
+    alt: "Chai Days drinks 1"
+  },
+  {
+    id: 9,
+    category: "drinks",
+    label: "DRINKS • 02",
+    colSpan: "col-span-12 md:col-span-8",
+    ratio: "aspect-[16/9]",
+    img: "/images/gallery/drink-2.jpg",
+    alt: "Chai Days drinks 2"
+  },
+  {
+    id: 10,
+    category: "drinks",
+    label: "DRINKS • 03",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/drink-3.jpg",
+    alt: "Chai Days drinks 3"
+  },
+  {
+    id: 11,
+    category: "drinks",
+    label: "DRINKS • 04",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-square",
+    img: "/images/gallery/drink-4.jpg",
+    alt: "Chai Days drinks 4"
+  },
+  {
+    id: 12,
+    category: "drinks",
+    label: "DRINKS • 05",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-square",
+    img: "/images/gallery/drink-5.jpg",
+    alt: "Chai Days drinks 5"
+  },
+  {
+    id: 13,
+    category: "drinks",
+    label: "DRINKS • 06",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/drink-6.jpg",
+    alt: "Chai Days drinks 6"
+  },
+  {
+    id: 14,
+    category: "drinks",
+    label: "DRINKS • 07",
+    colSpan: "col-span-12 md:col-span-8",
+    ratio: "aspect-[16/9]",
+    img: "/images/gallery/drink-7.jpg",
+    alt: "Chai Days drinks 7"
+  },
+  {
+    id: 15,
+    category: "drinks",
+    label: "DRINKS • 08",
+    colSpan: "col-span-12 md:col-span-6",
+    ratio: "aspect-[4/3]",
+    img: "/images/gallery/drink-8.jpg",
+    alt: "Chai Days drinks 8"
+  },
+  {
+    id: 16,
+    category: "drinks",
+    label: "DRINKS • 09",
+    colSpan: "col-span-12 md:col-span-6",
+    ratio: "aspect-[4/3]",
+    img: "/images/gallery/drink-9.jpg",
+    alt: "Chai Days drinks 9"
+  },
+  {
+    id: 17,
+    category: "drinks",
+    label: "DRINKS • 10",
+    colSpan: "col-span-12 md:col-span-8",
+    ratio: "aspect-[16/9]",
+    img: "/images/gallery/drink-10.jpg",
+    alt: "Chai Days drinks 10"
+  },
+  {
+    id: 18,
+    category: "drinks",
+    label: "DRINKS • 11",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/drink-11.jpg",
+    alt: "Chai Days drinks 11"
+  },
+  {
+    id: 19,
+    category: "drinks",
+    label: "DRINKS • 12",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-square",
+    img: "/images/gallery/drink-12.jpg",
+    alt: "Chai Days drinks 12"
+  },
+  {
+    id: 20,
+    category: "drinks",
+    label: "DRINKS • 13",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-square",
+    img: "/images/gallery/drink-13.jpg",
+    alt: "Chai Days drinks 13"
+  },
+  {
+    id: 21,
+    category: "drinks",
+    label: "DRINKS • 14",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/drink-14.jpg",
+    alt: "Chai Days drinks 14"
+  },
+  {
+    id: 22,
+    category: "drinks",
+    label: "DRINKS • 15",
+    colSpan: "col-span-12 md:col-span-8",
+    ratio: "aspect-[16/9]",
+    img: "/images/gallery/drink-15.jpg",
+    alt: "Chai Days drinks 15"
+  },
+  {
+    id: 23,
+    category: "desserts",
+    label: "DESSERTS • 01",
+    colSpan: "col-span-12 md:col-span-6",
+    ratio: "aspect-[4/3]",
+    img: "/images/gallery/dessert-1.jpg",
+    alt: "Chai Days desserts 1"
+  },
+  {
+    id: 24,
+    category: "desserts",
+    label: "DESSERTS • 02",
+    colSpan: "col-span-12 md:col-span-6",
+    ratio: "aspect-[4/3]",
+    img: "/images/gallery/dessert-2.jpg",
+    alt: "Chai Days desserts 2"
+  },
+  {
+    id: 25,
+    category: "desserts",
+    label: "DESSERTS • 03",
+    colSpan: "col-span-12 md:col-span-8",
+    ratio: "aspect-[16/9]",
+    img: "/images/gallery/dessert-3.jpg",
+    alt: "Chai Days desserts 3"
+  },
+  {
+    id: 26,
+    category: "desserts",
+    label: "DESSERTS • 04",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/dessert-4.jpg",
+    alt: "Chai Days desserts 4"
   }
 ];
 
-export default function GalleryClient({ contentData = {}, initialGallery = [] }: { contentData?: any, initialGallery?: any[] }) {
+const categories = ['all', 'drinks', 'space', 'desserts'];
+
+export default function GalleryClient({ contentData = {} }: { contentData?: any }) {
   const [active, setActive] = useState('all');
-  
-  const items = initialGallery && initialGallery.length > 0 ? initialGallery : fallbackGalleryItems;
-  const categories = ['all', ...Array.from(new Set(items.map((i: any) => i.category)))];
-  
-  const filtered = active === 'all' ? items : items.filter((i: any) => i.category === active);
+  const filtered = active === 'all' ? galleryItems : galleryItems.filter((i) => i.category === active);
 
   return (
     <>
@@ -30,7 +253,7 @@ export default function GalleryClient({ contentData = {}, initialGallery = [] }:
         <p className="hero-text-1 font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-4">{contentData.heroSubtitle || 'Moments of Mindfulness'}</p>
         <h1 className="hero-text-2 font-serif text-[56px] md:text-[72px] text-primary mb-6">{contentData.heroTitle || 'Our Visual Journal'}</h1>
         <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-          {contentData.heroDesc || 'An intimate collection of the rituals we cherish. From the delicate steam of a morning pour to the architectural silence of our space.'}
+          {contentData.heroDesc || 'An intimate collection of cozy moments we cherish. From the delicate steam of a morning pour to the architectural silence of our space.'}
         </p>
       </section>
 
@@ -83,7 +306,7 @@ export default function GalleryClient({ contentData = {}, initialGallery = [] }:
         </div>
 
         <ScrollReveal className="text-center border-t border-outline-variant pt-24 pb-32 max-w-3xl mx-auto">
-          <h2 className="font-serif text-4xl text-primary mb-6">{contentData.ctaTitle || 'Ready to experience the ritual?'}</h2>
+          <h2 className="font-serif text-4xl text-primary mb-6">{contentData.ctaTitle || 'Ready for a cozy experience?'}</h2>
           <p className="font-sans text-lg text-on-surface-variant mb-10 leading-relaxed">
             {contentData.ctaDesc || 'We invite you to step into our world and witness these moments firsthand. Our doors are open for slow living and fine tea.'}
           </p>

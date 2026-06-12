@@ -70,7 +70,7 @@ export default async function MenuPage() {
               className="font-serif text-[64px] md:text-[90px] text-white italic mb-6 leading-[1.1]" 
               style={{ textShadow: '0 4px 40px rgba(0,0,0,0.6)' }}
             >
-              The Modern Ritual
+              A Cozy Modern Experience
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={300}>

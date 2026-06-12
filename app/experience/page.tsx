@@ -44,7 +44,7 @@ export default async function ExperiencePage() {
           <ScrollReveal delay={150} className="relative aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl group">
             <Image 
               src={contentData.heroImg || "/images/gallery/space-3.jpg"} 
-              alt="Cinematic chai ritual — aromatic steam and warm tones" 
+              alt="Cinematic cozy chai — aromatic steam and warm tones" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-105" 
               priority
@@ -129,7 +129,7 @@ export default async function ExperiencePage() {
         <div className="max-w-[1200px] mx-auto bg-primary-container rounded-[2rem] p-16 flex flex-col items-center text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
           <ScrollReveal>
-            <h2 className="font-serif text-5xl md:text-6xl text-primary-fixed mb-8 relative z-10">{contentData.ctaTitle || 'Experience the Ritual.'}</h2>
+            <h2 className="font-serif text-5xl md:text-6xl text-primary-fixed mb-8 relative z-10">{contentData.ctaTitle || 'Experience the Coziness.'}</h2>
             <p className="font-sans text-lg text-primary-fixed-dim max-w-2xl mb-12 leading-relaxed relative z-10">
               {contentData.ctaDesc || 'We invite you to join us for a seated experience. Reservations are encouraged to ensure the proper time is dedicated to your brew.'}
             </p>

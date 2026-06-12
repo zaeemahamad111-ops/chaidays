@@ -161,7 +161,7 @@ export default function HeroVideo({ heroData }: { heroData?: HeroData }) {
           transition: 'opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease',
         }}
       >
-        <p className="font-sans text-[9px] md:text-[10px] tracking-[0.6em] uppercase text-[#e8c8a0]/75 mb-5 font-medium" dangerouslySetInnerHTML={{ __html: heroData?.topTextSmall || "A CHAI DAYS RITUAL" }} />
+        <p className="font-sans text-[9px] md:text-[10px] tracking-[0.6em] uppercase text-[#e8c8a0]/75 mb-5 font-medium" dangerouslySetInnerHTML={{ __html: heroData?.topTextSmall || "A COZY CHAI EXPERIENCE" }} />
         <h2
           className="font-serif italic text-[2.6rem] md:text-[4.5rem] lg:text-[5.5rem] text-white leading-[1.1] tracking-tight"
           style={{ textShadow: '0 4px 40px rgba(0,0,0,0.8)' }}

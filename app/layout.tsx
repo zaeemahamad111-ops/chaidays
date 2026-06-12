@@ -8,8 +8,8 @@ import { getSiteData } from '@/lib/data';
 
 export async function generateMetadata(): Promise<Metadata> {
   let seo = {
-    title: 'Chai Days | The Art of the Modern Ritual',
-    description: 'Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and intentional rituals in every cup.',
+    title: 'Chai Days | A Cozy Modern Experience',
+    description: 'Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and warm, cozy moments in every cup.',
     keywords: ['chai', 'artisan tea', 'luxury café', 'slow living', 'masala chai', 'tea house']
   };
 
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Chai Days',
       title: seo.title,
       description: seo.description,
-      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Chai Days — The Art of the Modern Ritual' }],
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Chai Days — A Cozy Modern Experience' }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -93,7 +93,7 @@ export default function RootLayout({
               "description": "A premium artisan tea café dedicated to the slow sip.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "124 Ritual Lane, Spiced Quarter",
+                "streetAddress": "124 Comfort Lane, Spiced Quarter",
                 "addressLocality": "London",
                 "postalCode": "EC1V 4PW",
                 "addressCountry": "UK"

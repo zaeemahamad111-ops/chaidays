@@ -12,7 +12,7 @@ export const revalidate = 0;
 const signatureItems = [
   {
     tag: 'BESTSELLER',
-    name: 'Aged Masala Ritual',
+    name: 'Aged Masala Blend',
     desc: 'Our secret blend of seven heritage spices, steeped with devotion for twelve hours.',
     img: '/images/signature-3.jpg',
   },
@@ -181,13 +181,13 @@ export default async function HomePage() {
       <section className="py-32 bg-surface">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <ScrollReveal className="text-center mb-20">
-            <h2 className="font-serif text-5xl text-primary italic">Glimpses of the Ritual</h2>
+            <h2 className="font-serif text-5xl text-primary italic">Glimpses of Comfort</h2>
           </ScrollReveal>
           <div className="grid grid-cols-12 gap-4 h-[600px] md:h-[900px]">
             <ScrollReveal className="col-span-8 h-full overflow-hidden">
               <Image
                 src="/images/gallery/drink-1.jpg"
-                alt="The Signature Chai Ritual"
+                alt="The Signature Cozy Chai"
                 width={900}
                 height={900}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
@@ -292,7 +292,7 @@ export default async function HomePage() {
                   <div>
                     <h4 className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant mb-2">Location</h4>
                     <p className="font-serif text-2xl text-primary">
-                      124 Ritual Lane, Spiced Quarter<br />London, EC1V 4PW
+                      124 Comfort Lane, Spiced Quarter<br />London, EC1V 4PW
                     </p>
                   </div>
                   <div>
