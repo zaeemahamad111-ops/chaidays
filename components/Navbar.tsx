@@ -29,6 +29,8 @@ export default function Navbar() {
 
   const isHeroTransparent = pathname === '/' && !scrolled && !menuOpen;
 
+  if (pathname === '/cms') return null;
+
   return (
     <>
       <header
