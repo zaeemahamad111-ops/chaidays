@@ -526,6 +526,16 @@ export default function CMSPage() {
                       Menu Builder
                     </button>
                     <button
+                      onClick={() => { triggerHaptic(); setActiveTab(`global_gallery`); }}
+                      className={`w-full text-left px-4 py-3 uppercase tracking-widest text-[10px] transition-all font-mono ${
+                        activeTab === `global_gallery`
+                          ? "bg-[#ebdcd0]/30 text-[#8D4F00] border-l-2 border-[#8D4F00] font-bold"
+                          : "text-[#5e4b3c] hover:bg-[#faf5f0] hover:text-[#8D4F00]"
+                      }`}
+                    >
+                      Gallery Builder
+                    </button>
+                    <button
                       onClick={() => { triggerHaptic(); setActiveTab(`global_outlets`); }}
                       className={`w-full text-left px-4 py-3 uppercase tracking-widest text-[10px] transition-all font-mono ${
                         activeTab === `global_outlets`
@@ -660,6 +670,180 @@ export default function CMSPage() {
                       );
                     }
                   })}
+                </div>
+              );
+            })()}
+
+            {/* --- GLOBAL : GALLERY BUILDER --- */}
+            {activeTab === "global_gallery" && (() => {
+              const gallery = data.gallery || [];
+
+              return (
+                <div className="space-y-10">
+                  <div className="bg-[#faf5f0] p-6 rounded-xl border border-[#ebdcd0]">
+                    <h3 className="font-serif text-2xl text-[#8D4F00] mb-4">Manage Gallery Images</h3>
+                    <p className="text-sm text-[#5e4b3c] mb-6">Add, edit, or reorder images for the Visual Journal.</p>
+                    
+                    <div className="space-y-6">
+                      {gallery.map((item: any, index: number) => {
+                        const saveKey = `gallery_item_${index}`;
+                        return (
+                          <div key={index} className="bg-white border border-[#ebdcd0] p-6 rounded relative group/gal">
+                            <div className="absolute top-3 right-3 flex items-center gap-3 opacity-0 group-hover/gal:opacity-100 transition-opacity">
+                              {index > 0 && (
+                                <button
+                                  onClick={() => {
+                                    triggerHaptic();
+                                    const newGallery = [...gallery];
+                                    const temp = newGallery[index];
+                                    newGallery[index] = newGallery[index - 1];
+                                    newGallery[index - 1] = temp;
+                                    const newData = { ...data, gallery: newGallery };
+                                    setData(newData);
+                                    saveField(`move_up_gal_${index}`, newData);
+                                  }}
+                                  className="text-[10px] text-[#8D4F00] hover:text-[#6c3c00] flex items-center gap-1 uppercase tracking-widest font-mono"
+                                >
+                                  <ArrowUp className="w-3 h-3" /> Up
+                                </button>
+                              )}
+                              {index < gallery.length - 1 && (
+                                <button
+                                  onClick={() => {
+                                    triggerHaptic();
+                                    const newGallery = [...gallery];
+                                    const temp = newGallery[index];
+                                    newGallery[index] = newGallery[index + 1];
+                                    newGallery[index + 1] = temp;
+                                    const newData = { ...data, gallery: newGallery };
+                                    setData(newData);
+                                    saveField(`move_down_gal_${index}`, newData);
+                                  }}
+                                  className="text-[10px] text-[#8D4F00] hover:text-[#6c3c00] flex items-center gap-1 uppercase tracking-widest font-mono"
+                                >
+                                  <ArrowDown className="w-3 h-3" /> Down
+                                </button>
+                              )}
+                              <button
+                                onClick={() => {
+                                  triggerHaptic();
+                                  const newGallery = gallery.filter((_: any, i: number) => i !== index);
+                                  const newData = { ...data, gallery: newGallery };
+                                  setData(newData);
+                                  saveField(`del_gal_${index}`, newData);
+                                }}
+                                className="text-[10px] text-red-600 hover:text-red-800 uppercase tracking-widest font-mono ml-2"
+                              >
+                                Remove
+                              </button>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                              <div className="space-y-4">
+                                <input
+                                  type="text"
+                                  placeholder="Category (e.g. drinks, space, desserts)"
+                                  value={item.category || ""}
+                                  onChange={(e) => {
+                                    const newGallery = [...gallery];
+                                    newGallery[index].category = e.target.value.toLowerCase();
+                                    setData({ ...data, gallery: newGallery });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-sm text-[#3d2a1b] focus:border-[#8D4F00] focus:outline-none rounded"
+                                />
+                                <input
+                                  type="text"
+                                  placeholder="Label (e.g. SPACE • 01)"
+                                  value={item.label || ""}
+                                  onChange={(e) => {
+                                    const newGallery = [...gallery];
+                                    newGallery[index].label = e.target.value;
+                                    setData({ ...data, gallery: newGallery });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-xs font-mono focus:border-[#8D4F00] focus:outline-none rounded"
+                                />
+                                <input
+                                  type="text"
+                                  placeholder="Alt Text"
+                                  value={item.alt || ""}
+                                  onChange={(e) => {
+                                    const newGallery = [...gallery];
+                                    newGallery[index].alt = e.target.value;
+                                    setData({ ...data, gallery: newGallery });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-sm focus:border-[#8D4F00] focus:outline-none rounded"
+                                />
+                              </div>
+                              <div className="space-y-4">
+                                <select
+                                  value={item.colSpan || "col-span-12 md:col-span-4"}
+                                  onChange={(e) => {
+                                    const newGallery = [...gallery];
+                                    newGallery[index].colSpan = e.target.value;
+                                    setData({ ...data, gallery: newGallery });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-sm focus:border-[#8D4F00] focus:outline-none rounded"
+                                >
+                                  <option value="col-span-12 md:col-span-4">1/3 Width</option>
+                                  <option value="col-span-12 md:col-span-6">1/2 Width</option>
+                                  <option value="col-span-12 md:col-span-8">2/3 Width</option>
+                                  <option value="col-span-12">Full Width</option>
+                                </select>
+                                <select
+                                  value={item.ratio || "aspect-square"}
+                                  onChange={(e) => {
+                                    const newGallery = [...gallery];
+                                    newGallery[index].ratio = e.target.value;
+                                    setData({ ...data, gallery: newGallery });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-sm focus:border-[#8D4F00] focus:outline-none rounded"
+                                >
+                                  <option value="aspect-square">Square (1:1)</option>
+                                  <option value="aspect-[4/3]">Standard (4:3)</option>
+                                  <option value="aspect-[3/4]">Portrait (3:4)</option>
+                                  <option value="aspect-[16/9]">Widescreen (16:9)</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div className="mt-4 pt-4 border-t border-[#ebdcd0]/50">
+                              {renderImageUploadField(
+                                `gallery_img_${index}`,
+                                "Gallery Image",
+                                item.img || "",
+                                (val) => {
+                                  const newGallery = [...gallery];
+                                  newGallery[index].img = val;
+                                  setData({ ...data, gallery: newGallery });
+                                },
+                                () => saveField(`gallery_img_${index}`, data)
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                      
+                      <button
+                        onClick={() => {
+                          triggerHaptic();
+                          const newGallery = [
+                            ...gallery,
+                            { id: `new-gal-${Date.now()}`, category: "space", label: "NEW • 01", colSpan: "col-span-12 md:col-span-4", ratio: "aspect-square", img: "", alt: "" }
+                          ];
+                          const newData = { ...data, gallery: newGallery };
+                          setData(newData);
+                          saveField("add_gal", newData);
+                        }}
+                        className="w-full border-2 border-dashed border-[#8D4F00]/30 hover:border-[#8D4F00] text-[#8D4F00] p-4 flex items-center justify-center gap-2 font-mono uppercase tracking-widest text-xs transition-colors rounded"
+                      >
+                        + Add New Image
+                      </button>
+                    </div>
+                  </div>
                 </div>
               );
             })()}

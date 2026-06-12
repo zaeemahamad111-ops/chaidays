@@ -42,33 +42,33 @@
         },
         {
           "id": "new-item-1779908713174",
-          "name": "Berry Cloud Latte",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908737713-vvx4dmrrv9j.jpeg",
           "desc": "Creamy layered berry latte finished with biscuit crumble and fresh plum notes for a smooth dessert-style café experience.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908737713-vvx4dmrrv9j.jpeg"
+          "name": "Berry Cloud Latte"
         },
         {
           "id": "new-item-1779908914548",
-          "name": "Crystal Bloom Refresher",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909009646-mk55rx6ntrc.jpeg",
           "desc": "Minimal sparkling botanical cooler finished with airy foam, edible flowers, and modern luxury café styling.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909009646-mk55rx6ntrc.jpeg"
+          "name": "Crystal Bloom Refresher"
         },
         {
           "id": "new-item-1779908782701",
-          "name": "Midnight Lavender Spark",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908814834-8aeh7kvolgq.jpeg",
           "desc": "Refreshing floral berry cooler with sparkling textures, citrus garnish, and elevated artisanal cocktail aesthetics.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908814834-8aeh7kvolgq.jpeg"
+          "name": "Midnight Lavender Spark"
         },
         {
           "id": "new-item-1779908822494",
-          "name": "Matcha Tropic Pearl",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908907820-im511pyat1.jpeg",
           "desc": "Premium tropical matcha fusion layered with fruit pearls, mango essence, and velvety cream foam.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908907820-im511pyat1.jpeg"
+          "name": "Matcha Tropic Pearl"
         },
         {
           "id": "new-item-1779909013562",
-          "name": "Rosé Citrus Mojito",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909079863-d68chxhzdy.jpeg",
           "desc": "Bright pink citrus cooler infused with mint, lime, and crushed ice in a Mediterranean garden café atmosphere.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909079863-d68chxhzdy.jpeg"
+          "name": "Rosé Citrus Mojito"
         }
       ],
       "category": "Signature Drinks",
@@ -125,96 +125,96 @@
         },
         {
           "id": "new-item-1779907266755",
-          "name": "Lotus Biscoff Cruffin",
-          "desc": "Warm laminated pastry layered with silky Biscoff glaze and crunchy biscuit crumble.",
           "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907282417-7qyurffsd1h.jpeg",
-          "tag": "sweet"
+          "tag": "sweet",
+          "desc": "Warm laminated pastry layered with silky Biscoff glaze and crunchy biscuit crumble.",
+          "name": "Lotus Biscoff Cruffin"
         },
         {
           "id": "new-item-1779907479021",
-          "name": "Dark Chocolate Raspberry Mousse Cup",
-          "desc": "Rich chocolate mousse layered with vibrant raspberry compote and delicate chocolate shards.",
           "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907485133-6fdp64iv772.jpeg",
-          "tag": "sweet"
+          "tag": "sweet",
+          "desc": "Rich chocolate mousse layered with vibrant raspberry compote and delicate chocolate shards.",
+          "name": "Dark Chocolate Raspberry Mousse Cup"
         },
         {
           "id": "new-item-1779907536358",
-          "name": "Strawberry Cheesecake Verrine",
-          "desc": "Creamy cheesecake layers with fresh strawberry compote served in a refined dessert cup.",
           "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907712255-34y1ehcj0bs.jpeg",
-          "tag": "SWeet"
+          "tag": "SWeet",
+          "desc": "Creamy cheesecake layers with fresh strawberry compote served in a refined dessert cup.",
+          "name": "Strawberry Cheesecake Verrine"
         },
         {
           "id": "new-item-1779907606602",
-          "name": "Nutella Crunch Crepe Bowl",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907697369-eo6rt308x1o.jpeg",
           "desc": "Soft folded crepes topped with chocolate drizzle, crispy flakes, and creamy vanilla sauce.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907697369-eo6rt308x1o.jpeg"
+          "name": "Nutella Crunch Crepe Bowl"
         },
         {
           "id": "new-item-1779907725641",
-          "name": "Chocolate Croissant Supreme",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907810393-q8oeeyyo24.jpeg",
           "desc": "Flaky laminated pastry finished with a smooth dark chocolate glaze in a minimalist luxury setting.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907810393-q8oeeyyo24.jpeg"
+          "name": "Chocolate Croissant Supreme"
         },
         {
           "id": "new-item-1779907812679",
-          "name": "Classic Lattice Butter Pie",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907839147-nzdk86i4hgs.jpeg",
           "desc": "Golden buttery pie with delicate lattice crust served in a warm rustic café atmosphere.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907839147-nzdk86i4hgs.jpeg"
+          "name": "Classic Lattice Butter Pie"
         },
         {
           "id": "new-item-1779907840633",
-          "name": "Vanilla Tea Cake Royale",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907871559-9llw91lk3eg.jpeg",
           "desc": "Soft vanilla sponge cake paired with vintage tea-room elegance and cozy premium styling.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907871559-9llw91lk3eg.jpeg"
+          "name": "Vanilla Tea Cake Royale"
         },
         {
           "id": "new-item-1779907875775",
-          "name": "Vanilla Ice Cream Choux Bun",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907979472-d3zsv9dn2bb.jpeg",
           "desc": "Crispy craquelin bun filled with creamy vanilla ice cream, plated in a dark luxury dessert aesthetic.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907979472-d3zsv9dn2bb.jpeg"
+          "name": "Vanilla Ice Cream Choux Bun"
         },
         {
           "id": "new-item-1779907985001",
-          "name": "Pistachio Kunafa Cloud",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908010380-u3eo0camrj.jpeg",
           "desc": "Warm pistachio dessert topped with airy cotton-candy floss and delicate crumble textures in an elegant Middle Eastern-inspired presentation.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908010380-u3eo0camrj.jpeg"
+          "name": "Pistachio Kunafa Cloud"
         },
         {
           "id": "new-item-1779908014765",
-          "name": "Midnight Hazelnut Wheels",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908109787-1sevgkpc3qw.jpeg",
           "desc": "Crispy laminated pastry spirals finished with glossy dark chocolate drizzle and roasted nut crumble.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908109787-1sevgkpc3qw.jpeg"
+          "name": "Midnight Hazelnut Wheels"
         },
         {
           "id": "new-item-1779908111373",
-          "name": "Golden Layered Viennoiserie",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908147378-f469knbivwn.jpeg",
           "desc": "Buttery handcrafted laminated pastries with delicate flaky layers and warm artisan bakery aesthetics.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908147378-f469knbivwn.jpeg"
+          "name": "Golden Layered Viennoiserie"
         },
         {
           "id": "new-item-1779908226908",
-          "name": "Tropical Morning Harmony",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908243743-ihblhym2poh.jpeg",
           "desc": "Creamy breakfast bowl layered with crunchy granola, seasonal fruits, fresh berries, kiwi, mango, banana, and pomegranate pearls for a refreshing luxury brunch experience.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908243743-ihblhym2poh.jpeg"
+          "name": "Tropical Morning Harmony"
         },
         {
           "id": "new-item-1779908257078",
-          "name": "Midnight Berry French Toast",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908319584-xiwxzjb9zrd.jpeg",
           "desc": "Thick-cut golden brioche French toast finished with glossy berry compote, fresh strawberries, blueberries, and silky whipped cream in an upscale café setting.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908319584-xiwxzjb9zrd.jpeg"
+          "name": "Midnight Berry French Toast"
         },
         {
           "id": "new-item-1779908322303",
-          "name": "Velvet Brunch Toast",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908376509-2s24k3i29rb.jpeg",
           "desc": "Soft caramelized French toast dusted with powdered sugar, served with berry preserve and cream for an elegant all-day brunch presentation.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908376509-2s24k3i29rb.jpeg"
+          "name": "Velvet Brunch Toast"
         },
         {
           "id": "new-item-1779908387994",
-          "name": "Maison Classic French Toast",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908425221-zltmoe6x74.jpeg",
           "desc": "Rustic artisan French toast plated with fresh berries, mint, and maple syrup in a warm premium fine-dining café ambience.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908425221-zltmoe6x74.jpeg"
+          "name": "Maison Classic French Toast"
         }
       ],
       "category": "Sweet Endings"
@@ -258,57 +258,57 @@
         },
         {
           "id": "new-item-1779909620865",
-          "name": "Rustic Truffle Flatbread",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909634971-9daoqfkmgqs.jpeg",
           "desc": "Wood-fired artisan flatbread layered with creamy cheese, roasted mushrooms, cherry tomatoes, and gourmet sausage.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909634971-9daoqfkmgqs.jpeg"
+          "name": "Rustic Truffle Flatbread"
         },
         {
           "id": "new-item-1779909640120",
-          "name": "Vanilla Bloom Danish",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909674313-6yjw953ul4x.jpeg",
           "desc": "Flaky handcrafted pastry finished with silky vanilla cream and delicate caramelized layers in a soft bakery aesthetic.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909674313-6yjw953ul4x.jpeg"
+          "name": "Vanilla Bloom Danish"
         },
         {
           "id": "new-item-1779909684122",
-          "name": "Signature Loaded Hotdogs",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909730997-vr5gow7m7no.jpeg",
           "desc": "Premium gourmet hotdogs topped with house sauces, herb garnish, and rich café-style presentation.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909730997-vr5gow7m7no.jpeg"
+          "name": "Signature Loaded Hotdogs"
         },
         {
           "id": "new-item-1779909741702",
-          "name": "Mini Pav Bun Sliders",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909879694-02aqx85y2rw3.jpeg",
           "desc": "Soft toasted pav buns stuffed with flavorful filling, served with creamy dip and elegant café-style plating.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909879694-02aqx85y2rw3.jpeg"
+          "name": "Mini Pav Bun Sliders"
         },
         {
           "id": "new-item-1779909885699",
-          "name": "Steakhouse Sandwich Board",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909927643-0pit32v0thpk.jpeg",
           "desc": "Grilled beef sandwich platter served with crispy fries and signature creamy sauce on rustic wooden presentation.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909927643-0pit32v0thpk.jpeg"
+          "name": "Steakhouse Sandwich Board"
         },
         {
           "id": "new-item-1779909932245",
-          "name": "Twilight Loaded Fries Bowl",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909974642-rvuu494vrri.jpeg",
           "desc": "Crispy golden fries tossed with creamy spicy sauce, fresh herbs, and chef-style evening café plating.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909974642-rvuu494vrri.jpeg"
+          "name": "Twilight Loaded Fries Bowl"
         },
         {
           "id": "new-item-1779909978284",
-          "name": "Herb Fusion Paneer Plate",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910285635-sbkghb9pn0b.jpeg",
           "desc": "Modern chef-plated paneer entrée with herb cream sauce, microgreens, and artisanal bread pairing.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910285635-sbkghb9pn0b.jpeg"
+          "name": "Herb Fusion Paneer Plate"
         },
         {
           "id": "new-item-1779910015536",
-          "name": "Grilled Herb Chicken Supreme",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910300807-ez8018x58l.jpeg",
           "desc": "Juicy grilled chicken served with creamy potato mash, roasted tomatoes, and refined fine-dining aesthetics.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910300807-ez8018x58l.jpeg"
+          "name": "Grilled Herb Chicken Supreme"
         },
         {
           "id": "new-item-1779910118191",
-          "name": "Classic Sunrise Omelette",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910159200-w5gweaw23jl.jpeg",
           "desc": "Soft folded omelette served with toasted artisan bread and fresh greens in a luxury breakfast café ambience.",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910159200-w5gweaw23jl.jpeg"
+          "name": "Classic Sunrise Omelette"
         }
       ],
       "category": "Light Bites",
@@ -407,7 +407,7 @@
       },
       "content": {
         "locImg": "/images/gallery/space-4.jpg",
-        "heroImg": "/images/gallery/space-1.jpg",
+        "heroImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781289314681-0ee8z9gx8lf.jpg",
         "locName": "Krishnappa Compound",
         "formDesc": "Planning a visit or have a special request? Our concierge team is here to assist with your journey.",
         "heroDesc": "Step away from the noise and rediscover intentional presence in a sanctuary curated for the art of the moment.",
@@ -461,7 +461,7 @@
       },
       "content": {
         "ctaDesc": "We invite you to join us for a seated experience. Reservations are encouraged to ensure the proper time is dedicated to your brew.",
-        "heroImg": "/images/gallery/space-3.jpg",
+        "heroImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781289618363-uoenyvtkpx.jpg",
         "ctaTitle": "Experience the Ritual.",
         "heroDesc": "Step into a space where time slows down. Chai Days is more than a café; it is a curated sensory journey designed for the modern connoisseur of slow living.",
         "heroTitle": "Elevating the everyday through intentional sips.",
@@ -484,5 +484,343 @@
         "pillar3Subtitle": "Sensory Pillar III"
       }
     }
-  }
+  },
+  "outlets": [
+    {
+      "id": "new-outlet-1781287353397",
+      "name": "Chai Days Bellandur",
+      "address": "WMQV+8VQ infront of Cessna Business Park, WMQV+8VP Service road, Outer Ring Rd, Kadubeesanahalli, Bengaluru, Karnataka 560103",
+      "mapUrl": "https://maps.app.goo.gl/uUBb16X5dkfgW6kc9",
+      "email": "09980094666",
+      "phone": "09980094666",
+      "hours": "Daily : 7 am–1 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781287623075-7ied2itimzb.jpg"
+    },
+    {
+      "id": "new-outlet-1781287413632",
+      "name": " Chai Days Koramangala",
+      "address": "Vijay Jatti Building, 104, 1st Main Rd, KHB Colony, 5th Block, Koramangala, Bengaluru, Karnataka 560095",
+      "mapUrl": "https://maps.app.goo.gl/7DvnjCux69cm29nXA",
+      "email": "",
+      "phone": "09980084666",
+      "hours": "Daily : 7.30 am–1 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781287946617-xibeptculuf.jpg"
+    },
+    {
+      "id": "new-outlet-1781288056939",
+      "name": "Chai Days Sarjapur Road",
+      "address": "No.53/1, Ashrith Aries, Sarjapur Main Rd, near Reliance Fashion Factory, Countryside Layout, Rainbow Drive, Doddakannelli, Bengaluru, Karnataka 560035",
+      "mapUrl": "https://maps.app.goo.gl/xi7KopnDKP85e4LN9",
+      "email": "",
+      "phone": "09214766583",
+      "hours": "Daily : 6.30am–2 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288089967-ielj0axpktq.jpg"
+    },
+    {
+      "id": "new-outlet-1781288141701",
+      "name": "Chai Days Lit Box",
+      "address": "Divyasree Technopark, EPIP Zone Whitefield Rd, Kundalahalli, Brookefield, Bengaluru, Karnataka 560066",
+      "mapUrl": "https://maps.app.goo.gl/ePH6dcgBd6U1wnZV6",
+      "email": "",
+      "phone": "",
+      "hours": "Daily : 8am–1 2am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288154193-y7f2q2w353c.jpg"
+    },
+    {
+      "id": "new-outlet-1781288221631",
+      "name": "Chai Days Jayanagar",
+      "address": "No. 147, Ground Floor, 3rd Main, opposite Tenet diagnostics, 27th Cross, Jayanagar 6th Block, Jayanagar, Bengaluru, Karnataka 560070",
+      "mapUrl": "https://maps.app.goo.gl/hCqrsyerrkB5HrbG9",
+      "email": "",
+      "phone": "09214766583",
+      "hours": "Daily : 8am–1 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288236157-asdurefvmss.jpg"
+    },
+    {
+      "id": "new-outlet-1781288297440",
+      "name": "Chai Days HRBR Layout",
+      "address": "2116, CMR Main Rd, HRBR Layout 2nd Block, HRBR Layout, Kalyan Nagar, Bengaluru, Karnataka 560043",
+      "mapUrl": "https://maps.app.goo.gl/XPbR8TLKQ9zbNYkX7",
+      "email": "",
+      "phone": "09980084666",
+      "hours": "Daily : 8am–1 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288317096-7e4ib7ouz9.jpg"
+    },
+    {
+      "id": "new-outlet-1781288470802",
+      "name": "Chai Days Haralur",
+      "address": "Ground Floor, DMart Building, Silver County Rd, Haralur, Sai Meadows, HSR Layout, Bengaluru, Karnataka 560068",
+      "mapUrl": "https://maps.app.goo.gl/Gosg4gv9AMdRX7vn6",
+      "email": "",
+      "phone": "",
+      "hours": "Daily: 7 am–3 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288487631-kgjasqa3hyb.jpg"
+    },
+    {
+      "id": "new-outlet-1781288804352",
+      "name": "Chai Days Indiranagar",
+      "address": "100 Feet Rd, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka 560008",
+      "mapUrl": "https://maps.app.goo.gl/MTvnboAg7Kz8vVdYA",
+      "email": "",
+      "phone": "09214766583",
+      "hours": "Daily : 7.30 am–1 2am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288841798-pz8v3k4bid.jpg"
+    },
+    {
+      "id": "new-outlet-1781288990624",
+      "name": "Chai Days BTM Layout",
+      "address": "Royal Arcade, 902-934, 16th Main Rd, BTM 2nd Stage, Kuvempu Nagar, BTM Layout 2nd Stage, BTM Layout, Bengaluru, Karnataka 560076",
+      "mapUrl": "https://maps.app.goo.gl/JK6UPTWw7JvBDNjQ7",
+      "email": "",
+      "phone": "09980084666",
+      "hours": "Daily : 8am–1 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781289037009-8v6nz9vct8d.jpg"
+    },
+    {
+      "id": "new-outlet-1781289102579",
+      "name": "Chai Days Electronic City",
+      "address": "152, 5, Neeladri Rd, Karuna Nagar, Electronic City Phase I, Electronic City, Doddathoguru, Karnataka 560100",
+      "mapUrl": "https://maps.app.goo.gl/RruHKxHNjHCVy6wk7",
+      "email": "",
+      "phone": "09980084666",
+      "hours": "Daily : 7.30 am–1 am",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781289116167-kn92g60xvsi.jpg"
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "category": "space",
+      "label": "SPACE • 01",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/space-1.jpg",
+      "alt": "Chai Days space 1"
+    },
+    {
+      "id": 2,
+      "category": "space",
+      "label": "SPACE • 02",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/space-2.jpg",
+      "alt": "Chai Days space 2"
+    },
+    {
+      "id": 3,
+      "category": "space",
+      "label": "SPACE • 03",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-square",
+      "img": "/images/gallery/space-3.jpg",
+      "alt": "Chai Days space 3"
+    },
+    {
+      "id": 4,
+      "category": "space",
+      "label": "SPACE • 04",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-square",
+      "img": "/images/gallery/space-4.jpg",
+      "alt": "Chai Days space 4"
+    },
+    {
+      "id": 5,
+      "category": "space",
+      "label": "SPACE • 05",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/space-5.jpg",
+      "alt": "Chai Days space 5"
+    },
+    {
+      "id": 6,
+      "category": "space",
+      "label": "SPACE • 06",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/space-6.jpg",
+      "alt": "Chai Days space 6"
+    },
+    {
+      "id": 7,
+      "category": "space",
+      "label": "SPACE • 07",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[4/3]",
+      "img": "/images/gallery/space-7.jpg",
+      "alt": "Chai Days space 7"
+    },
+    {
+      "id": 8,
+      "category": "drinks",
+      "label": "DRINKS • 01",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[4/3]",
+      "img": "/images/gallery/drink-1.jpg",
+      "alt": "Chai Days drinks 1"
+    },
+    {
+      "id": 9,
+      "category": "drinks",
+      "label": "DRINKS • 02",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/drink-2.jpg",
+      "alt": "Chai Days drinks 2"
+    },
+    {
+      "id": 10,
+      "category": "drinks",
+      "label": "DRINKS • 03",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/drink-3.jpg",
+      "alt": "Chai Days drinks 3"
+    },
+    {
+      "id": 11,
+      "category": "drinks",
+      "label": "DRINKS • 04",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-square",
+      "img": "/images/gallery/drink-4.jpg",
+      "alt": "Chai Days drinks 4"
+    },
+    {
+      "id": 12,
+      "category": "drinks",
+      "label": "DRINKS • 05",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-square",
+      "img": "/images/gallery/drink-5.jpg",
+      "alt": "Chai Days drinks 5"
+    },
+    {
+      "id": 13,
+      "category": "drinks",
+      "label": "DRINKS • 06",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/drink-6.jpg",
+      "alt": "Chai Days drinks 6"
+    },
+    {
+      "id": 14,
+      "category": "drinks",
+      "label": "DRINKS • 07",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/drink-7.jpg",
+      "alt": "Chai Days drinks 7"
+    },
+    {
+      "id": 15,
+      "category": "drinks",
+      "label": "DRINKS • 08",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[4/3]",
+      "img": "/images/gallery/drink-8.jpg",
+      "alt": "Chai Days drinks 8"
+    },
+    {
+      "id": 16,
+      "category": "drinks",
+      "label": "DRINKS • 09",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[4/3]",
+      "img": "/images/gallery/drink-9.jpg",
+      "alt": "Chai Days drinks 9"
+    },
+    {
+      "id": 17,
+      "category": "drinks",
+      "label": "DRINKS • 10",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/drink-10.jpg",
+      "alt": "Chai Days drinks 10"
+    },
+    {
+      "id": 18,
+      "category": "drinks",
+      "label": "DRINKS • 11",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/drink-11.jpg",
+      "alt": "Chai Days drinks 11"
+    },
+    {
+      "id": 19,
+      "category": "drinks",
+      "label": "DRINKS • 12",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-square",
+      "img": "/images/gallery/drink-12.jpg",
+      "alt": "Chai Days drinks 12"
+    },
+    {
+      "id": 20,
+      "category": "drinks",
+      "label": "DRINKS • 13",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-square",
+      "img": "/images/gallery/drink-13.jpg",
+      "alt": "Chai Days drinks 13"
+    },
+    {
+      "id": 21,
+      "category": "drinks",
+      "label": "DRINKS • 14",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/drink-14.jpg",
+      "alt": "Chai Days drinks 14"
+    },
+    {
+      "id": 22,
+      "category": "drinks",
+      "label": "DRINKS • 15",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/drink-15.jpg",
+      "alt": "Chai Days drinks 15"
+    },
+    {
+      "id": 23,
+      "category": "desserts",
+      "label": "DESSERTS • 01",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[4/3]",
+      "img": "/images/gallery/dessert-1.jpg",
+      "alt": "Chai Days desserts 1"
+    },
+    {
+      "id": 24,
+      "category": "desserts",
+      "label": "DESSERTS • 02",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[4/3]",
+      "img": "/images/gallery/dessert-2.jpg",
+      "alt": "Chai Days desserts 2"
+    },
+    {
+      "id": 25,
+      "category": "desserts",
+      "label": "DESSERTS • 03",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/dessert-3.jpg",
+      "alt": "Chai Days desserts 3"
+    },
+    {
+      "id": 26,
+      "category": "desserts",
+      "label": "DESSERTS • 04",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/dessert-4.jpg",
+      "alt": "Chai Days desserts 4"
+    }
+  ]
 }
