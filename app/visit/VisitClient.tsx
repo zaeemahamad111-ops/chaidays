@@ -71,86 +71,93 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
         </div>
       </section>
 
-      {/* ── Info Cards (Mapped Outlets) ── */}
-      <section className="pb-32 px-6 md:px-16 max-w-[1440px] mx-auto space-y-32">
-        {displayOutlets.map((outlet, index) => {
-          // Parse hours (simple newlines or commas/colons depending on user input)
-          const rawHours = outlet.hours || '';
-          const hoursLines = rawHours.split('\n').filter((h: string) => h.trim() !== '');
-          const formattedHours = hoursLines.length > 0 ? hoursLines : ['Daily Service: 08:00 – 22:00'];
+      {/* ── Outlets Grid ── */}
+      <section className="pb-32 px-6 md:px-16 max-w-[1440px] mx-auto">
+        <div className={`grid grid-cols-1 gap-10 ${displayOutlets.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : 'max-w-xl'}`}>
+          {displayOutlets.map((outlet, index) => {
+            const rawHours = outlet.hours || '';
+            const hoursLines = rawHours.split('\n').filter((h: string) => h.trim() !== '');
+            const formattedHours = hoursLines.length > 0 ? hoursLines : ['Daily Service: 08:00 – 22:00'];
 
-          return (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
-              {index > 0 && <div className="absolute -top-16 left-0 right-0 h-px bg-outline-variant/50" />}
-              
-              <ScrollReveal>
-                <div className="group">
-                  <div className="mb-6 overflow-hidden rounded-xl border border-outline-variant h-48 relative">
+            return (
+              <ScrollReveal key={index} delay={index * 100}>
+                <div className="group border border-outline-variant rounded-2xl overflow-hidden bg-surface-container-low hover:shadow-xl transition-shadow duration-500">
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden">
                     <Image
-                      src={outlet.img || "/images/gallery/space-4.jpg"}
+                      src={outlet.img || '/images/gallery/space-4.jpg'}
                       alt={`${outlet.name} location`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     />
                   </div>
-                  <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.locTitle || 'Location'}</span>
-                  <h3 className="font-serif text-2xl text-primary mb-4">{outlet.name || 'Store Location'}</h3>
-                  <address className="font-sans text-sm text-on-surface-variant not-italic leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: outlet.address || 'Address not provided' }} />
-                  {outlet.mapUrl && (
-                    <a href={outlet.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-sans font-semibold text-sm hover:text-secondary transition-colors">
-                      View Map <span className="material-symbols-outlined text-[18px]">arrow_outward</span>
-                    </a>
-                  )}
-                </div>
-              </ScrollReveal>
 
-              <ScrollReveal delay={150}>
-                <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
-                  <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>pace</span>
-                </div>
-                <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.hoursTitle || 'Service Hours'}</span>
-                <h3 className="font-serif text-2xl text-primary mb-6">{contentData.hoursName || 'Opening Hours'}</h3>
-                <div className="space-y-3 font-sans text-sm text-on-surface-variant">
-                  {formattedHours.map((line: string, i: number) => {
-                    const parts = line.split(':');
-                    const day = parts[0];
-                    const time = parts.slice(1).join(':');
-                    return (
-                      <div key={i} className="flex justify-between border-b border-outline-variant pb-3">
-                        <span>{day || 'Service'}</span>
-                        <span className="text-primary font-semibold">{time || ''}</span>
+                  {/* Details */}
+                  <div className="p-7 space-y-6">
+                    {/* Name & Address */}
+                    <div>
+                      <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-secondary mb-2 block">Location</span>
+                      <h3 className="font-serif text-2xl text-primary mb-3">{outlet.name || 'Store Location'}</h3>
+                      <address className="font-sans text-sm text-on-surface-variant not-italic leading-relaxed" dangerouslySetInnerHTML={{ __html: outlet.address || 'Address not provided' }} />
+                      {outlet.mapUrl && (
+                        <a href={outlet.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-secondary font-sans font-semibold text-xs mt-3 hover:text-primary transition-colors">
+                          View on Map <span className="material-symbols-outlined text-[15px]">arrow_outward</span>
+                        </a>
+                      )}
+                    </div>
+
+                    <div className="border-t border-outline-variant/50" />
+
+                    {/* Hours */}
+                    <div>
+                      <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-secondary mb-3 block">Service Hours</span>
+                      <div className="space-y-2 font-sans text-sm text-on-surface-variant">
+                        {formattedHours.map((line: string, i: number) => {
+                          const colonIdx = line.indexOf(':');
+                          const day = colonIdx >= 0 ? line.slice(0, colonIdx) : line;
+                          const time = colonIdx >= 0 ? line.slice(colonIdx + 1).trim() : '';
+                          return (
+                            <div key={i} className="flex justify-between">
+                              <span>{day.trim()}</span>
+                              {time && <span className="text-primary font-semibold">{time}</span>}
+                            </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
-                  <p className="text-[10px] italic mt-2 opacity-70">*Hours may vary on holidays</p>
-                </div>
-              </ScrollReveal>
+                    </div>
 
-              <ScrollReveal delay={300}>
-                <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
-                  <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>contact_mail</span>
-                </div>
-                <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.contactTitle || 'Get in Touch'}</span>
-                <h3 className="font-serif text-2xl text-primary mb-6">{contentData.contactName || 'Contact'}</h3>
-                <div className="space-y-2 mb-8">
-                  <p className="font-sans text-sm text-on-surface-variant">{outlet.email || 'info@chaidays.in'}</p>
-                  <p className="font-sans text-sm text-on-surface-variant">{outlet.phone || '+91 99800 84666'}</p>
-                </div>
-                <div className="flex gap-5">
-                  <a href={`https://wa.me/${(outlet.phone || '').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
-                    <span className="material-symbols-outlined">chat_bubble</span>
-                  </a>
-                  <a href={`mailto:${outlet.email || 'info@chaidays.in'}`} className="text-primary hover:text-secondary transition-colors">
-                    <span className="material-symbols-outlined">alternate_email</span>
-                  </a>
+                    <div className="border-t border-outline-variant/50" />
+
+                    {/* Contact */}
+                    <div>
+                      <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-secondary mb-3 block">Contact</span>
+                      <div className="space-y-1 font-sans text-sm text-on-surface-variant mb-4">
+                        {outlet.email && <p>{outlet.email}</p>}
+                        {outlet.phone && <p>{outlet.phone}</p>}
+                      </div>
+                      <div className="flex gap-4">
+                        {outlet.phone && (
+                          <a href={`https://wa.me/${(outlet.phone || '').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
+                            <span className="material-symbols-outlined">chat_bubble</span>
+                          </a>
+                        )}
+                        {outlet.email && (
+                          <a href={`mailto:${outlet.email}`} className="text-primary hover:text-secondary transition-colors">
+                            <span className="material-symbols-outlined">alternate_email</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </ScrollReveal>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </section>
+
 
       {/* ── Concierge Form ── */}
       <section className="py-32 bg-surface-container-low">
