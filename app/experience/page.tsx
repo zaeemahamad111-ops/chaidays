@@ -90,38 +90,6 @@ export default async function ExperiencePage() {
         </div>
       </section>
 
-      {/* ── Pillar II: The Texture ── */}
-      <section className="py-32 bg-surface overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <ScrollReveal className="space-y-8">
-            <span className="font-sans text-[11px] tracking-widest uppercase text-secondary">{contentData.pillar2Subtitle || 'Sensory Pillar II'}</span>
-            <h2 className="font-serif text-5xl text-primary-container">{contentData.pillar2Title || 'The Texture'}</h2>
-            <div className="w-16 h-1 bg-secondary" />
-            <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-              {contentData.pillar2Desc || 'The velvety micro-foam of steamed whole milk meeting the raw, gritty finish of our custom-thrown stoneware cups. We believe the vessel is as important as the brew, offering a tactile connection to the earth.'}
-            </p>
-            <div className="flex flex-wrap gap-3 pt-4">
-              {['Hand-Thrown Stoneware', 'Velvety Microfoam', 'Organic Textiles'].map((tag) => (
-                <span key={tag} className="px-5 py-2 border border-outline rounded-full font-sans text-[11px] tracking-[0.1em] uppercase text-on-surface">{tag}</span>
-              ))}
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={200} className="relative flex justify-center">
-            <div className="w-full max-w-sm aspect-square rounded-full overflow-hidden border-[16px] border-surface-container-high shadow-xl relative group">
-              <Image 
-                src={contentData.pillar2Img || "/images/gallery/drink-1.jpg"} 
-                alt="Tactile stoneware cup texture" 
-                fill 
-                className="object-cover transition-transform duration-[2s] group-hover:scale-110" 
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-            </div>
-            <div className="absolute -z-10 -right-10 -bottom-10 w-64 h-64 bg-primary-fixed rounded-full blur-[80px] opacity-20" />
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* ── Pillar III: The Atmosphere ── */}
       <section className="py-32 bg-surface-container-high">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
