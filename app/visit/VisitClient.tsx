@@ -206,24 +206,6 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
         </div>
       </section>
 
-      {/* ── Join the Team ── */}
-      <section className="py-24 bg-surface-container-highest/20 border-t border-outline-variant/30">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 text-center">
-          <ScrollReveal className="max-w-2xl mx-auto space-y-8">
-            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary">{contentData.hiringSubtitle || 'Career Opportunities'}</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-primary">{contentData.hiringTitle || 'We\'re Hiring!'}</h2>
-            <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-              {contentData.hiringDesc || 'If helping people start their day off right makes your day, we\'re the team for you. Multiple positions available at our Bangalore locations.'}
-            </p>
-            <div className="pt-4">
-              <a href="mailto:info@chaidays.in" className="inline-block bg-primary text-white px-12 py-5 rounded-full font-sans text-[11px] tracking-widest uppercase hover:bg-secondary transition-all">
-                {contentData.hiringBtnText || 'Join the Team'}
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* ── Pull Quote ── */}
       <section className="py-32 text-center px-6">
         <ScrollReveal>
