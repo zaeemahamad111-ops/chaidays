@@ -139,12 +139,17 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
                       </div>
                       <div className="flex gap-4">
                         {outlet.phone && (
-                          <a href={`https://wa.me/${(outlet.phone || '').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
+                          <a href={`tel:${(outlet.phone || '').replace(/\s/g, '')}`} className="text-primary hover:text-secondary transition-colors" title="Call">
+                            <span className="material-symbols-outlined">call</span>
+                          </a>
+                        )}
+                        {outlet.phone && (
+                          <a href={`https://wa.me/${(outlet.phone || '').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors" title="WhatsApp">
                             <span className="material-symbols-outlined">chat_bubble</span>
                           </a>
                         )}
                         {outlet.email && (
-                          <a href={`mailto:${outlet.email}`} className="text-primary hover:text-secondary transition-colors">
+                          <a href={`mailto:${outlet.email}`} className="text-primary hover:text-secondary transition-colors" title="Email">
                             <span className="material-symbols-outlined">alternate_email</span>
                           </a>
                         )}
