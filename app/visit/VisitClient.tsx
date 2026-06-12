@@ -24,7 +24,7 @@ const jsonLd = {
   email: 'info@chaidays.in',
 };
 
-export default function VisitClient({ contentData = {} }: { contentData?: any }) {
+export default function VisitClient({ contentData = {}, outlets = [] }: { contentData?: any, outlets?: any[] }) {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -32,6 +32,17 @@ export default function VisitClient({ contentData = {} }: { contentData?: any })
     e.preventDefault();
     setSubmitted(true);
   };
+
+  // Fallback to original single layout if no outlets are defined in CMS
+  const displayOutlets = outlets && outlets.length > 0 ? outlets : [{
+    name: contentData.locName || 'Krishnappa Compound',
+    address: contentData.locAddress || 'NO.1 & 2, NO.26/10, 80 FT ROAD<br />Mangammana Palya Main Road<br />Bangalore, Karnataka 560068',
+    mapUrl: 'https://maps.google.com',
+    img: contentData.locImg || '/images/gallery/space-4.jpg',
+    email: contentData.contactEmail || 'info@chaidays.in',
+    phone: contentData.contactPhone || '+91 99800 84666',
+    hours: 'Daily Service: 08:00 – 22:00'
+  }];
 
   return (
     <>
@@ -60,67 +71,85 @@ export default function VisitClient({ contentData = {} }: { contentData?: any })
         </div>
       </section>
 
-      {/* ── Info Cards ── */}
-      <section className="pb-32 px-6 md:px-16 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-          <ScrollReveal>
-            <div className="group">
-              <div className="mb-6 overflow-hidden rounded-xl border border-outline-variant h-48 relative">
-                <Image
-                  src={contentData.locImg || "/images/gallery/space-4.jpg"}
-                  alt="Stone Harbor district location map"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.locTitle || 'Location'}</span>
-              <h3 className="font-serif text-2xl text-primary mb-4">{contentData.locName || 'Krishnappa Compound'}</h3>
-              <address className="font-sans text-sm text-on-surface-variant not-italic leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: contentData.locAddress || 'NO.1 & 2, NO.26/10, 80 FT ROAD<br />Mangammana Palya Main Road<br />Bangalore, Karnataka 560068' }} />
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-sans font-semibold text-sm hover:text-secondary transition-colors">
-                View Map <span className="material-symbols-outlined text-[18px]">arrow_outward</span>
-              </a>
-            </div>
-          </ScrollReveal>
+      {/* ── Info Cards (Mapped Outlets) ── */}
+      <section className="pb-32 px-6 md:px-16 max-w-[1440px] mx-auto space-y-32">
+        {displayOutlets.map((outlet, index) => {
+          // Parse hours (simple newlines or commas/colons depending on user input)
+          const rawHours = outlet.hours || '';
+          const hoursLines = rawHours.split('\n').filter((h: string) => h.trim() !== '');
+          const formattedHours = hoursLines.length > 0 ? hoursLines : ['Daily Service: 08:00 – 22:00'];
 
-          <ScrollReveal delay={150}>
-            <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
-              <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>pace</span>
-            </div>
-            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.hoursTitle || 'Service Hours'}</span>
-            <h3 className="font-serif text-2xl text-primary mb-6">{contentData.hoursName || 'Opening Hours'}</h3>
-            <div className="space-y-3 font-sans text-sm text-on-surface-variant">
-              {[['Daily Service', '08:00 – 22:00']].map(([day, hours]) => (
-                <div key={day} className="flex justify-between border-b border-outline-variant pb-3">
-                  <span>{day}</span>
-                  <span className="text-primary font-semibold">{hours}</span>
+          return (
+            <div key={index} className="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
+              {index > 0 && <div className="absolute -top-16 left-0 right-0 h-px bg-outline-variant/50" />}
+              
+              <ScrollReveal>
+                <div className="group">
+                  <div className="mb-6 overflow-hidden rounded-xl border border-outline-variant h-48 relative">
+                    <Image
+                      src={outlet.img || "/images/gallery/space-4.jpg"}
+                      alt={`${outlet.name} location`}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.locTitle || 'Location'}</span>
+                  <h3 className="font-serif text-2xl text-primary mb-4">{outlet.name || 'Store Location'}</h3>
+                  <address className="font-sans text-sm text-on-surface-variant not-italic leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: outlet.address || 'Address not provided' }} />
+                  {outlet.mapUrl && (
+                    <a href={outlet.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-sans font-semibold text-sm hover:text-secondary transition-colors">
+                      View Map <span className="material-symbols-outlined text-[18px]">arrow_outward</span>
+                    </a>
+                  )}
                 </div>
-              ))}
-              <p className="text-[10px] italic mt-2 opacity-70">*Hours may vary on holidays</p>
-            </div>
-          </ScrollReveal>
+              </ScrollReveal>
 
-          <ScrollReveal delay={300}>
-            <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
-              <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>contact_mail</span>
+              <ScrollReveal delay={150}>
+                <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
+                  <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>pace</span>
+                </div>
+                <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.hoursTitle || 'Service Hours'}</span>
+                <h3 className="font-serif text-2xl text-primary mb-6">{contentData.hoursName || 'Opening Hours'}</h3>
+                <div className="space-y-3 font-sans text-sm text-on-surface-variant">
+                  {formattedHours.map((line: string, i: number) => {
+                    const parts = line.split(':');
+                    const day = parts[0];
+                    const time = parts.slice(1).join(':');
+                    return (
+                      <div key={i} className="flex justify-between border-b border-outline-variant pb-3">
+                        <span>{day || 'Service'}</span>
+                        <span className="text-primary font-semibold">{time || ''}</span>
+                      </div>
+                    );
+                  })}
+                  <p className="text-[10px] italic mt-2 opacity-70">*Hours may vary on holidays</p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={300}>
+                <div className="mb-6 flex items-center justify-center border border-outline-variant h-48 rounded-xl bg-surface-container-low">
+                  <span className="material-symbols-outlined text-outline-variant" style={{ fontSize: 64 }}>contact_mail</span>
+                </div>
+                <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.contactTitle || 'Get in Touch'}</span>
+                <h3 className="font-serif text-2xl text-primary mb-6">{contentData.contactName || 'Contact'}</h3>
+                <div className="space-y-2 mb-8">
+                  <p className="font-sans text-sm text-on-surface-variant">{outlet.email || 'info@chaidays.in'}</p>
+                  <p className="font-sans text-sm text-on-surface-variant">{outlet.phone || '+91 99800 84666'}</p>
+                </div>
+                <div className="flex gap-5">
+                  <a href={`https://wa.me/${(outlet.phone || '').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
+                    <span className="material-symbols-outlined">chat_bubble</span>
+                  </a>
+                  <a href={`mailto:${outlet.email || 'info@chaidays.in'}`} className="text-primary hover:text-secondary transition-colors">
+                    <span className="material-symbols-outlined">alternate_email</span>
+                  </a>
+                </div>
+              </ScrollReveal>
             </div>
-            <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-secondary mb-3 block">{contentData.contactTitle || 'Get in Touch'}</span>
-            <h3 className="font-serif text-2xl text-primary mb-6">{contentData.contactName || 'Contact'}</h3>
-            <div className="space-y-2 mb-8">
-              <p className="font-sans text-sm text-on-surface-variant">{contentData.contactEmail || 'info@chaidays.in'}</p>
-              <p className="font-sans text-sm text-on-surface-variant">{contentData.contactPhone || '+91 99800 84666'}</p>
-            </div>
-            <div className="flex gap-5">
-              <a href="https://wa.me/919980084666" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
-                <span className="material-symbols-outlined">chat_bubble</span>
-              </a>
-              <a href="https://www.instagram.com/chaidays" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors">
-                <span className="material-symbols-outlined">alternate_email</span>
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
+          );
+        })}
       </section>
 
       {/* ── Concierge Form ── */}

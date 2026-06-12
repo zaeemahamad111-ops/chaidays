@@ -525,6 +525,16 @@ export default function CMSPage() {
                     >
                       Menu Builder
                     </button>
+                    <button
+                      onClick={() => { triggerHaptic(); setActiveTab(`global_outlets`); }}
+                      className={`w-full text-left px-4 py-3 uppercase tracking-widest text-[10px] transition-all font-mono ${
+                        activeTab === `global_outlets`
+                          ? "bg-[#ebdcd0]/30 text-[#8D4F00] border-l-2 border-[#8D4F00] font-bold"
+                          : "text-[#5e4b3c] hover:bg-[#faf5f0] hover:text-[#8D4F00]"
+                      }`}
+                    >
+                      Outlets Builder
+                    </button>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -650,6 +660,184 @@ export default function CMSPage() {
                       );
                     }
                   })}
+                </div>
+              );
+            })()}
+
+            {/* --- GLOBAL : OUTLETS TABS --- */}
+            {activeTab === "global_outlets" && (() => {
+              const outlets = data.outlets || [];
+
+              return (
+                <div className="space-y-10">
+                  <div className="bg-[#faf5f0] p-6 rounded-xl border border-[#ebdcd0]">
+                    <h3 className="font-serif text-2xl text-[#8D4F00] mb-4">Manage Outlets</h3>
+                    <p className="text-sm text-[#5e4b3c] mb-6">Add, edit, or remove store locations displayed across the site.</p>
+                    
+                    <div className="space-y-6">
+                      {outlets.map((outlet: any, index: number) => {
+                        const saveKey = `outlet_${index}`;
+                        return (
+                          <div key={index} className="bg-white border border-[#ebdcd0] p-6 rounded relative group/outlet">
+                            <div className="absolute top-3 right-3 flex items-center gap-3 opacity-0 group-hover/outlet:opacity-100 transition-opacity">
+                              {index > 0 && (
+                                <button
+                                  onClick={() => {
+                                    triggerHaptic();
+                                    const newOutlets = [...outlets];
+                                    const temp = newOutlets[index];
+                                    newOutlets[index] = newOutlets[index - 1];
+                                    newOutlets[index - 1] = temp;
+                                    const newData = { ...data, outlets: newOutlets };
+                                    setData(newData);
+                                    saveField(`move_up_outlet_${index}`, newData);
+                                  }}
+                                  className="text-[10px] text-[#8D4F00] hover:text-[#6c3c00] flex items-center gap-1 uppercase tracking-widest font-mono"
+                                >
+                                  <ArrowUp className="w-3 h-3" /> Up
+                                </button>
+                              )}
+                              {index < outlets.length - 1 && (
+                                <button
+                                  onClick={() => {
+                                    triggerHaptic();
+                                    const newOutlets = [...outlets];
+                                    const temp = newOutlets[index];
+                                    newOutlets[index] = newOutlets[index + 1];
+                                    newOutlets[index + 1] = temp;
+                                    const newData = { ...data, outlets: newOutlets };
+                                    setData(newData);
+                                    saveField(`move_down_outlet_${index}`, newData);
+                                  }}
+                                  className="text-[10px] text-[#8D4F00] hover:text-[#6c3c00] flex items-center gap-1 uppercase tracking-widest font-mono"
+                                >
+                                  <ArrowDown className="w-3 h-3" /> Down
+                                </button>
+                              )}
+                              <button
+                                onClick={() => {
+                                  triggerHaptic();
+                                  const newOutlets = outlets.filter((_: any, i: number) => i !== index);
+                                  const newData = { ...data, outlets: newOutlets };
+                                  setData(newData);
+                                  saveField(`del_outlet_${index}`, newData);
+                                }}
+                                className="text-[10px] text-red-600 hover:text-red-800 uppercase tracking-widest font-mono ml-2"
+                              >
+                                Remove
+                              </button>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                              <div className="space-y-4">
+                                <input
+                                  type="text"
+                                  placeholder="Location Name (e.g. Krishnappa Compound)"
+                                  value={outlet.name || ""}
+                                  onChange={(e) => {
+                                    const newOutlets = [...outlets];
+                                    newOutlets[index].name = e.target.value;
+                                    setData({ ...data, outlets: newOutlets });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-transparent border-b border-[#ebdcd0] p-2 text-xl font-serif text-[#3d2a1b] focus:border-[#8D4F00] focus:outline-none rounded"
+                                />
+                                <textarea
+                                  placeholder="Address (HTML <br/> allowed)"
+                                  value={outlet.address || ""}
+                                  onChange={(e) => {
+                                    const newOutlets = [...outlets];
+                                    newOutlets[index].address = e.target.value;
+                                    setData({ ...data, outlets: newOutlets });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-3 text-sm text-[#3d2a1b] focus:border-[#8D4F00] focus:outline-none min-h-[80px] resize-none rounded"
+                                />
+                                <input
+                                  type="text"
+                                  placeholder="Map Link (e.g. https://maps.google.com/...)"
+                                  value={outlet.mapUrl || ""}
+                                  onChange={(e) => {
+                                    const newOutlets = [...outlets];
+                                    newOutlets[index].mapUrl = e.target.value;
+                                    setData({ ...data, outlets: newOutlets });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-xs font-mono focus:border-[#8D4F00] focus:outline-none rounded"
+                                />
+                              </div>
+                              <div className="space-y-4">
+                                <input
+                                  type="email"
+                                  placeholder="Contact Email"
+                                  value={outlet.email || ""}
+                                  onChange={(e) => {
+                                    const newOutlets = [...outlets];
+                                    newOutlets[index].email = e.target.value;
+                                    setData({ ...data, outlets: newOutlets });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-sm focus:border-[#8D4F00] focus:outline-none rounded"
+                                />
+                                <input
+                                  type="text"
+                                  placeholder="Contact Phone"
+                                  value={outlet.phone || ""}
+                                  onChange={(e) => {
+                                    const newOutlets = [...outlets];
+                                    newOutlets[index].phone = e.target.value;
+                                    setData({ ...data, outlets: newOutlets });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-2 text-sm focus:border-[#8D4F00] focus:outline-none rounded"
+                                />
+                                <textarea
+                                  placeholder="Hours (e.g. Daily Service: 08:00 - 22:00)"
+                                  value={outlet.hours || ""}
+                                  onChange={(e) => {
+                                    const newOutlets = [...outlets];
+                                    newOutlets[index].hours = e.target.value;
+                                    setData({ ...data, outlets: newOutlets });
+                                  }}
+                                  onBlur={() => saveField(saveKey, data)}
+                                  className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-3 text-sm text-[#3d2a1b] focus:border-[#8D4F00] focus:outline-none min-h-[80px] resize-none rounded"
+                                />
+                              </div>
+                            </div>
+                            <div className="mt-4 pt-4 border-t border-[#ebdcd0]/50">
+                              {renderImageUploadField(
+                                `outlet_img_${index}`,
+                                "Location Image",
+                                outlet.img || "",
+                                (val) => {
+                                  const newOutlets = [...outlets];
+                                  newOutlets[index].img = val;
+                                  setData({ ...data, outlets: newOutlets });
+                                },
+                                () => saveField(`outlet_img_${index}`, data)
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                      
+                      <button
+                        onClick={() => {
+                          triggerHaptic();
+                          const newOutlets = [
+                            ...outlets,
+                            { id: `new-outlet-${Date.now()}`, name: "New Location", address: "", mapUrl: "", email: "", phone: "", hours: "", img: "" }
+                          ];
+                          const newData = { ...data, outlets: newOutlets };
+                          setData(newData);
+                          saveField("add_outlet", newData);
+                        }}
+                        className="w-full border-2 border-dashed border-[#8D4F00]/30 hover:border-[#8D4F00] text-[#8D4F00] p-4 flex items-center justify-center gap-2 font-mono uppercase tracking-widest text-xs transition-colors rounded"
+                      >
+                        + Add New Outlet
+                      </button>
+                    </div>
+                  </div>
                 </div>
               );
             })()}

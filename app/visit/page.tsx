@@ -21,12 +21,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function VisitPage() {
   let contentData: any = {};
+  let outlets: any[] = [];
   try {
     const data = await getSiteData();
     contentData = data?.pages?.visit?.content || {};
+    outlets = data?.outlets || [];
   } catch (e) {
     console.error(e);
   }
 
-  return <VisitClient contentData={contentData} />;
+  return <VisitClient contentData={contentData} outlets={outlets} />;
 }
