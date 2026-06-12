@@ -545,6 +545,16 @@ export default function CMSPage() {
                     >
                       Outlets Builder
                     </button>
+                    <button
+                      onClick={() => { triggerHaptic(); setActiveTab(`global_socials`); }}
+                      className={`w-full text-left px-4 py-3 uppercase tracking-widest text-[10px] transition-all font-mono ${
+                        activeTab === `global_socials`
+                          ? "bg-[#ebdcd0]/30 text-[#8D4F00] border-l-2 border-[#8D4F00] font-bold"
+                          : "text-[#5e4b3c] hover:bg-[#faf5f0] hover:text-[#8D4F00]"
+                      }`}
+                    >
+                      Social Links
+                    </button>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -1022,6 +1032,46 @@ export default function CMSPage() {
                       </button>
                     </div>
                   </div>
+                </div>
+              );
+            })()}
+            {/* --- GLOBAL : SOCIALS --- */}
+            {activeTab === "global_socials" && (() => {
+              const socials = data.socials || {};
+              const setSocials = (field: string, value: string) => {
+                setData({ ...data, socials: { ...socials, [field]: value } });
+              };
+
+              return (
+                <div className="space-y-6">
+                  {renderField(
+                    "global_social_instagram",
+                    "Instagram URL",
+                    socials.instagram || "",
+                    (val) => setSocials("instagram", val),
+                    () => saveField('global_social_instagram', data)
+                  )}
+                  {renderField(
+                    "global_social_linkedin",
+                    "LinkedIn URL",
+                    socials.linkedin || "",
+                    (val) => setSocials("linkedin", val),
+                    () => saveField('global_social_linkedin', data)
+                  )}
+                  {renderField(
+                    "global_social_whatsapp",
+                    "WhatsApp Number (include country code e.g. 919980084666)",
+                    socials.whatsapp || "",
+                    (val) => setSocials("whatsapp", val),
+                    () => saveField('global_social_whatsapp', data)
+                  )}
+                  {renderField(
+                    "global_social_facebook",
+                    "Facebook URL",
+                    socials.facebook || "",
+                    (val) => setSocials("facebook", val),
+                    () => saveField('global_social_facebook', data)
+                  )}
                 </div>
               );
             })()}

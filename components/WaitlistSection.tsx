@@ -106,20 +106,37 @@ const GradientBars: React.FC = () => {
   );
 };
 
-export default function WaitlistSection() {
+export default function WaitlistSection({ socials, outlets }: { socials?: any, outlets?: any[] }) {
+  const defaultSocials = {
+    instagram: "https://www.instagram.com/chaidays",
+    linkedin: "https://www.linkedin.com/company/chaidays",
+    whatsapp: "https://wa.me/919980084666",
+    facebook: "#"
+  };
+  const currentSocials = { ...defaultSocials, ...socials };
+  
+  const primaryOutlet = outlets && outlets.length > 0 ? outlets[0] : null;
+
   return (
     <section className="relative flex flex-col items-center px-6 sm:px-8 md:px-16 overflow-hidden">
       <GradientBars />
       
       <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col items-center pt-24 pb-8 text-left">
         <ScrollReveal delay={100} className="flex justify-center space-x-8 mb-16">
-          <a href="https://www.instagram.com/chaidays" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-secondary transition-colors duration-300">
+          <a href={currentSocials.instagram} target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-secondary transition-colors duration-300">
             <Instagram className="w-5 h-5 sm:w-[24px] sm:h-[24px]" />
           </a>
-          <a href="https://www.linkedin.com/company/chaidays" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-secondary transition-colors duration-300">
+          <a href={currentSocials.linkedin} target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-secondary transition-colors duration-300">
             <Linkedin className="w-5 h-5 sm:w-[24px] sm:h-[24px]" />
           </a>
-          <a href="https://wa.me/919980084666" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-secondary transition-colors duration-300">
+          {currentSocials.facebook && currentSocials.facebook !== "#" && (
+            <a href={currentSocials.facebook} target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-secondary transition-colors duration-300">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-[24px] sm:h-[24px]">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          )}
+          <a href={currentSocials.whatsapp?.startsWith("http") ? currentSocials.whatsapp : `https://wa.me/${currentSocials.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-secondary transition-colors duration-300">
             <span className="material-symbols-outlined text-[20px] sm:text-[24px]">chat_bubble</span>
           </a>
         </ScrollReveal>
@@ -159,11 +176,21 @@ export default function WaitlistSection() {
             {/* Support */}
             <div className="md:col-span-4">
               <h4 className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-primary mb-6">Visit Us</h4>
-              <p className="font-sans text-sm text-on-surface-variant leading-relaxed mb-4">
-                NO.1 & 2, NO.26/10, 80 FT ROAD, KRISHNAPPA COMPOUND, BANGALORE - 560068
-              </p>
-              <p className="font-sans text-sm text-on-surface-variant mb-2">info@chaidays.in</p>
-              <p className="font-sans text-sm text-on-surface-variant">+91 99800 84666</p>
+              {primaryOutlet ? (
+                <>
+                  <address className="font-sans text-sm text-on-surface-variant leading-relaxed mb-4 not-italic" dangerouslySetInnerHTML={{ __html: primaryOutlet.address }} />
+                  {primaryOutlet.email && <p className="font-sans text-sm text-on-surface-variant mb-2"><a href={`mailto:${primaryOutlet.email}`} className="hover:text-primary transition-colors">{primaryOutlet.email}</a></p>}
+                  {primaryOutlet.phone && <p className="font-sans text-sm text-on-surface-variant"><a href={`tel:${primaryOutlet.phone}`} className="hover:text-primary transition-colors">{primaryOutlet.phone}</a></p>}
+                </>
+              ) : (
+                <>
+                  <p className="font-sans text-sm text-on-surface-variant leading-relaxed mb-4">
+                    NO.1 & 2, NO.26/10, 80 FT ROAD, KRISHNAPPA COMPOUND, BANGALORE - 560068
+                  </p>
+                  <p className="font-sans text-sm text-on-surface-variant mb-2">info@chaidays.in</p>
+                  <p className="font-sans text-sm text-on-surface-variant">+91 99800 84666</p>
+                </>
+              )}
             </div>
           </div>
 
