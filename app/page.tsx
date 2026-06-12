@@ -33,11 +33,13 @@ const signatureItems = [
 export default async function HomePage() {
   let heroData = undefined;
   let contentData: any = {};
+  let outlets: any[] = [];
   try {
     const data = await getSiteData();
     if (data) {
       if (data.hero) heroData = data.hero;
       contentData = data.pages?.home?.content || {};
+      outlets = data.outlets || [];
     }
   } catch (error) {
     console.error("Error loading home data:", error);
@@ -261,25 +263,51 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
             <ScrollReveal className="space-y-10">
               <h2 className="font-serif text-4xl md:text-5xl text-primary">Inhabit Our World</h2>
-              <div className="space-y-10 border-l border-outline-variant pl-8">
-                <div>
-                  <h4 className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant mb-2">Location</h4>
-                  <p className="font-serif text-2xl text-primary">
-                    124 Ritual Lane, Spiced Quarter<br />London, EC1V 4PW
-                  </p>
+              {outlets.length > 0 ? (
+                <div className="space-y-10 border-l border-outline-variant pl-8">
+                  <div>
+                    <h4 className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant mb-2">Location</h4>
+                    <h3 className="font-serif text-2xl text-primary mb-2">{outlets[0].name}</h3>
+                    <address className="font-sans text-base text-on-surface-variant not-italic" dangerouslySetInnerHTML={{ __html: outlets[0].address }} />
+                  </div>
+                  <div>
+                    <h4 className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant mb-3">Opening Hours</h4>
+                    <div className="space-y-2 font-sans text-base text-on-surface">
+                      {(outlets[0].hours || '').split('\n').filter(Boolean).map((line: string, i: number) => {
+                        const colonIdx = line.indexOf(':');
+                        const day = colonIdx >= 0 ? line.slice(0, colonIdx) : line;
+                        const time = colonIdx >= 0 ? line.slice(colonIdx + 1).trim() : '';
+                        return (
+                          <div key={i} className="flex justify-between max-w-xs">
+                            <span>{day.trim()}</span>
+                            {time && <span className="font-semibold text-primary">{time}</span>}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant mb-3">Opening Hours</h4>
-                  <ul className="font-sans text-base text-on-surface space-y-2">
-                    {[['Mon — Fri', '07:00 — 19:00'], ['Saturday', '08:00 — 20:00'], ['Sunday', '09:00 — 18:00']].map(([day, hours]) => (
-                      <li key={day} className="flex justify-between max-w-xs">
-                        <span>{day}</span>
-                        <span className="font-semibold text-primary">{hours}</span>
-                      </li>
-                    ))}
-                  </ul>
+              ) : (
+                <div className="space-y-10 border-l border-outline-variant pl-8">
+                  <div>
+                    <h4 className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant mb-2">Location</h4>
+                    <p className="font-serif text-2xl text-primary">
+                      124 Ritual Lane, Spiced Quarter<br />London, EC1V 4PW
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant mb-3">Opening Hours</h4>
+                    <ul className="font-sans text-base text-on-surface space-y-2">
+                      {[['Mon — Fri', '07:00 — 19:00'], ['Saturday', '08:00 — 20:00'], ['Sunday', '09:00 — 18:00']].map(([day, hours]) => (
+                        <li key={day} className="flex justify-between max-w-xs">
+                          <span>{day}</span>
+                          <span className="font-semibold text-primary">{hours}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              )}
               <Link
                 href="/visit"
                 className="inline-flex items-center gap-2 bg-secondary text-white px-8 py-4 rounded-full font-sans text-[11px] font-semibold tracking-[0.15em] uppercase hover:bg-[#6b3b00] transition-colors duration-300"
@@ -289,17 +317,24 @@ export default async function HomePage() {
             </ScrollReveal>
             <ScrollReveal delay={200} className="aspect-square bg-surface-container-high relative overflow-hidden group">
               <Image
-                src="/images/gallery/space-7.jpg"
+                src={outlets.length > 0 && outlets[0].img ? outlets[0].img : "/images/gallery/space-7.jpg"}
                 alt="View on map — Chai Days location"
                 fill
                 className="object-cover opacity-60 transition-transform duration-[2s] group-hover:scale-110"
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-primary/40 pointer-events-none">
-                <span className="material-symbols-outlined text-6xl mb-2">explore</span>
-                <p className="font-sans text-[11px] tracking-[0.2em] uppercase">View on Map</p>
-              </div>
+              {outlets.length > 0 && outlets[0].mapUrl ? (
+                <a href={outlets[0].mapUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex flex-col items-center justify-center text-primary/40 hover:text-primary transition-colors cursor-pointer">
+                  <span className="material-symbols-outlined text-6xl mb-2 drop-shadow-md">explore</span>
+                  <p className="font-sans text-[11px] tracking-[0.2em] uppercase drop-shadow-md">View on Map</p>
+                </a>
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-primary/40 pointer-events-none">
+                  <span className="material-symbols-outlined text-6xl mb-2 drop-shadow-md">explore</span>
+                  <p className="font-sans text-[11px] tracking-[0.2em] uppercase drop-shadow-md">View on Map</p>
+                </div>
+              )}
             </ScrollReveal>
           </div>
         </div>
