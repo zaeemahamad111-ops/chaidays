@@ -22,10 +22,13 @@ export async function POST(request: Request) {
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}.${fileExt}`;
     const filePath = `uploads/${fileName}`;
 
-    // Upload to Supabase Storage (passing the File object directly)
+    // Convert file to ArrayBuffer to avoid Node fetch stream errors with File/Buffer objects
+    const arrayBuffer = await file.arrayBuffer();
+
+    // Upload to Supabase Storage
     const { data, error } = await supabase.storage
       .from('chaidays-media')
-      .upload(filePath, file, {
+      .upload(filePath, arrayBuffer, {
         contentType: file.type,
         upsert: false
       });
