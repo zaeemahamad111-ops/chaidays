@@ -1108,18 +1108,54 @@ export default function CMSPage() {
                       initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                       className="bg-white border border-[#ebdcd0] p-6 md:p-8 space-y-6 shadow-sm rounded-xl relative group"
                     >
-                      <button
-                        onClick={() => {
-                          triggerHaptic();
-                          const newMenu = data.menu.filter((_: any, i: number) => i !== catIndex);
-                          const newData = { ...data, menu: newMenu };
-                          setData(newData);
-                          saveField(`del_cat_${catIndex}`, newData);
-                        }}
-                        className="absolute top-6 right-6 text-[10px] text-red-600 hover:text-red-800 uppercase tracking-widest font-mono opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        Delete Category
-                      </button>
+                      <div className="absolute top-6 right-6 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        {catIndex > 0 && (
+                          <button
+                            onClick={() => {
+                              triggerHaptic();
+                              const newMenu = [...data.menu];
+                              const temp = newMenu[catIndex - 1];
+                              newMenu[catIndex - 1] = newMenu[catIndex];
+                              newMenu[catIndex] = temp;
+                              const newData = { ...data, menu: newMenu };
+                              setData(newData);
+                              saveField(`move_cat_up_${catIndex}`, newData);
+                            }}
+                            className="text-[10px] text-[#8D4F00] hover:text-[#5e4b3c] uppercase tracking-widest font-mono flex items-center gap-1"
+                          >
+                            <span className="material-symbols-outlined text-[14px]">arrow_upward</span> UP
+                          </button>
+                        )}
+                        {catIndex < data.menu.length - 1 && (
+                          <button
+                            onClick={() => {
+                              triggerHaptic();
+                              const newMenu = [...data.menu];
+                              const temp = newMenu[catIndex + 1];
+                              newMenu[catIndex + 1] = newMenu[catIndex];
+                              newMenu[catIndex] = temp;
+                              const newData = { ...data, menu: newMenu };
+                              setData(newData);
+                              saveField(`move_cat_down_${catIndex}`, newData);
+                            }}
+                            className="text-[10px] text-[#8D4F00] hover:text-[#5e4b3c] uppercase tracking-widest font-mono flex items-center gap-1"
+                          >
+                            <span className="material-symbols-outlined text-[14px]">arrow_downward</span> DOWN
+                          </button>
+                        )}
+                        <button
+                          onClick={() => {
+                            triggerHaptic();
+                            const newMenu = data.menu.filter((_: any, i: number) => i !== catIndex);
+                            const newData = { ...data, menu: newMenu };
+                            setData(newData);
+                            saveField(`del_cat_${catIndex}`, newData);
+                          }}
+                          className="text-[10px] text-red-600 hover:text-red-800 uppercase tracking-widest font-mono ml-2"
+                        >
+                          Delete
+                        </button>
+                      </div>
 
                       <div className="flex flex-col">
                         <label className="text-xs uppercase tracking-wider text-[#8D4F00] font-serif italic mb-2">Category Name</label>
