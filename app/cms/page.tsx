@@ -230,7 +230,13 @@ export default function CMSPage() {
             body: formData,
           });
           
-          const data = await res.json();
+          let data;
+          try {
+            data = await res.json();
+          } catch (e) {
+            // Vercel returns 413 Payload Too Large as HTML, breaking res.json()
+            throw new Error(res.status === 413 ? "Image is too large. Vercel allows a maximum of 4.5MB per upload. Please compress your image." : "Server returned an invalid response. Image might be too large.");
+          }
           
           if (!res.ok) {
             throw new Error(data.error || 'Upload failed');
