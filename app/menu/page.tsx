@@ -86,12 +86,17 @@ export default async function MenuPage() {
 
       {/* Sticky category nav */}
       <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-5 flex flex-wrap justify-center gap-8">
-          {menuData.map((cat: any) => (
-            <a key={cat.category} href={`#${cat.category.toLowerCase().replace(/\s+/g, '-')}`} className="font-sans text-[11px] tracking-[0.15em] uppercase text-on-surface-variant hover:text-secondary transition-colors animated-link">
-              {cat.category}
-            </a>
-          ))}
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-4">
+          <div className="flex items-center gap-6 overflow-x-auto flex-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
+            {menuData.map((cat: any) => (
+              <a key={cat.category} href={`#${cat.category.toLowerCase().replace(/\s+/g, '-')}`} className="snap-start shrink-0 font-sans text-[11px] font-semibold tracking-[0.15em] uppercase text-on-surface-variant hover:text-secondary transition-colors animated-link whitespace-nowrap">
+                {cat.category}
+              </a>
+            ))}
+            <div className="md:hidden shrink-0 pl-2 opacity-50 flex items-center animate-pulse">
+              <span className="material-symbols-outlined text-[14px]">arrow_forward_ios</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -110,12 +115,12 @@ export default async function MenuPage() {
               )}
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-10 md:gap-10">
               {category.items.map((item: any, i: number) => (
                 <ScrollReveal key={item.id || item.name} delay={(i % 3) * 100}>
                   <div className="group cursor-default h-full flex flex-col">
                     {item.img ? (
-                      <div className="aspect-[4/3] overflow-hidden rounded-xl mb-6 bg-surface-container-low">
+                      <div className="aspect-[4/3] overflow-hidden rounded-xl mb-4 md:mb-6 bg-surface-container-low">
                         <Image 
                           src={item.img} 
                           alt={item.name} 
@@ -123,19 +128,19 @@ export default async function MenuPage() {
                           height={375} 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
                           loading="lazy"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          sizes="(max-width: 768px) 50vw, 33vw"
                         />
                       </div>
                     ) : (
-                      <div className="aspect-[4/3] rounded-xl mb-6 bg-surface-container-lowest border border-dashed border-outline-variant/30 flex items-center justify-center">
-                         <span className="font-sans text-[10px] text-on-surface-variant/40 tracking-[0.2em] uppercase">Coming Soon</span>
+                      <div className="aspect-[4/3] rounded-xl mb-4 md:mb-6 bg-surface-container-lowest border border-dashed border-outline-variant/30 flex items-center justify-center">
+                         <span className="font-sans text-[8px] md:text-[10px] text-on-surface-variant/40 tracking-[0.2em] uppercase text-center px-2">Coming Soon</span>
                       </div>
                     )}
-                    <div className="flex justify-between items-baseline mb-2">
-                      <h4 className="font-serif text-2xl text-primary group-hover:text-secondary transition-colors">{item.name}</h4>
-                      {item.tag && <span className="font-sans text-[10px] text-secondary tracking-widest px-3 py-1 border border-secondary rounded-full ml-4 flex-shrink-0">{item.tag}</span>}
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2 gap-1.5 md:gap-0">
+                      <h4 className="font-serif text-[17px] md:text-2xl text-primary group-hover:text-secondary transition-colors leading-tight">{item.name}</h4>
+                      {item.tag && <span className="font-sans text-[8px] md:text-[10px] text-secondary tracking-widest px-2 py-0.5 md:px-3 md:py-1 border border-secondary rounded-full flex-shrink-0 self-start md:self-auto md:ml-4">{item.tag}</span>}
                     </div>
-                    <p className="font-sans text-sm text-on-surface-variant leading-relaxed flex-grow">{item.desc}</p>
+                    <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
                   </div>
                 </ScrollReveal>
               ))}
