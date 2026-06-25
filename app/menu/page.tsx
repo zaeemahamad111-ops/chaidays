@@ -85,17 +85,18 @@ export default async function MenuPage() {
       </section>
 
       {/* Sticky category nav */}
-      <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-4">
-          <div className="flex items-center gap-6 overflow-x-auto flex-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
+      <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30 relative">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-4 relative">
+          <div className="flex items-center gap-6 overflow-x-auto flex-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory pr-10">
             {menuData.map((cat: any) => (
               <a key={cat.category} href={`#${cat.category.toLowerCase().replace(/\s+/g, '-')}`} className="snap-start shrink-0 font-sans text-[11px] font-semibold tracking-[0.15em] uppercase text-on-surface-variant hover:text-secondary transition-colors animated-link whitespace-nowrap">
                 {cat.category}
               </a>
             ))}
-            <div className="md:hidden shrink-0 pl-2 opacity-50 flex items-center animate-pulse">
-              <span className="material-symbols-outlined text-[14px]">arrow_forward_ios</span>
-            </div>
+          </div>
+          {/* Mobile scroll hint */}
+          <div className="md:hidden absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none flex items-center justify-end pr-4">
+            <span className="material-symbols-outlined text-secondary animate-pulse text-[18px]">arrow_forward</span>
           </div>
         </div>
       </div>
