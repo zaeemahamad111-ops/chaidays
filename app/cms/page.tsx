@@ -1318,6 +1318,21 @@ export default function CMSPage() {
                                     onBlur={() => saveField(itemSaveKey, data)}
                                     className="w-full bg-white border border-[#ebdcd0] p-2 text-xs text-[#8D4F00] font-mono tracking-wider focus:border-[#8D4F00] focus:outline-none rounded"
                                   />
+                                  <label className="flex items-center gap-2 mt-2 cursor-pointer">
+                                    <input
+                                      type="checkbox"
+                                      checked={!!item.isSignature}
+                                      onChange={(e) => {
+                                        const newMenu = [...data.menu];
+                                        newMenu[catIndex].items[itemIndex].isSignature = e.target.checked;
+                                        const newData = { ...data, menu: newMenu };
+                                        setData(newData);
+                                        saveField(itemSaveKey, newData);
+                                      }}
+                                      className="accent-[#8D4F00] w-4 h-4 cursor-pointer"
+                                    />
+                                    <span className="text-[10px] uppercase tracking-wider text-[#8D4F00] font-mono font-bold">Feature on Home Page</span>
+                                  </label>
                                 </div>
                                 <div className="flex flex-col gap-4">
                                   <textarea

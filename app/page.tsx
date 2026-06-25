@@ -34,16 +34,24 @@ export default async function HomePage() {
   let heroData = undefined;
   let contentData: any = {};
   let outlets: any[] = [];
+  let dynamicSignatureItems: any[] = [];
   try {
     const data = await getSiteData();
     if (data) {
       if (data.hero) heroData = data.hero;
       contentData = data.pages?.home?.content || {};
       outlets = data.outlets || [];
+      
+      if (data.menu) {
+        const allItems = data.menu.flatMap((cat: any) => cat.items || []);
+        dynamicSignatureItems = allItems.filter((item: any) => item.isSignature).slice(0, 3);
+      }
     }
   } catch (error) {
     console.error("Error loading home data:", error);
   }
+
+  const finalSignatureItems = dynamicSignatureItems.length > 0 ? dynamicSignatureItems : signatureItems;
 
   return (
     <>
@@ -144,19 +152,19 @@ export default async function HomePage() {
             </ScrollReveal>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {signatureItems.map((item, i) => (
+            {finalSignatureItems.map((item: any, i: number) => (
               <ScrollReveal key={item.name} delay={i * 150} className={i === 1 ? 'md:mt-12' : i === 2 ? 'md:mt-24' : ''}>
                 <div className="group card-hover">
                   <div className="aspect-[3/4] overflow-hidden mb-6 bg-surface-container">
-                    <Image
-                      src={item.img}
-                      alt={item.name}
-                      width={500}
-                      height={667}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                      loading="lazy"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
+                      <Image
+                        src={item.img || '/images/signature-1.jpg'}
+                        alt={item.name}
+                        width={500}
+                        height={667}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
                   </div>
                   <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-on-surface-variant mb-2 block">
                     {item.tag}
