@@ -177,6 +177,31 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── Awards & Recognition (Home) ── */}
+      <section className="py-24 bg-[#ebdcd0] border-y border-[#d9c4b1] overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 text-center">
+          <ScrollReveal>
+            <span className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-secondary mb-4 block">Celebrated & Recognized</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-primary mb-16">Our Achievements</h2>
+          </ScrollReveal>
+          <div className="flex flex-wrap justify-center gap-10 md:gap-16">
+            {[
+              { icon: '🏆', title: 'Tea Café of the Year', org: 'Restaurant Awards 2023' },
+              { icon: '🏆', title: "Bengaluru's Best Tea Café", org: 'Food Connoisseurs India' },
+              { icon: '⭐', title: 'Certificate of Excellence', org: 'Food Connoisseurs India' },
+              { icon: '🏅', title: 'Industry Recognition', org: 'Restaurant Awards 2023' },
+              { icon: '🚀', title: '50,000+ Online Orders', org: 'Zomato Milestone' }
+            ].map((award, i) => (
+              <ScrollReveal key={award.title} delay={i * 100} className="flex flex-col items-center max-w-[180px]">
+                <span className="text-3xl mb-4 block">{award.icon}</span>
+                <h3 className="font-serif text-lg text-primary mb-2 leading-tight">{award.title}</h3>
+                <p className="font-sans text-[9px] tracking-[0.1em] uppercase text-on-surface-variant">{award.org}</p>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Gallery Glimpses ── */}
       <section className="py-32 bg-surface">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
