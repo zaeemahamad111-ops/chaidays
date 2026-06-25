@@ -116,18 +116,23 @@ export default async function AboutPage() {
           </ScrollReveal>
           <div className="space-y-12">
             {[
-              { icon: 'workspace_premium', title: 'Tea Café of the Year', org: 'Restaurant Awards 2023', desc: 'Awarded to Chai Days as Tea Café of the Year, recognizing excellence in tea craftsmanship, customer experience, and innovation in the café industry.' },
-              { icon: 'military_tech', title: 'Best Tea Café of the Year – Bengaluru', org: 'Food Connoisseurs India Awards', desc: "A prestigious recognition celebrating Chai Days as Bengaluru's Best Tea Café, honoring exceptional quality, hospitality, and consistency." },
-              { icon: 'verified', title: 'Certificate of Excellence', org: 'Food Connoisseurs India Awards', desc: 'Presented to Chai Days for maintaining outstanding standards in food, beverages, service, and overall guest satisfaction.' },
-              { icon: 'stars', title: 'Restaurant Awards Recognition', org: 'Restaurant Awards 2023', desc: "Industry recognition celebrating Chai Days' contribution to India's growing specialty café culture and premium tea experience." },
-              { icon: 'trending_up', title: 'Zomato Milestone Award', org: '50,000+ Online Orders', desc: 'A milestone celebrating over 50,000 successful online orders, reflecting the trust and loyalty of customers who continue to choose Chai Days every day.' }
+              { icon: 'workspace_premium', title: 'Tea Café of the Year', org: 'Restaurant Awards 2023', desc: 'Awarded to Chai Days as Tea Café of the Year, recognizing excellence in tea craftsmanship, customer experience, and innovation in the café industry.', img: '/images/awards/award-1.png' },
+              { icon: 'military_tech', title: 'Best Tea Café of the Year – Bengaluru', org: 'Food Connoisseurs India Awards', desc: "A prestigious recognition celebrating Chai Days as Bengaluru's Best Tea Café, honoring exceptional quality, hospitality, and consistency.", img: '/images/awards/award-2.jpg' },
+              { icon: 'verified', title: 'Certificate of Excellence', org: 'Food Connoisseurs India Awards', desc: 'Presented to Chai Days for maintaining outstanding standards in food, beverages, service, and overall guest satisfaction.', img: '/images/awards/award-3.jpg' },
+              { icon: 'stars', title: 'Restaurant Awards Recognition', org: 'Restaurant Awards 2023', desc: "Industry recognition celebrating Chai Days' contribution to India's growing specialty café culture and premium tea experience.", img: '/images/awards/award-4.jpg' },
+              { icon: 'trending_up', title: 'Zomato Milestone Award', org: '50,000+ Online Orders', desc: 'A milestone celebrating over 50,000 successful online orders, reflecting the trust and loyalty of customers who continue to choose Chai Days every day.', img: '/images/awards/award-5.jpg' }
             ].map((award, i) => (
               <ScrollReveal key={award.title} delay={i * 100}>
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 items-center bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-outline-variant/20 hover:shadow-md transition-shadow">
                   <div className="md:col-span-5 lg:col-span-4">
-                    <div className="aspect-[4/3] bg-surface border-2 border-dashed border-outline-variant/50 flex flex-col items-center justify-center rounded-xl text-on-surface-variant gap-3 hover:border-secondary/30 transition-colors">
-                      <span className="material-symbols-outlined text-4xl opacity-50">image</span>
-                      <span className="font-sans text-[9px] tracking-widest uppercase opacity-50">Image Placeholder</span>
+                    <div className="aspect-[4/3] relative rounded-xl overflow-hidden shadow-sm">
+                      <Image
+                        src={award.img}
+                        alt={award.title}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
                     </div>
                   </div>
                   <div className="md:col-span-7 lg:col-span-8 space-y-4">
