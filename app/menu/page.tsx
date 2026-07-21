@@ -141,7 +141,8 @@ export default async function MenuPage() {
                 const items = groupedItems[subcat];
                 const hasImages = items.some((item: any) => !!item.img);
                 const hasDesc = items.some((item: any) => !!item.desc);
-                const isDenseList = !hasImages && !hasDesc;
+                // Only use the dense list (no image frames, with icons) for Hot Beverages
+                const isDenseList = category.category === "Hot Beverages" && !hasImages && !hasDesc;
 
                 return (
                   <div key={subcat} className={sIdx > 0 ? "mt-20" : ""}>
