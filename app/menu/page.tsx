@@ -137,41 +137,64 @@ export default async function MenuPage() {
               const subcategories = Object.keys(groupedItems);
               const showHeaders = subcategories.length > 1 || (subcategories.length === 1 && subcategories[0] !== "Other");
               
-              return subcategories.map((subcat, sIdx) => (
-                <div key={subcat} className={sIdx > 0 ? "mt-20" : ""}>
-                  {showHeaders && (
-                    <ScrollReveal>
-                      <h3 className="font-serif text-3xl md:text-4xl text-primary mb-8 border-b border-outline-variant/30 pb-4">{subcat}</h3>
-                    </ScrollReveal>
-                  )}
-                  <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-10 md:gap-10">
-                    {groupedItems[subcat].map((item: any, i: number) => (
-                      <ScrollReveal key={item.id || item.name} delay={(i % 3) * 100}>
-                        <div className="group cursor-default h-full flex flex-col">
-                          {item.img && (
-                            <div className="aspect-[4/3] overflow-hidden rounded-xl mb-4 md:mb-6 bg-surface-container-low">
-                              <Image 
-                                src={item.img} 
-                                alt={item.name} 
-                                width={500} 
-                                height={375} 
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
-                                loading="lazy"
-                                sizes="(max-width: 768px) 50vw, 33vw"
-                              />
-                            </div>
-                          )}
-                          <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2 gap-1.5 md:gap-0">
-                            <h4 className="font-serif text-[17px] md:text-2xl text-primary group-hover:text-secondary transition-colors leading-tight">{item.name}</h4>
-                            {item.tag && <span className="font-sans text-[8px] md:text-[10px] text-secondary tracking-widest px-2 py-0.5 md:px-3 md:py-1 border border-secondary rounded-full flex-shrink-0 self-start md:self-auto md:ml-4">{item.tag}</span>}
-                          </div>
-                          <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
-                        </div>
+              return subcategories.map((subcat, sIdx) => {
+                const items = groupedItems[subcat];
+                const hasImages = items.some((item: any) => !!item.img);
+                const hasDesc = items.some((item: any) => !!item.desc);
+                const isDenseList = !hasImages && !hasDesc;
+
+                return (
+                  <div key={subcat} className={sIdx > 0 ? "mt-20" : ""}>
+                    {showHeaders && (
+                      <ScrollReveal>
+                        <h3 className="font-serif text-3xl md:text-4xl text-primary mb-8 border-b border-outline-variant/30 pb-4">{subcat}</h3>
                       </ScrollReveal>
-                    ))}
+                    )}
+                    
+                    {isDenseList ? (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
+                        {items.map((item: any, i: number) => (
+                          <ScrollReveal key={item.id || item.name} delay={(i % 3) * 50}>
+                            <div className="flex justify-between items-end border-b border-outline-variant/20 pb-2 group hover:border-secondary/40 transition-colors cursor-default">
+                              <h4 className="font-serif text-lg md:text-xl text-primary group-hover:text-secondary transition-colors">{item.name}</h4>
+                              {item.tag && <span className="font-sans text-[9px] md:text-[10px] text-secondary tracking-widest px-2 py-0.5 border border-secondary/50 rounded-full flex-shrink-0 ml-4 group-hover:border-secondary transition-colors">{item.tag}</span>}
+                            </div>
+                          </ScrollReveal>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-10 md:gap-10">
+                        {items.map((item: any, i: number) => (
+                          <ScrollReveal key={item.id || item.name} delay={(i % 3) * 100}>
+                            <div className="group cursor-default h-full flex flex-col">
+                              {item.img && (
+                                <div className="aspect-[4/3] overflow-hidden rounded-xl mb-4 md:mb-6 bg-surface-container-low">
+                                  <Image 
+                                    src={item.img} 
+                                    alt={item.name} 
+                                    width={500} 
+                                    height={375} 
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+                                    loading="lazy"
+                                    sizes="(max-width: 768px) 50vw, 33vw"
+                                  />
+                                </div>
+                              )}
+                              <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2 gap-1.5 md:gap-0">
+                                <h4 className="font-serif text-[17px] md:text-2xl text-primary group-hover:text-secondary transition-colors leading-tight">{item.name}</h4>
+                                {item.tag && <span className="font-sans text-[8px] md:text-[10px] text-secondary tracking-widest px-2 py-0.5 md:px-3 md:py-1 border border-secondary rounded-full flex-shrink-0 self-start md:self-auto md:ml-4">{item.tag}</span>}
+                              </div>
+                              {item.desc && (
+                                <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
+                              )}
+                            </div>
+                          </ScrollReveal>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
-              ));
+                );
+              });
             })()}
           </div>
         </section>
