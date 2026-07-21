@@ -116,32 +116,63 @@ export default async function MenuPage() {
               )}
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-10 md:gap-10">
-              {category.items.map((item: any, i: number) => (
-                <ScrollReveal key={item.id || item.name} delay={(i % 3) * 100}>
-                  <div className="group cursor-default h-full flex flex-col">
-                    {item.img && (
-                      <div className="aspect-[4/3] overflow-hidden rounded-xl mb-4 md:mb-6 bg-surface-container-low">
-                        <Image 
-                          src={item.img} 
-                          alt={item.name} 
-                          width={500} 
-                          height={375} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
-                          loading="lazy"
-                          sizes="(max-width: 768px) 50vw, 33vw"
-                        />
-                      </div>
-                    )}
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2 gap-1.5 md:gap-0">
-                      <h4 className="font-serif text-[17px] md:text-2xl text-primary group-hover:text-secondary transition-colors leading-tight">{item.name}</h4>
-                      {item.tag && <span className="font-sans text-[8px] md:text-[10px] text-secondary tracking-widest px-2 py-0.5 md:px-3 md:py-1 border border-secondary rounded-full flex-shrink-0 self-start md:self-auto md:ml-4">{item.tag}</span>}
-                    </div>
-                    <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
+            {/* Category Banner Image */}
+            {category.img && (
+              <ScrollReveal delay={200}>
+                <div className="w-full h-[30vh] md:h-[40vh] mb-16 overflow-hidden rounded-2xl relative shadow-sm">
+                  <Image src={category.img} alt={category.category} fill className="object-cover" />
+                </div>
+              </ScrollReveal>
+            )}
+
+            {(() => {
+              // Group items by subcategory
+              const groupedItems = category.items.reduce((acc: any, item: any) => {
+                const sub = item.subcategory || "Other";
+                if (!acc[sub]) acc[sub] = [];
+                acc[sub].push(item);
+                return acc;
+              }, {});
+              
+              const subcategories = Object.keys(groupedItems);
+              const showHeaders = subcategories.length > 1 || (subcategories.length === 1 && subcategories[0] !== "Other");
+              
+              return subcategories.map((subcat, sIdx) => (
+                <div key={subcat} className={sIdx > 0 ? "mt-20" : ""}>
+                  {showHeaders && (
+                    <ScrollReveal>
+                      <h3 className="font-serif text-3xl md:text-4xl text-primary mb-8 border-b border-outline-variant/30 pb-4">{subcat}</h3>
+                    </ScrollReveal>
+                  )}
+                  <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-10 md:gap-10">
+                    {groupedItems[subcat].map((item: any, i: number) => (
+                      <ScrollReveal key={item.id || item.name} delay={(i % 3) * 100}>
+                        <div className="group cursor-default h-full flex flex-col">
+                          {item.img && (
+                            <div className="aspect-[4/3] overflow-hidden rounded-xl mb-4 md:mb-6 bg-surface-container-low">
+                              <Image 
+                                src={item.img} 
+                                alt={item.name} 
+                                width={500} 
+                                height={375} 
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+                                loading="lazy"
+                                sizes="(max-width: 768px) 50vw, 33vw"
+                              />
+                            </div>
+                          )}
+                          <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2 gap-1.5 md:gap-0">
+                            <h4 className="font-serif text-[17px] md:text-2xl text-primary group-hover:text-secondary transition-colors leading-tight">{item.name}</h4>
+                            {item.tag && <span className="font-sans text-[8px] md:text-[10px] text-secondary tracking-widest px-2 py-0.5 md:px-3 md:py-1 border border-secondary rounded-full flex-shrink-0 self-start md:self-auto md:ml-4">{item.tag}</span>}
+                          </div>
+                          <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
+                        </div>
+                      </ScrollReveal>
+                    ))}
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                </div>
+              ));
+            })()}
           </div>
         </section>
       ))}

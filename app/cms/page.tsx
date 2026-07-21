@@ -1231,6 +1231,20 @@ export default function CMSPage() {
                           className="w-full bg-[#faf5f0] border border-[#ebdcd0] p-3 focus:outline-none focus:border-[#8D4F00] text-[#3d2a1b] text-sm transition-colors rounded"
                         />
                       </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-[#ebdcd0]/50">
+                        {renderImageUploadField(
+                          `cat_img_${catIndex}`,
+                          "Category Banner Image (Optional)",
+                          category.img || "",
+                          (val) => {
+                            const newMenu = [...data.menu];
+                            newMenu[catIndex].img = val;
+                            setData({ ...data, menu: newMenu });
+                          },
+                          () => saveField(catSaveKey, data)
+                        )}
+                      </div>
 
                       <div className="pt-6 mt-4 border-t border-[#ebdcd0]/50 space-y-6">
                         <h4 className="text-[10px] uppercase tracking-widest text-[#8D4F00] font-mono flex items-center gap-2">
@@ -1313,6 +1327,18 @@ export default function CMSPage() {
                                     onChange={(e) => {
                                       const newMenu = [...data.menu];
                                       newMenu[catIndex].items[itemIndex].tag = e.target.value;
+                                      setData({ ...data, menu: newMenu });
+                                    }}
+                                    onBlur={() => saveField(itemSaveKey, data)}
+                                    className="w-full bg-white border border-[#ebdcd0] p-2 text-xs text-[#8D4F00] font-mono tracking-wider focus:border-[#8D4F00] focus:outline-none rounded"
+                                  />
+                                  <input
+                                    type="text"
+                                    placeholder="Subcategory (e.g. Chai, Coffee)"
+                                    value={item.subcategory || ""}
+                                    onChange={(e) => {
+                                      const newMenu = [...data.menu];
+                                      newMenu[catIndex].items[itemIndex].subcategory = e.target.value;
                                       setData({ ...data, menu: newMenu });
                                     }}
                                     onBlur={() => saveField(itemSaveKey, data)}
