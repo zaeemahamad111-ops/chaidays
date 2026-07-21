@@ -156,7 +156,10 @@ export default async function MenuPage() {
                         {items.map((item: any, i: number) => (
                           <ScrollReveal key={item.id || item.name} delay={(i % 3) * 50}>
                             <div className="flex justify-between items-end border-b border-outline-variant/20 pb-2 group hover:border-secondary/40 transition-colors cursor-default">
-                              <h4 className="font-serif text-lg md:text-xl text-primary group-hover:text-secondary transition-colors">{item.name}</h4>
+                              <div className="flex items-center gap-3">
+                                <span className="material-symbols-outlined text-secondary/60 text-[16px] font-light group-hover:text-secondary transition-colors">local_cafe</span>
+                                <h4 className="font-serif text-lg md:text-xl text-primary group-hover:text-secondary transition-colors">{item.name}</h4>
+                              </div>
                               {item.tag && <span className="font-sans text-[9px] md:text-[10px] text-secondary tracking-widest px-2 py-0.5 border border-secondary/50 rounded-full flex-shrink-0 ml-4 group-hover:border-secondary transition-colors">{item.tag}</span>}
                             </div>
                           </ScrollReveal>
