@@ -170,7 +170,7 @@ export default async function MenuPage() {
                         {items.map((item: any, i: number) => (
                           <ScrollReveal key={item.id || item.name} delay={(i % 3) * 100}>
                             <div className="group cursor-default h-full flex flex-col">
-                              {item.img && (
+                              {item.img ? (
                                 <div className="aspect-[4/3] overflow-hidden rounded-xl mb-4 md:mb-6 bg-surface-container-low">
                                   <Image 
                                     src={item.img} 
@@ -181,6 +181,10 @@ export default async function MenuPage() {
                                     loading="lazy"
                                     sizes="(max-width: 768px) 50vw, 33vw"
                                   />
+                                </div>
+                              ) : category.category !== "Hot Beverages" && (
+                                <div className="aspect-[4/3] rounded-xl mb-4 md:mb-6 bg-surface-container-lowest border border-dashed border-outline-variant/30 flex items-center justify-center">
+                                  <span className="font-sans text-[8px] md:text-[10px] text-on-surface-variant/40 tracking-[0.2em] uppercase text-center px-2">Coming Soon</span>
                                 </div>
                               )}
                               <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2 gap-1.5 md:gap-0">
