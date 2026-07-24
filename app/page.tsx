@@ -70,7 +70,7 @@ export default async function HomePage() {
               {/* Main Image */}
               <div className="aspect-[4/5] overflow-hidden shadow-2xl">
                 <Image
-                  src={contentData.expMainImg || "/images/curated-main.jpg"}
+                  src={contentData.ambImg || contentData.expMainImg || "/images/curated-main.jpg"}
                   alt="Barista crafting artisan chai at Chai Days"
                   width={800}
                   height={1000}
@@ -83,7 +83,7 @@ export default async function HomePage() {
               {/* Overlapping smaller accent image */}
               <div className="absolute -bottom-12 -right-6 md:-right-16 w-[55%] aspect-square overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[8px] border-[#ebdcd0] hidden sm:block">
                 <Image
-                  src={contentData.expAccentImg || "/images/curated-accent.jpg"}
+                  src={contentData.ambAccentImg || contentData.expAccentImg || "/images/curated-accent.jpg"}
                   alt="Leather reading nook"
                   width={500}
                   height={500}
@@ -112,7 +112,7 @@ export default async function HomePage() {
             
             <h2 className="font-serif text-5xl md:text-6xl text-primary leading-[1.1] tracking-tight" dangerouslySetInnerHTML={{ __html: contentData.expTitle || 'A Space Designed for <span class="italic">Intentionality.</span>' }} />
             <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-lg leading-relaxed">
-              {contentData.expDesc || 'Every sip is a meditation. Our environments are sculpted to foster restored focus and organic community.'}
+              {contentData.ambDesc || contentData.expDesc || 'Every sip is a meditation. Our environments are sculpted to foster restored focus and organic community.'}
             </p>
             
             <div className="space-y-10 border-t border-outline-variant/40 pt-10">
