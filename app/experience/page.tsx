@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
+import { getSiteData } from '@/lib/data';
+
+export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   let seo: any = {};
@@ -12,13 +15,22 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: seo.title || 'The Experience',
-    description: seo.description || 'Step into the Chai Days sensory experience — the scent of freshly ground spices, the texture of hand-thrown stoneware, and a curated atmosphere for slow living.',
-    keywords: seo.keywords || [],
-    openGraph: { title: seo.title || 'The Experience | Chai Days', url: seo.canonical || 'https://chaidays.com/experience' },
+    description: seo.description || 'Step into Chai Days — a sensory chai café experience in Bengaluru. Hand-ground spices, handcrafted chai blends, curated interiors, and a mindful atmosphere for slow living.',
+    keywords: seo.keywords || ['chai experience bengaluru', 'artisan tea café', 'slow living café', 'chai days experience', 'premium chai'],
+    alternates: { canonical: seo.canonical || 'https://chaidays.com/experience' },
+    openGraph: {
+      title: seo.title || 'The Experience | Chai Days',
+      description: seo.description || 'A curated sensory journey — scent, taste, texture, and atmosphere. The Chai Days experience in Bengaluru.',
+      url: seo.canonical || 'https://chaidays.com/experience',
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'The Chai Days Experience — Bengaluru' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seo.title || 'The Experience | Chai Days',
+      description: seo.description || 'A curated sensory journey — scent, taste, texture, and atmosphere.',
+    },
   };
 }
-
-import { getSiteData } from '@/lib/data';
 
 export default async function ExperiencePage() {
   let contentData: any = {};

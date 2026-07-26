@@ -8,8 +8,20 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Menu',
-    description: 'Explore the Chai Days curated menu — signature chai blends, artisan coffee, sweet endings, and light bites. Designed for slow living and intentional moments.',
-    openGraph: { title: 'Menu | Chai Days', url: 'https://chaidays.com/menu' },
+    description: 'Explore the Chai Days menu — handcrafted masala chai, signature chai blends, artisan coffees, cold beverages, Asian drinks, starters, desserts and more. Available at Koramangala, BTM Layout, Bellandur, Haralur & Electronic City, Bengaluru.',
+    keywords: ['chai menu bengaluru', 'masala chai menu', 'chai days menu', 'best chai bengaluru', 'cold beverages bengaluru', 'tea menu bengaluru', 'café menu koramangala'],
+    alternates: { canonical: 'https://chaidays.vercel.app/menu' },
+    openGraph: {
+      title: 'Menu | Chai Days — Bengaluru\'s Finest Chai Café',
+      description: 'Handcrafted chai, specialty coffee, cold beverages, Asian drinks, starters and desserts. Order online or visit us in Bengaluru.',
+      url: 'https://chaidays.vercel.app/menu',
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Chai Days Menu — Bengaluru' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Menu | Chai Days',
+      description: 'Handcrafted chai, cold beverages, starters & desserts. Bengaluru\'s favourite chai café.',
+    },
   };
 }
 
@@ -23,18 +35,26 @@ export default async function MenuPage() {
   }
 
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Menu",
-    "name": "Chai Days Menu",
-    "hasMenuSection": menuData.map((category: any) => ({
-      "@type": "MenuSection",
-      "name": category.category,
-      "description": category.description || "",
-      "hasMenuItem": category.items.map((item: any) => ({
-        "@type": "MenuItem",
-        "name": item.name,
-        "description": item.desc,
-        "image": item.img ? `https://chaidays.com${item.img}` : undefined
+    '@context': 'https://schema.org',
+    '@type': 'Menu',
+    'name': 'Chai Days Menu',
+    'url': 'https://chaidays.vercel.app/menu',
+    'inLanguage': 'en-IN',
+    'description': 'Full menu of Chai Days — handcrafted masala chai, specialty beverages, cold drinks, Asian drinks, starters, desserts and more in Bengaluru.',
+    'hasMenuSection': (menuData as any[]).map((category: any) => ({
+      '@type': 'MenuSection',
+      'name': category.category,
+      'description': category.description || `${category.category} at Chai Days Bengaluru`,
+      'hasMenuItem': (category.items || []).map((item: any) => ({
+        '@type': 'MenuItem',
+        'name': item.name,
+        'description': item.desc || `${item.name} — available at all Chai Days outlets in Bengaluru`,
+        'image': item.img || undefined,
+        'offers': {
+          '@type': 'Offer',
+          'availability': 'https://schema.org/InStock',
+          'priceCurrency': 'INR',
+        },
       }))
     }))
   };

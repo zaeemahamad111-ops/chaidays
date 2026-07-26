@@ -13,9 +13,20 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: seo.title || 'Our Story',
-    description: seo.description || 'Chai Days was born from a desire to elevate the act of drinking tea into intentional moments.',
-    keywords: seo.keywords || [],
-    openGraph: { title: seo.title || 'Our Story | Chai Days', url: seo.canonical || 'https://chaidays.com/about' },
+    description: seo.description || 'Chai Days was born in Bengaluru in 2020 from a desire to elevate the act of drinking chai into intentional, memorable moments. We are the city\'s finest artisan chai café, crafting heritage blends with love and consistency.',
+    keywords: seo.keywords || ['chai days story', 'about chai days', 'chai café bengaluru story', 'artisan chai bengaluru', 'chai days founders', 'best chai brand bengaluru'],
+    alternates: { canonical: seo.canonical || 'https://chaidays.vercel.app/about' },
+    openGraph: {
+      title: seo.title || 'Our Story | Chai Days — Bengaluru',
+      description: seo.description || 'The story behind Bengaluru\'s favourite artisan chai café — born from a passion for heritage chai blends and intentional moments.',
+      url: seo.canonical || 'https://chaidays.vercel.app/about',
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'The Chai Days Story — Bengaluru' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seo.title || 'Our Story | Chai Days',
+      description: seo.description || 'The story behind Bengaluru\'s favourite artisan chai café.',
+    },
   };
 }
 const pillars = [

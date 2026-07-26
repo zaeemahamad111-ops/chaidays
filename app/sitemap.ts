@@ -1,13 +1,45 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://chaidays.com';
-  const pages = ['', '/about', '/menu', '/gallery', '/experience', '/visit'];
+  const baseUrl = 'https://chaidays.vercel.app';
+  const now = new Date();
 
-  return pages.map((path) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: new Date('2025-05-05'),
-    changeFrequency: 'monthly' as const,
-    priority: path === '' ? 1 : 0.8,
-  }));
+  return [
+    {
+      url: baseUrl,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/menu`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/visit`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/experience`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/gallery`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+  ];
 }
