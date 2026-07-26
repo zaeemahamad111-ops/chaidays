@@ -32,12 +32,74 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function GalleryPage() {
   let contentData: any = {};
+  let galleryItems: any[] = [];
   try {
     const data = await getSiteData();
     contentData = data?.pages?.gallery?.content || {};
+    galleryItems = data?.gallery || [];
   } catch (e) {
     console.error(e);
   }
 
-  return <GalleryClient contentData={contentData} />;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': 'https://chaidays.vercel.app/gallery/#collectionpage',
+        'url': 'https://chaidays.vercel.app/gallery',
+        'name': 'Visual Journal | Chai Days — Bengaluru',
+        'description': 'A curated visual journal of Chai Days cafés — beautiful spaces, artisan chai, and cozy moments across Bengaluru.',
+        'inLanguage': 'en-IN',
+        'breadcrumb': {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://chaidays.vercel.app' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Visual Journal', 'item': 'https://chaidays.vercel.app/gallery' },
+          ],
+        },
+      },
+      {
+        '@type': 'ImageGallery',
+        'name': 'Chai Days Visual Journal — Bengaluru',
+        'description': 'Gallery of artisan chai beverages, café interiors, and cozy moments from Chai Days outlets across Bengaluru.',
+        'url': 'https://chaidays.vercel.app/gallery',
+        'author': { '@type': 'Organization', 'name': 'Chai Days' },
+        'provider': { '@type': 'Organization', 'name': 'Chai Days', 'url': 'https://chaidays.vercel.app' },
+        'about': {
+          '@type': 'CafeOrCoffeeShop',
+          'name': 'Chai Days',
+          'url': 'https://chaidays.vercel.app',
+          'servesCuisine': ['Indian Chai', 'Masala Chai', 'Tea', 'Coffee'],
+          'address': {
+            '@type': 'PostalAddress',
+            'addressLocality': 'Bengaluru',
+            'addressRegion': 'Karnataka',
+            'addressCountry': 'IN',
+          },
+        },
+        'hasPart': galleryItems.slice(0, 20).map((item: any, i: number) => ({
+          '@type': 'ImageObject',
+          'position': i + 1,
+          'name': item.alt || item.label || `Chai Days — ${item.category || 'café'} photo`,
+          'description': item.alt || `${item.category || 'Chai Days'} — artisan chai café in Bengaluru`,
+          'url': item.img,
+          'contentUrl': item.img,
+          'thumbnail': item.img,
+          'author': { '@type': 'Organization', 'name': 'Chai Days' },
+          'copyrightHolder': { '@type': 'Organization', 'name': 'Chai Days' },
+        })).filter((item: any) => item.url),
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <GalleryClient contentData={contentData} />
+    </>
+  );
 }

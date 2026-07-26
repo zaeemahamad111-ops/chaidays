@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
-
 import { getSiteData } from '@/lib/data';
+
+export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   let seo: any = {};
@@ -44,8 +45,122 @@ export default async function AboutPage() {
     console.error(e);
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': 'https://chaidays.vercel.app/about/#aboutpage',
+        'url': 'https://chaidays.vercel.app/about',
+        'name': 'Our Story | Chai Days — Bengaluru',
+        'description': 'Chai Days was born in Bengaluru in 2020 from a desire to elevate the act of drinking chai into intentional, memorable moments.',
+        'inLanguage': 'en-IN',
+        'breadcrumb': {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://chaidays.vercel.app' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Our Story', 'item': 'https://chaidays.vercel.app/about' },
+          ],
+        },
+        'primaryImageOfPage': {
+          '@type': 'ImageObject',
+          'url': 'https://chaidays.vercel.app/images/philosophy.jpg',
+          'width': 1440,
+          'height': 617,
+        },
+        'mainEntity': {
+          '@type': 'Organization',
+          'name': 'Chai Days',
+          'url': 'https://chaidays.vercel.app',
+          'foundingDate': '2020',
+          'foundingLocation': {
+            '@type': 'Place',
+            'name': 'Bengaluru, Karnataka, India',
+            'address': {
+              '@type': 'PostalAddress',
+              'addressLocality': 'Bengaluru',
+              'addressRegion': 'Karnataka',
+              'addressCountry': 'IN',
+            },
+          },
+          'description': 'Bengaluru\'s premier artisan chai café chain. We craft handcrafted masala chai, specialty beverages, and create cozy atmospheres for intentional moments.',
+          'slogan': 'The Art of the Slow Steam',
+          'numberOfEmployees': { '@type': 'QuantitativeValue', 'value': 50 },
+          'knowsAbout': ['Artisan Chai', 'Masala Chai', 'Specialty Tea', 'Café Culture', 'Slow Living', 'Heritage Spice Blending'],
+          'award': [
+            'Tea Café of the Year — Restaurant Awards 2023',
+            'Best Tea Café of the Year Bengaluru — Food Connoisseurs India Awards',
+            'Certificate of Excellence — Food Connoisseurs India Awards',
+            'Restaurant Awards Recognition 2023',
+            'Zomato Milestone Award — 50,000+ Online Orders',
+          ],
+        },
+      },
+      {
+        '@type': 'ItemList',
+        'name': 'Chai Days Awards & Recognition',
+        'description': 'Awards and recognition received by Chai Days for excellence in chai craftsmanship and customer experience in Bengaluru.',
+        'numberOfItems': 5,
+        'itemListElement': [
+          {
+            '@type': 'ListItem', 'position': 1,
+            'item': {
+              '@type': 'Award',
+              'name': 'Tea Café of the Year',
+              'description': 'Awarded to Chai Days as Tea Café of the Year, recognizing excellence in tea craftsmanship, customer experience, and innovation in the café industry.',
+              'awardedBy': { '@type': 'Organization', 'name': 'Restaurant Awards 2023' },
+            },
+          },
+          {
+            '@type': 'ListItem', 'position': 2,
+            'item': {
+              '@type': 'Award',
+              'name': "Best Tea Café of the Year — Bengaluru",
+              'description': "A prestigious recognition celebrating Chai Days as Bengaluru's Best Tea Café, honoring exceptional quality, hospitality, and consistency.",
+              'awardedBy': { '@type': 'Organization', 'name': 'Food Connoisseurs India Awards' },
+            },
+          },
+          {
+            '@type': 'ListItem', 'position': 3,
+            'item': {
+              '@type': 'Award',
+              'name': 'Certificate of Excellence',
+              'description': 'Presented to Chai Days for maintaining outstanding standards in food, beverages, service, and overall guest satisfaction.',
+              'awardedBy': { '@type': 'Organization', 'name': 'Food Connoisseurs India Awards' },
+            },
+          },
+          {
+            '@type': 'ListItem', 'position': 4,
+            'item': {
+              '@type': 'Award',
+              'name': 'Zomato Milestone Award',
+              'description': 'A milestone celebrating over 50,000 successful online orders, reflecting the trust and loyalty of customers.',
+              'awardedBy': { '@type': 'Organization', 'name': 'Zomato' },
+            },
+          },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        'name': 'Chai Days Core Values',
+        'description': 'The three pillars that define the Chai Days philosophy and approach to every cup.',
+        'numberOfItems': 3,
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Craft', 'description': 'Every blend is a masterpiece of precision. We hand-select our tea leaves and grind our spices daily.' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Comfort', 'description': 'Our spaces are designed as extensions of your home. Soft textures and warm lighting let you truly exhale.' },
+          { '@type': 'ListItem', 'position': 3, 'name': 'Community', 'description': 'Beyond the brew, we are a gathering point for souls. We host dialogues, workshops, and quiet mornings.' },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <section className="pt-[140px] pb-20 px-6 md:px-16 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-20">
           <div className="md:col-span-7">

@@ -53,8 +53,106 @@ export default async function HomePage() {
 
   const finalSignatureItems = dynamicSignatureItems.length > 0 ? dynamicSignatureItems : signatureItems;
 
+  // Build home-page specific JSON-LD with live featured items and outlet data
+  const homeJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['Restaurant', 'CafeOrCoffeeShop', 'FoodEstablishment'],
+        '@id': 'https://chaidays.vercel.app/#business',
+        'name': 'Chai Days',
+        'url': 'https://chaidays.vercel.app',
+        'description': 'Bengaluru\'s premier artisan chai café chain. Handcrafted masala chai, specialty beverages, and cozy welcoming spaces across 5 locations.',
+        'image': 'https://chaidays.vercel.app/og-image.jpg',
+        'logo': 'https://chaidays.vercel.app/chaidays-logo-splash.png',
+        'telephone': '+91-9980094666',
+        'priceRange': '₹',
+        'servesCuisine': ['Indian Chai', 'Masala Chai', 'Specialty Tea', 'Coffee', 'Beverages', 'Snacks'],
+        'menu': 'https://chaidays.vercel.app/menu',
+        'hasMap': 'https://maps.app.goo.gl/uUBb16X5dkfgW6kc9',
+        'acceptsReservations': 'True',
+        'currenciesAccepted': 'INR',
+        'paymentAccepted': 'Cash, Credit Card, UPI, Debit Card',
+        'address': {
+          '@type': 'PostalAddress',
+          'addressLocality': 'Bengaluru',
+          'addressRegion': 'Karnataka',
+          'addressCountry': 'IN',
+        },
+        'geo': {
+          '@type': 'GeoCoordinates',
+          'latitude': 12.9716,
+          'longitude': 77.5946,
+        },
+        'openingHoursSpecification': [
+          {
+            '@type': 'OpeningHoursSpecification',
+            'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            'opens': '07:00',
+            'closes': '01:00',
+          },
+        ],
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.5',
+          'bestRating': '5',
+          'worstRating': '1',
+          'ratingCount': '1500',
+          'reviewCount': '1200',
+        },
+        'award': [
+          'Tea Café of the Year — Restaurant Awards 2023',
+          'Best Tea Café of the Year Bengaluru — Food Connoisseurs India Awards',
+          'Certificate of Excellence — Food Connoisseurs India Awards',
+          'Zomato Milestone — 50,000+ Online Orders',
+        ],
+        'sameAs': [
+          'https://www.instagram.com/chaidaysofficial',
+          'https://www.linkedin.com/company/chaidays/',
+          'https://www.zomato.com/bangalore/chai-days',
+        ],
+        'numberOfLocations': outlets.length || 5,
+        'branch': outlets.slice(0, 5).map((outlet: any) => ({
+          '@type': 'CafeOrCoffeeShop',
+          'name': outlet.name?.trim(),
+          'telephone': outlet.phone ? `+91${outlet.phone.replace(/\D/g, '').slice(-10)}` : undefined,
+          'address': outlet.address,
+          'hasMap': outlet.mapUrl,
+        })),
+      },
+      {
+        '@type': 'ItemList',
+        'name': 'Chai Days Featured Signature Beverages',
+        'description': 'Handpicked signature chai and specialty beverages from the Chai Days menu in Bengaluru.',
+        'numberOfItems': finalSignatureItems.length,
+        'itemListElement': finalSignatureItems.map((item: any, i: number) => ({
+          '@type': 'ListItem',
+          'position': i + 1,
+          'item': {
+            '@type': 'Product',
+            'name': item.name,
+            'description': item.desc || `${item.name} — a signature offering from Chai Days, Bengaluru's premier artisan chai café.`,
+            'image': item.img || 'https://chaidays.vercel.app/og-image.jpg',
+            'brand': { '@type': 'Brand', 'name': 'Chai Days' },
+            'offers': {
+              '@type': 'Offer',
+              'availability': 'https://schema.org/InStock',
+              'priceCurrency': 'INR',
+              'seller': { '@type': 'Organization', 'name': 'Chai Days' },
+            },
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
+
       <HeroVideo heroData={heroData} />
 
       {/* ── Experience Section ── */}

@@ -41,8 +41,99 @@ export default async function ExperiencePage() {
     console.error(e);
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'https://chaidays.vercel.app/experience/#webpage',
+        'url': 'https://chaidays.vercel.app/experience',
+        'name': 'The Chai Days Experience — Bengaluru',
+        'description': 'A curated sensory journey — handcrafted chai, artisan interiors, curated sound, and intentional slow-living atmosphere at Chai Days cafés across Bengaluru.',
+        'inLanguage': 'en-IN',
+        'breadcrumb': {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://chaidays.vercel.app' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'The Experience', 'item': 'https://chaidays.vercel.app/experience' },
+          ],
+        },
+        'primaryImageOfPage': {
+          '@type': 'ImageObject',
+          'url': 'https://chaidays.vercel.app/images/gallery/space-3.jpg',
+        },
+      },
+      {
+        '@type': 'Product',
+        'name': contentData.pillar1Title || 'Matcha Tropic Pearl',
+        'description': contentData.pillar1Desc || 'Premium tropical matcha fusion layered with fruit pearls, mango essence, and velvety cream foam. A bold yet balanced creation that celebrates the artistry of our craft.',
+        'brand': { '@type': 'Brand', 'name': 'Chai Days' },
+        'category': 'Specialty Beverage',
+        'offers': {
+          '@type': 'Offer',
+          'availability': 'https://schema.org/InStock',
+          'priceCurrency': 'INR',
+          'seller': { '@type': 'Organization', 'name': 'Chai Days' },
+        },
+        'image': 'https://chaidays.vercel.app/images/gallery/drink-10.jpg',
+      },
+      {
+        '@type': 'ItemList',
+        'name': 'Chai Days Sensory Experience Pillars',
+        'description': 'The three sensory pillars that define the Chai Days experience in Bengaluru cafés.',
+        'numberOfItems': 3,
+        'itemListElement': [
+          {
+            '@type': 'ListItem', 'position': 1,
+            'name': contentData.pillar1Title || 'Matcha Tropic Pearl — Signature Creation',
+            'description': contentData.pillar1Desc || 'Premium tropical matcha fusion with fruit pearls and velvety cream foam.',
+          },
+          {
+            '@type': 'ListItem', 'position': 2,
+            'name': 'The Craft — Heritage Chai Blending',
+            'description': 'Hand-ground spices, single-estate teas, and precision brewing techniques define every cup at Chai Days.',
+          },
+          {
+            '@type': 'ListItem', 'position': 3,
+            'name': contentData.pillar3Title || 'The Atmosphere',
+            'description': contentData.pillar3Desc || 'Inspired by ceramic art and earth tones, featuring tactile linen, natural oak, and a quietude that filters out city noise.',
+          },
+        ],
+      },
+      {
+        '@type': 'Event',
+        'name': 'Chai Days Café Experience — Bengaluru',
+        'description': 'Visit any Chai Days outlet in Bengaluru for an immersive artisan chai experience featuring handcrafted beverages, curated interiors, and slow-living atmosphere.',
+        'eventStatus': 'https://schema.org/EventScheduled',
+        'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode',
+        'location': {
+          '@type': 'Place',
+          'name': 'Chai Days — Bengaluru',
+          'address': {
+            '@type': 'PostalAddress',
+            'addressLocality': 'Bengaluru',
+            'addressRegion': 'Karnataka',
+            'addressCountry': 'IN',
+          },
+        },
+        'organizer': { '@type': 'Organization', 'name': 'Chai Days', 'url': 'https://chaidays.vercel.app' },
+        'offers': {
+          '@type': 'Offer',
+          'availability': 'https://schema.org/InStock',
+          'priceCurrency': 'INR',
+          'url': 'https://chaidays.vercel.app/menu',
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* ── Hero ── */}
       <section className="pt-[140px] pb-0 px-6 md:px-16 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
