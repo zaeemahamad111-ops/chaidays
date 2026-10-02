@@ -84,6 +84,7 @@ export default function CMSPage() {
   const saveField = async (key: string, newDataPayload: any) => {
     triggerHaptic();
     setSavingStatus((prev) => ({ ...prev, [key]: "saving" }));
+    setGlobalError("");
     try {
       const res = await fetch("/api/cms", {
         method: "POST",
@@ -91,7 +92,10 @@ export default function CMSPage() {
         body: JSON.stringify(newDataPayload),
       });
 
-      if (!res.ok) throw new Error("API Save Error");
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => ({}));
+        throw new Error(errJson.error || "API Save Error");
+      }
       
       setData(newDataPayload);
       setSavingStatus((prev) => ({ ...prev, [key]: "success" }));
@@ -99,7 +103,9 @@ export default function CMSPage() {
       setTimeout(() => {
         setSavingStatus((prev) => ({ ...prev, [key]: "idle" }));
       }, 2000);
-    } catch (err) {
+    } catch (err: any) {
+      console.error("Save Field Error:", err);
+      setGlobalError(err.message || "Failed to sync changes.");
       setSavingStatus((prev) => ({ ...prev, [key]: "error" }));
     }
   };

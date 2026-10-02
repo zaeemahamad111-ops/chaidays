@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Chai Days | A Cozy Modern Experience",
+    "title": "Chai Days | The Art of the Modern Ritual",
     "keywords": [
       "chai",
       "artisan tea",
@@ -9,7 +9,7 @@
       "masala chai",
       "tea house"
     ],
-    "description": "Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and warm, cozy moments in every cup."
+    "description": "Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and intentional rituals in every cup."
   },
   "hero": {
     "cta1Link": "/menu",
@@ -17,7 +17,7 @@
     "cta2Link": "/experience",
     "cta2Text": "Our Story",
     "topTextLarge": "Crafted Slow.<br />Savoured Long.",
-    "topTextSmall": "A COZY CHAI EXPERIENCE",
+    "topTextSmall": "A CHAI DAYS RITUAL",
     "brandTextLarge": "Chai<br />Days",
     "brandTextSmall": "SINCE 2020 · INDIA",
     "mobileVideoUrl": "/hero-final-mobile.mp4",
@@ -26,293 +26,683 @@
   },
   "menu": [
     {
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1784647993485-6r1i1ordcp5.jpg",
       "items": [
         {
           "id": "item-1",
-          "img": "/images/gallery/drink-2.jpg",
+          "img": "",
           "tag": "OUR SIGNATURE",
-          "desc": "Fresh watermelon blended into a chilled tropical cooler with icy citrus notes and a smooth refreshing finish. Light, vibrant, and perfect for cooling down on a warm day.",
-          "name": "Watermelon Ice Breaker"
+          "desc": "",
+          "name": "Signature Chai"
         },
         {
           "id": "item-4",
-          "img": "/images/gallery/drink-8.jpg",
-          "desc": "Ceremonial grade matcha whisked into a cold coconut milk foam.",
-          "name": "Cloud Matcha"
+          "img": "",
+          "desc": "",
+          "name": "Ginger Masala Chai"
         },
         {
           "id": "new-item-1779908713174",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908737713-vvx4dmrrv9j.jpeg",
-          "desc": "Creamy layered berry latte finished with biscuit crumble and fresh plum notes for a smooth dessert-style café experience.",
-          "name": "Berry Cloud Latte"
+          "img": "",
+          "desc": "",
+          "name": "Elaichi Chai (cardamom)"
         },
         {
           "id": "new-item-1779908914548",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909009646-mk55rx6ntrc.jpeg",
-          "desc": "Minimal sparkling botanical cooler finished with airy foam, edible flowers, and modern luxury café styling.",
-          "name": "Crystal Bloom Refresher"
+          "img": "",
+          "desc": "",
+          "name": "Ginger Lemon Chai"
         },
         {
           "id": "new-item-1779908782701",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908814834-8aeh7kvolgq.jpeg",
-          "desc": "Refreshing floral berry cooler with sparkling textures, citrus garnish, and elevated artisanal cocktail aesthetics.",
-          "name": "Midnight Lavender Spark"
+          "img": "",
+          "desc": "",
+          "name": "Lemon Chai"
         },
         {
           "id": "new-item-1779908822494",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908907820-im511pyat1.jpeg",
-          "desc": "Premium tropical matcha fusion layered with fruit pearls, mango essence, and velvety cream foam.",
-          "name": "Matcha Tropic Pearl"
+          "img": "",
+          "desc": "",
+          "name": "Black Chai"
         },
         {
           "id": "new-item-1779909013562",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909079863-d68chxhzdy.jpeg",
-          "desc": "Bright pink citrus cooler infused with mint, lime, and crushed ice in a Mediterranean garden café atmosphere.",
-          "name": "Rosé Citrus Mojito"
+          "img": "",
+          "desc": "",
+          "name": "Green Chai"
+        },
+        {
+          "id": "new-item-1782282183397",
+          "img": "",
+          "desc": "",
+          "name": "Kashmiri Kahwa"
+        },
+        {
+          "id": "new-item-1782282231149",
+          "img": "",
+          "desc": "",
+          "name": "Mint Black Tea"
+        },
+        {
+          "id": "new-item-1782282360646",
+          "img": "",
+          "desc": "",
+          "name": "Filter Coffee"
+        },
+        {
+          "id": "new-item-1782282670586",
+          "img": "",
+          "desc": "",
+          "name": "Jaggery Filter  Coffee"
+        },
+        {
+          "id": "new-item-1782282690270",
+          "img": "",
+          "desc": "",
+          "name": "Pour Over Coffee"
+        },
+        {
+          "id": "new-item-1782282745662",
+          "img": "",
+          "desc": "",
+          "name": "Turmeric Latte"
         }
       ],
-      "category": "Signature Drinks",
-      "description": "A harmonious blend of tradition and contemporary precision."
+      "category": "Hot Beverages",
+      "description": "Chai, Coffee, Hot Chocolate"
     },
     {
       "items": [
         {
           "id": "item-7",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909180148-dt82pbnyg4r.jpeg",
-          "desc": "Steeped for 18 hours. Smooth, low-acidity, with naturally sweet cocoa undertones.",
-          "name": "Midnight Cold Brew"
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782370004067-oppb0q6m3yb.jpg",
+          "desc": "",
+          "name": "Cranberry Iced Tea"
+        },
+        {
+          "id": "new-item-1782286810336",
+          "desc": "",
+          "name": "Peach Iced Tea"
+        },
+        {
+          "id": "new-item-1782286827905",
+          "desc": "",
+          "name": "Lemon Iced Tea"
+        },
+        {
+          "id": "new-item-1782286843588",
+          "desc": "",
+          "name": "Hibiscus With Pomegranate Pearls"
+        },
+        {
+          "id": "new-item-1782286860883",
+          "desc": "",
+          "name": "Blueberry With Blueberry Pearls"
+        },
+        {
+          "id": "new-item-1782286875041",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782839005728-7hyd8u158bt.jpg",
+          "desc": "",
+          "name": "Vietnamese Coffee"
+        },
+        {
+          "id": "new-item-1782286880641",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782370668074-qb06bq9nstq.jpg",
+          "desc": "",
+          "name": "Black Iced Coffee"
+        },
+        {
+          "id": "new-item-1782286893703",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782409334937-u2hyqiqnd2e.jpg",
+          "desc": "",
+          "name": "Iced Orange Coffee"
+        },
+        {
+          "id": "new-item-1782286915947",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782409309522-8dwqduypvvn.jpg",
+          "desc": "",
+          "name": "Classic Frappe"
+        },
+        {
+          "id": "new-item-1782286926633",
+          "desc": "",
+          "name": "Iced Moca Frappe"
+        },
+        {
+          "id": "new-item-1782286935917",
+          "desc": "",
+          "name": "Spanish Latte"
+        },
+        {
+          "id": "new-item-1782286951054",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782320996802-31f7g742o3m.png",
+          "desc": "",
+          "name": "Slow Vietnamies Iced Latte"
+        },
+        {
+          "id": "new-item-1782286956399",
+          "desc": "",
+          "name": "Iced Milo Frappe"
+        },
+        {
+          "id": "new-item-1782287011453",
+          "desc": "",
+          "name": "Lychee Bubble Tea"
+        },
+        {
+          "id": "new-item-1782287034485",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321040626-jx955ecd42d.png",
+          "desc": "",
+          "name": "Mango Bubble Tea",
+          "isSignature": true
+        },
+        {
+          "id": "new-item-1782317744236",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321058410-7lopshukahg.png",
+          "desc": "",
+          "name": "Strawberry Bubble Tea"
+        },
+        {
+          "id": "new-item-1782317763900",
+          "img": "",
+          "desc": "",
+          "name": "Kiwi Bubble Tea"
         }
       ],
-      "category": "Curated Coffee"
+      "category": "Cold Beverages",
+      "description": "Iced Tea, Cold Coffee, Frappe, Bubble Tea"
     },
     {
       "items": [
         {
-          "id": "item-8",
-          "img": "/images/gallery/dessert-1.jpg",
-          "desc": "A light, moist cake crafted with premium cold-pressed olive oil, accented with freshly ground cardamom and finished with a bright citrus glaze.",
-          "name": "Chocolate Lava MeltDown"
+          "id": "new-item-1782317848021",
+          "desc": "",
+          "name": "Thai Mango Sagu"
         },
         {
-          "id": "item-9",
-          "img": "/images/menu/almond-croissant.webp",
-          "desc": "A classic buttery croissant filled with rich almond frangipane and topped with toasted almonds.",
+          "id": "new-item-1782317863320",
+          "desc": "",
+          "name": "Mango Matcha Latte"
+        },
+        {
+          "id": "new-item-1782317875512",
+          "desc": "",
+          "name": "Strawberry Matcha Latte"
+        },
+        {
+          "id": "new-item-1782317925009",
+          "desc": "",
+          "name": "Guava Chilli Salt"
+        },
+        {
+          "id": "new-item-1782317938245",
+          "desc": "",
+          "name": "Passion Fruite Chilly Salt"
+        }
+      ],
+      "category": "Asian & Salt Drinks",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782317996130",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321102684-nvocfe68ti8.png",
+          "desc": "",
+          "name": "Aam Panna",
+          "isSignature": true
+        },
+        {
+          "id": "new-item-1782318001613",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321124422-dvzaflb27.png",
+          "desc": "",
+          "name": "Kiwi Mojito"
+        },
+        {
+          "id": "new-item-1782318010996",
+          "desc": "",
+          "name": "Mango Mojito"
+        },
+        {
+          "id": "new-item-1782318027367",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782408559419-f4jp9oeu9m.jpg",
+          "desc": "",
+          "name": "Blue Curacao Mojito"
+        }
+      ],
+      "category": "Mojito & Lemonades",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782318225318",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782409217531-zdpc3srds8.jpg",
+          "desc": "",
+          "name": "Bang Bang Cauliflower",
+          "isSignature": true
+        },
+        {
+          "id": "new-item-1782318232121",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321887000-recxta74mu.jpg",
+          "desc": "",
+          "name": "Signature Loaded Chicken Wedges"
+        },
+        {
+          "id": "new-item-1782318243562",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321899381-kk7nf8t4kls.jpg",
+          "desc": "",
+          "name": "Signature Loaded Classic Wedges"
+        },
+        {
+          "id": "new-item-1782318256777",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321927500-3n9fxd8v0y6.jpg",
+          "desc": "",
+          "name": "Polo Fungi Pesto - Chicken"
+        }
+      ],
+      "category": "Starters / Appetizers",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782318532182",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321962715-r0mps4w2v5.jpg",
+          "desc": "",
+          "name": "Caesar Salad Veg"
+        },
+        {
+          "id": "new-item-1782318544335",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782321978737-68d7yetufwv.jpg",
+          "desc": "",
+          "name": "Caesar Salad Chicken"
+        },
+        {
+          "id": "new-item-1782318557970",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322030225-k4qj47b32ak.jpg",
+          "desc": "",
+          "name": "Alfredo Veg"
+        },
+        {
+          "id": "new-item-1782318571773",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322039496-zovfki73jgd.jpg",
+          "desc": "",
+          "name": "Alfredo Chicken"
+        }
+      ],
+      "category": "Salads & Pasta",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782318782923",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322056399-l752vsxr5e.jpg",
+          "desc": "",
+          "name": "Tiramisu Tub"
+        },
+        {
+          "id": "new-item-1782318799436",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371075864-ojf98qt4d9d.jpg",
+          "desc": "",
+          "name": "Burn Basque Cheese Cake - With Chocolate Sauce"
+        }
+      ],
+      "category": "Deserts",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782318881459",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782370894399-fn5ftlojwh.jpg",
+          "desc": "",
+          "name": "Overnight Oats"
+        },
+        {
+          "id": "new-item-1782318893173",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322133157-2ankw31n8um.jpg",
+          "desc": "",
+          "name": "Granola Bowl"
+        },
+        {
+          "id": "new-item-1782318918678",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782370928086-amwiglabwzi.jpg",
+          "desc": "",
+          "name": "Classic French Toast with Maple Syrup"
+        },
+        {
+          "id": "new-item-1782318934361",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782370949454-c3q77dw9r84.jpg",
+          "desc": "",
+          "name": "Strawberry Mascarpone French Toast"
+        }
+      ],
+      "category": "All Time Meal",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782318991260",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322093635-urszg5vwe7c.jpg",
+          "desc": "",
+          "name": "Chocolate Muffin"
+        },
+        {
+          "id": "new-item-1782319004001",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322173820-ukx0ggm9tak.jpg",
+          "desc": "",
+          "name": "Pineapple muffin"
+        },
+        {
+          "id": "new-item-1782319017247",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322217881-yolkk91qdq.jpg",
+          "desc": "",
+          "name": "Chaidays Special Brownie"
+        },
+        {
+          "id": "new-item-1782319044896",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371161486-1z9ev2u0n1h.jpg",
+          "desc": "",
+          "name": "Banana Cake"
+        },
+        {
+          "id": "new-item-1782319054690",
+          "desc": "",
+          "name": "Ghee Cake"
+        },
+        {
+          "id": "new-item-1782319064615",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371039621-1vnnpjpjqe8.jpg",
+          "desc": "",
+          "name": "Kit Kat Doughnut"
+        },
+        {
+          "id": "new-item-1782319076350",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371046705-7kbsjzp2jg.jpg",
+          "desc": "",
+          "name": "Doughnut Dark Chocolate"
+        },
+        {
+          "id": "new-item-1782319096236",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371099016-esjl0v9esjw.jpg",
+          "desc": "",
+          "name": "Banana Walnut Cake"
+        },
+        {
+          "id": "new-item-1782319114818",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322260406-uewamvq3lih.jpg",
+          "desc": "",
+          "name": "Blondie"
+        },
+        {
+          "id": "new-item-1782319121228",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322269000-kxpj9hnob7.jpg",
+          "desc": "",
+          "name": "Berliner Strawberry"
+        },
+        {
+          "id": "new-item-1782319137456",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322280842-k9a5zgsiqc.jpg",
+          "desc": "",
+          "name": "Berliner Vanilla"
+        }
+      ],
+      "category": "Cake & Sweets",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782319204868",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322300485-kmr2magawv.jpg",
+          "desc": "",
+          "name": "3pc Butter Palmiers"
+        },
+        {
+          "id": "new-item-1782319277755",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322340341-oktr3ziwqrc.jpg",
+          "desc": "",
+          "name": "Marzipan Danish"
+        },
+        {
+          "id": "new-item-1782319287891",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322741289-xcjux866dn.jpg",
+          "desc": "",
+          "name": "Butter Croissant"
+        },
+        {
+          "id": "new-item-1782319301758",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371125885-3roeaow3o2.jpg",
+          "desc": "",
           "name": "Almond Croissant"
         },
         {
-          "id": "item-10",
-          "img": "/images/menu/banana-tart.webp",
-          "desc": "A delicate shortcrust tart filled with almond cream and caramelized bananas, baked to golden perfection.",
-          "name": "Banana Frangipane Tart"
-        },
-        {
-          "id": "item-11",
-          "img": "/images/menu/berliner-doughnut.webp",
-          "desc": "Traditional German-style doughnut, dusted with fine sugar and filled with a burst of seasonal fruit jam.",
-          "name": "Berliner Doughnut"
-        },
-        {
-          "id": "item-12",
-          "img": "/images/menu/butter-palmier.webp",
-          "desc": "Crisp, flaky, and golden-brown puff pastry hearts baked with caramelized sugar.",
-          "name": "Butter Palmier"
-        },
-        {
-          "id": "item-13",
-          "img": "/images/menu/kitkat-donut.webp",
-          "desc": "A decadent, soft doughnut glazed with rich chocolate and topped with crushed KitKat pieces.",
-          "name": "KitKat Doughnut"
-        },
-        {
-          "id": "new-item-1779907266755",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907282417-7qyurffsd1h.jpeg",
-          "tag": "sweet",
-          "desc": "Warm laminated pastry layered with silky Biscoff glaze and crunchy biscuit crumble.",
-          "name": "Lotus Biscoff Cruffin"
-        },
-        {
-          "id": "new-item-1779907479021",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907485133-6fdp64iv772.jpeg",
-          "tag": "sweet",
-          "desc": "Rich chocolate mousse layered with vibrant raspberry compote and delicate chocolate shards.",
-          "name": "Dark Chocolate Raspberry Mousse Cup"
-        },
-        {
-          "id": "new-item-1779907536358",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907712255-34y1ehcj0bs.jpeg",
-          "tag": "SWeet",
-          "desc": "Creamy cheesecake layers with fresh strawberry compote served in a refined dessert cup.",
-          "name": "Strawberry Cheesecake Verrine"
-        },
-        {
-          "id": "new-item-1779907606602",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907697369-eo6rt308x1o.jpeg",
-          "desc": "Soft folded crepes topped with chocolate drizzle, crispy flakes, and creamy vanilla sauce.",
-          "name": "Nutella Crunch Crepe Bowl"
-        },
-        {
-          "id": "new-item-1779907725641",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907810393-q8oeeyyo24.jpeg",
-          "desc": "Flaky laminated pastry finished with a smooth dark chocolate glaze in a minimalist luxury setting.",
-          "name": "Chocolate Croissant Supreme"
-        },
-        {
-          "id": "new-item-1779907812679",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907839147-nzdk86i4hgs.jpeg",
-          "desc": "Golden buttery pie with delicate lattice crust served in a warm rustic café atmosphere.",
-          "name": "Classic Lattice Butter Pie"
-        },
-        {
-          "id": "new-item-1779907840633",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907871559-9llw91lk3eg.jpeg",
-          "desc": "Soft vanilla sponge cake paired with vintage tea-room elegance and cozy premium styling.",
-          "name": "Vanilla Tea Cake Royale"
-        },
-        {
-          "id": "new-item-1779907875775",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779907979472-d3zsv9dn2bb.jpeg",
-          "desc": "Crispy craquelin bun filled with creamy vanilla ice cream, plated in a dark luxury dessert aesthetic.",
-          "name": "Vanilla Ice Cream Choux Bun"
-        },
-        {
-          "id": "new-item-1779907985001",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908010380-u3eo0camrj.jpeg",
-          "desc": "Warm pistachio dessert topped with airy cotton-candy floss and delicate crumble textures in an elegant Middle Eastern-inspired presentation.",
-          "name": "Pistachio Kunafa Cloud"
-        },
-        {
-          "id": "new-item-1779908014765",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908109787-1sevgkpc3qw.jpeg",
-          "desc": "Crispy laminated pastry spirals finished with glossy dark chocolate drizzle and roasted nut crumble.",
-          "name": "Midnight Hazelnut Wheels"
-        },
-        {
-          "id": "new-item-1779908111373",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908147378-f469knbivwn.jpeg",
-          "desc": "Buttery handcrafted laminated pastries with delicate flaky layers and warm artisan bakery aesthetics.",
-          "name": "Golden Layered Viennoiserie"
-        },
-        {
-          "id": "new-item-1779908226908",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908243743-ihblhym2poh.jpeg",
-          "desc": "Creamy breakfast bowl layered with crunchy granola, seasonal fruits, fresh berries, kiwi, mango, banana, and pomegranate pearls for a refreshing luxury brunch experience.",
-          "name": "Tropical Morning Harmony"
-        },
-        {
-          "id": "new-item-1779908257078",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908319584-xiwxzjb9zrd.jpeg",
-          "desc": "Thick-cut golden brioche French toast finished with glossy berry compote, fresh strawberries, blueberries, and silky whipped cream in an upscale café setting.",
-          "name": "Midnight Berry French Toast"
-        },
-        {
-          "id": "new-item-1779908322303",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908376509-2s24k3i29rb.jpeg",
-          "desc": "Soft caramelized French toast dusted with powdered sugar, served with berry preserve and cream for an elegant all-day brunch presentation.",
-          "name": "Velvet Brunch Toast"
-        },
-        {
-          "id": "new-item-1779908387994",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779908425221-zltmoe6x74.jpeg",
-          "desc": "Rustic artisan French toast plated with fresh berries, mint, and maple syrup in a warm premium fine-dining café ambience.",
-          "name": "Maison Classic French Toast"
+          "id": "new-item-1782319313084",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322380131-3zvao6y67fa.jpg",
+          "desc": "",
+          "name": "Pain au Chocolat"
         }
       ],
-      "category": "Sweet Endings"
+      "category": "Cookies, Croissants & Danish",
+      "description": ""
     },
     {
       "items": [
         {
-          "id": "item-14",
-          "img": "/images/menu/special-buns.webp",
-          "tag": "SIGNATURE",
-          "desc": "Our signature soft buns, freshly baked and lightly glazed. Perfect for tearing and dipping into hot chai.",
-          "name": "Chai Days Special Buns"
+          "id": "new-item-1782319362426",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322418977-g4elspqxrye.jpg",
+          "desc": "",
+          "name": "Bread Toast Omelette"
         },
         {
-          "id": "item-15",
-          "img": "/images/menu/chicken-fatayer.webp",
-          "tag": "SAVORY",
-          "desc": "Middle-Eastern inspired savory pastries stuffed with beautifully spiced minced chicken.",
-          "name": "Chicken Fatayer"
+          "id": "new-item-1782319376895",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782322486540-v6d54iveaq.jpg",
+          "desc": "",
+          "name": "Cheese Omlet"
         },
         {
-          "id": "item-16",
-          "img": "/images/menu/paneer-roll.webp",
-          "tag": "VEGETARIAN",
-          "desc": "A flaky, golden crust filled with spiced, crumbled paneer and fresh herbs.",
-          "name": "Paneer Roll"
-        },
-        {
-          "id": "item-17",
-          "img": "/images/menu/puff-pastry.webp",
-          "tag": "SAVORY",
-          "desc": "Flaky, buttery layers baked until golden and crisp, offering a delightful savory crunch.",
-          "name": "Classic Puff Pastry"
-        },
-        {
-          "id": "new-item-1779886002734",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779891837859-etpvnngoav.jpeg",
-          "tag": "Healthy",
-          "desc": "Fresh gourmet quinoa salad layered with seasonal fruits, crunchy vegetables, vibrant garnishes, and artisan bread accompaniment.",
-          "name": "Garden Quinoa Harvest Bowl"
-        },
-        {
-          "id": "new-item-1779909620865",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909634971-9daoqfkmgqs.jpeg",
-          "desc": "Wood-fired artisan flatbread layered with creamy cheese, roasted mushrooms, cherry tomatoes, and gourmet sausage.",
-          "name": "Rustic Truffle Flatbread"
-        },
-        {
-          "id": "new-item-1779909640120",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909674313-6yjw953ul4x.jpeg",
-          "desc": "Flaky handcrafted pastry finished with silky vanilla cream and delicate caramelized layers in a soft bakery aesthetic.",
-          "name": "Vanilla Bloom Danish"
-        },
-        {
-          "id": "new-item-1779909684122",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909730997-vr5gow7m7no.jpeg",
-          "desc": "Premium gourmet hotdogs topped with house sauces, herb garnish, and rich café-style presentation.",
-          "name": "Signature Loaded Hotdogs"
-        },
-        {
-          "id": "new-item-1779909741702",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909879694-02aqx85y2rw3.jpeg",
-          "desc": "Soft toasted pav buns stuffed with flavorful filling, served with creamy dip and elegant café-style plating.",
-          "name": "Mini Pav Bun Sliders"
-        },
-        {
-          "id": "new-item-1779909885699",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909927643-0pit32v0thpk.jpeg",
-          "desc": "Grilled beef sandwich platter served with crispy fries and signature creamy sauce on rustic wooden presentation.",
-          "name": "Steakhouse Sandwich Board"
-        },
-        {
-          "id": "new-item-1779909932245",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779909974642-rvuu494vrri.jpeg",
-          "desc": "Crispy golden fries tossed with creamy spicy sauce, fresh herbs, and chef-style evening café plating.",
-          "name": "Twilight Loaded Fries Bowl"
-        },
-        {
-          "id": "new-item-1779909978284",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910285635-sbkghb9pn0b.jpeg",
-          "desc": "Modern chef-plated paneer entrée with herb cream sauce, microgreens, and artisanal bread pairing.",
-          "name": "Herb Fusion Paneer Plate"
-        },
-        {
-          "id": "new-item-1779910015536",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910300807-ez8018x58l.jpeg",
-          "desc": "Juicy grilled chicken served with creamy potato mash, roasted tomatoes, and refined fine-dining aesthetics.",
-          "name": "Grilled Herb Chicken Supreme"
-        },
-        {
-          "id": "new-item-1779910118191",
-          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1779910159200-w5gweaw23jl.jpeg",
-          "desc": "Soft folded omelette served with toasted artisan bread and fresh greens in a luxury breakfast café ambience.",
-          "name": "Classic Sunrise Omelette"
+          "id": "new-item-1782319387279",
+          "desc": "",
+          "name": "Bun omlette"
         }
       ],
-      "category": "Light Bites",
-      "description": "Served All Day"
+      "category": "Egg Veraities",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782319426094",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371212898-h4u4qedkcqw.jpg",
+          "desc": "",
+          "name": "Garlic Chicken Bun"
+        },
+        {
+          "id": "new-item-1782319438235",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371221211-xqmirrzadp8.jpg",
+          "desc": "",
+          "name": "Hotdog"
+        },
+        {
+          "id": "new-item-1782319447803",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371243586-23sv4ctk0drh.jpg",
+          "desc": "",
+          "name": "Chicken Puff"
+        },
+        {
+          "id": "new-item-1782319477782",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371253731-393okb26r2.jpg",
+          "desc": "",
+          "name": "Egg Puff"
+        },
+        {
+          "id": "new-item-1782319489980",
+          "img": "/images/menu/chicken-fatayer.webp",
+          "desc": "Middle-Eastern inspired savory pastries stuffed with beautifully spiced minced chicken.",
+          "name": "Chicken Fatayer"
+        }
+      ],
+      "category": "Non-Veg Snacks",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782319764539",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371277191-494dttwn0v3.jpg",
+          "desc": "",
+          "name": "Baked Cheese Maggie"
+        },
+        {
+          "id": "new-item-1782319773668",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371293015-qy54fdsxfvm.jpg",
+          "desc": "",
+          "name": "Classic Maggie"
+        },
+        {
+          "id": "new-item-1782319779225",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782409101716-mmji7o4t6e.jpg",
+          "desc": "",
+          "name": "Peri Peri Fried Egg Maggie"
+        }
+      ],
+      "category": "Maggi And More",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782319823834",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782370292885-adjphvjeg56.jpg",
+          "desc": "",
+          "name": "Bun Maska"
+        },
+        {
+          "id": "new-item-1782319825769",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782371970349-qaoa8s0pt5.jpg",
+          "desc": "",
+          "name": "Bun Maska With Honey"
+        },
+        {
+          "id": "new-item-1782319827787",
+          "desc": "",
+          "name": "Bun butter jam"
+        },
+        {
+          "id": "new-item-1782319829833",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782372008891-89noh6xly8x.jpg",
+          "desc": "",
+          "name": "Korean Bun"
+        },
+        {
+          "id": "new-item-1782319971599",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782372020491-ioy82p2gai.jpg",
+          "desc": "",
+          "name": "Aloo Samosa"
+        },
+        {
+          "id": "new-item-1782319981114",
+          "desc": "",
+          "name": "Punjabi Aloo Samosa Basket"
+        },
+        {
+          "id": "new-item-1782319990038",
+          "desc": "",
+          "name": "Jalapeno Cheese Samosa Basket"
+        },
+        {
+          "id": "new-item-1782320002484",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782372046423-r9t2u3kqtn.jpg",
+          "desc": "",
+          "name": "Paneer Pocket"
+        },
+        {
+          "id": "new-item-1782320013579",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782372107300-gzg0tc3724r.jpg",
+          "desc": "",
+          "name": "Veg Puff"
+        }
+      ],
+      "category": "Veg Snacks",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782320034077",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782372121773-ilmw2nkm13o.jpg",
+          "desc": "",
+          "name": "Vada Pav"
+        },
+        {
+          "id": "new-item-1782320043492",
+          "desc": "",
+          "name": "Cheese Vada Pav"
+        },
+        {
+          "id": "new-item-1782320056172",
+          "desc": "",
+          "name": "Schezwan Vada Pav"
+        },
+        {
+          "id": "new-item-1782320070816",
+          "desc": "",
+          "name": "Samosa Pav"
+        },
+        {
+          "id": "new-item-1782320086525",
+          "desc": "",
+          "name": "Samosa Pav with Cheese"
+        },
+        {
+          "id": "new-item-1782320096559",
+          "desc": "",
+          "name": "Schezwan Samosa Pav"
+        }
+      ],
+      "category": "Pav Specials",
+      "description": ""
+    },
+    {
+      "items": [
+        {
+          "id": "new-item-1782320144756",
+          "desc": "",
+          "name": "Scrambled Egg Sandwich"
+        },
+        {
+          "id": "new-item-1782320152871",
+          "desc": "",
+          "name": "Mushroom Sandwich"
+        },
+        {
+          "id": "new-item-1782320165273",
+          "desc": "",
+          "name": "Pesto Chicken Sandwich"
+        },
+        {
+          "id": "new-item-1782320179005",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782372389140-pq7fiqfij5i.jpg",
+          "desc": "",
+          "name": "Scrambled Egg - Croissant"
+        },
+        {
+          "id": "new-item-1782320197530",
+          "desc": "",
+          "name": "Mushroom - Croissant"
+        },
+        {
+          "id": "new-item-1782320206921",
+          "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782372402675-vu6oz4i6b5j.jpg",
+          "desc": "",
+          "name": "Pesto Chicken - Croissant"
+        }
+      ],
+      "category": "Sandwich And More",
+      "description": ""
     }
   ],
   "pages": {
@@ -328,10 +718,10 @@
           "tea house"
         ],
         "canonical": "https://chaidays.com/",
-        "description": "Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and warm, cozy moments in every cup."
+        "description": "Chai Days is a premium artisan tea café dedicated to the slow sip — hand-ground blends, curated atmospheres, and intentional rituals in every cup."
       },
       "content": {
-        "ambImg": "/images/philosophy.jpg",
+        "ambImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1784903085968-yz267hhh3fl.jpg",
         "ambDesc": "From tactile ceramics to acoustic dampening, every square inch of Chai Days is engineered for calm. Leave the city's pulse at our threshold.",
         "expDesc": "Every sip is a meditation. Our environments are sculpted to foster restored focus and organic community.",
         "galImg1": "/images/gallery/drink-1.jpg",
@@ -340,7 +730,7 @@
         "sigDesc": "A curation of our most revered blends, each a chapter in our heritage.",
         "ambTitle": "A Sanctuary to Feel Different",
         "expTitle": "A Space Designed for <span class=\"italic\">Intentionality.</span>",
-        "galTitle": "Glimpses of Comfort",
+        "galTitle": "Glimpses of the Ritual",
         "sigTitle": "The Signature Selection",
         "badgeText": "Quiet Luxury",
         "visitTitle": "Inhabit Our World",
@@ -350,7 +740,7 @@
         "expStayDesc": "More than a café—a warm sanctuary to relax, unwind, and escape the daily bustle. Our cozy, vibrant spaces are designed to make you feel right at home.",
         "expSubtitle": "Curated Atmosphere",
         "sigMoreDesc": "Chai Days is an experience—a blend of culture, innovation, and love. From the first aroma to the last sip, we take you on a journey beyond the ordinary.",
-        "visitMapImg": "/images/gallery/space-7.jpg",
+        "visitMapImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1784910281238-g7cztg1hn8.jpg",
         "expStayTitle": "Stay Awhile",
         "sigMoreTitle": "More than Drinks",
         "visitBtnLink": "/visit",
@@ -360,8 +750,8 @@
         "expExploreText": "Explore Spaces",
         "expStayLinkDest": "/visit",
         "expStayLinkText": "Find Your Sanctuary",
-        "curatedAccentImg": "/images/curated-accent.jpg",
-        "visitAddressLine1": "124 Comfort Lane, Spiced Quarter",
+        "curatedAccentImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1784910301137-qc31vp7od3q.jpg",
+        "visitAddressLine1": "124 Ritual Lane, Spiced Quarter",
         "visitAddressLine2": "London, EC1V 4PW"
       }
     },
@@ -380,7 +770,7 @@
         "heroImg": "/images/philosophy.jpg",
         "heroDesc": "At Chai Days, we've spent over four years perfecting the art of crafting the finest teas, snacks, and beverages.",
         "heroTitle": "The Art of the<br /><em class=\"text-secondary-container\">Slow Steam.</em>",
-        "modernImg": "/images/gallery/space-6.jpg",
+        "modernImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1784910321940-n5ffqc5ip.jpg",
         "quoteText": "&ldquo;Chai is not just a beverage; it is a pause button for the soul.&rdquo;",
         "qualityImg": "/images/gallery/drink-14.jpg",
         "modernDesc1": "Today, Chai Days brings that sanctuary to the modern landscape. We bridge the gap between traditional spice-blending techniques and a clean, minimalist lifestyle.",
@@ -441,8 +831,8 @@
       },
       "content": {
         "ctaDesc": "We invite you to step into our world and witness these moments firsthand. Our doors are open for slow living and fine tea.",
-        "ctaTitle": "Ready for a cozy experience?",
-        "heroDesc": "An intimate collection of cozy moments we cherish. From the delicate steam of a morning pour to the architectural silence of our space.",
+        "ctaTitle": "Ready to experience the ritual?",
+        "heroDesc": "An intimate collection of the rituals we cherish. From the delicate steam of a morning pour to the architectural silence of our space.",
         "heroTitle": "Our Visual Journal",
         "ctaBtnLink": "/visit",
         "ctaBtnText": "Plan Your Visit",
@@ -462,7 +852,7 @@
       "content": {
         "ctaDesc": "We invite you to join us for a seated experience. Reservations are encouraged to ensure the proper time is dedicated to your brew.",
         "heroImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781289618363-uoenyvtkpx.jpg",
-        "ctaTitle": "Experience the Coziness.",
+        "ctaTitle": "Experience the Ritual.",
         "heroDesc": "Step into a space where time slows down. Chai Days is more than a café; it is a curated sensory journey designed for the modern connoisseur of slow living.",
         "heroTitle": "Elevating the everyday through intentional sips.",
         "pillar1Img": "/images/gallery/drink-10.jpg",
@@ -498,8 +888,58 @@
   ],
   "outlets": [
     {
+      "id": "new-outlet-1781288804352",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288841798-pz8v3k4bid.jpg",
+      "name": "Chai Days Indiranagar",
+      "email": "",
+      "hours": "Daily : 7.30 am–1 2am",
+      "phone": "09214766583",
+      "mapUrl": "https://maps.app.goo.gl/MTvnboAg7Kz8vVdYA",
+      "address": "100 Feet Rd, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka 560008"
+    },
+    {
+      "id": "new-outlet-1781288297440",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288317096-7e4ib7ouz9.jpg",
+      "name": "Chai Days HRBR Layout",
+      "email": "",
+      "hours": "Daily : 8am–1 am",
+      "phone": "09980084666",
+      "mapUrl": "https://maps.app.goo.gl/XPbR8TLKQ9zbNYkX7",
+      "address": "2116, CMR Main Rd, HRBR Layout 2nd Block, HRBR Layout, Kalyan Nagar, Bengaluru, Karnataka 560043"
+    },
+    {
+      "id": "new-outlet-1781288141701",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782368522575-wfkfqksfxic.jpg",
+      "name": "Chai Days Lit Box",
+      "email": "",
+      "hours": "Daily : 8am–1 2am",
+      "phone": "",
+      "mapUrl": "https://maps.app.goo.gl/ePH6dcgBd6U1wnZV6",
+      "address": "Divyasree Technopark, EPIP Zone Whitefield Rd, Kundalahalli, Brookefield, Bengaluru, Karnataka 560066"
+    },
+    {
+      "id": "new-outlet-1781288056939",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782368554045-t5iqj1ccukk.jpg",
+      "name": "Chai Days Sarjapur Road",
+      "email": "",
+      "hours": "Daily : 6.30am–2 am",
+      "phone": "09214766583",
+      "mapUrl": "https://maps.app.goo.gl/xi7KopnDKP85e4LN9",
+      "address": "No.53/1, Ashrith Aries, Sarjapur Main Rd, near Reliance Fashion Factory, Countryside Layout, Rainbow Drive, Doddakannelli, Bengaluru, Karnataka 560035"
+    },
+    {
+      "id": "new-outlet-1781288221631",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288236157-asdurefvmss.jpg",
+      "name": "Chai Days Jayanagar",
+      "email": "",
+      "hours": "Daily : 8am–1 am",
+      "phone": "09214766583",
+      "mapUrl": "https://maps.app.goo.gl/hCqrsyerrkB5HrbG9",
+      "address": "No. 147, Ground Floor, 3rd Main, opposite Tenet diagnostics, 27th Cross, Jayanagar 6th Block, Jayanagar, Bengaluru, Karnataka 560070"
+    },
+    {
       "id": "new-outlet-1781287353397",
-      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781287623075-7ied2itimzb.jpg",
+      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782368599655-1peola54rz7.jpg",
       "name": "Chai Days Bellandur",
       "email": "09980094666",
       "hours": "Daily : 7 am–1 am",
@@ -518,46 +958,6 @@
       "address": "Vijay Jatti Building, 104, 1st Main Rd, KHB Colony, 5th Block, Koramangala, Bengaluru, Karnataka 560095"
     },
     {
-      "id": "new-outlet-1781288056939",
-      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288089967-ielj0axpktq.jpg",
-      "name": "Chai Days Sarjapur Road",
-      "email": "",
-      "hours": "Daily : 6.30am–2 am",
-      "phone": "09214766583",
-      "mapUrl": "https://maps.app.goo.gl/xi7KopnDKP85e4LN9",
-      "address": "No.53/1, Ashrith Aries, Sarjapur Main Rd, near Reliance Fashion Factory, Countryside Layout, Rainbow Drive, Doddakannelli, Bengaluru, Karnataka 560035"
-    },
-    {
-      "id": "new-outlet-1781288141701",
-      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288154193-y7f2q2w353c.jpg",
-      "name": "Chai Days Lit Box",
-      "email": "",
-      "hours": "Daily : 8am–1 2am",
-      "phone": "",
-      "mapUrl": "https://maps.app.goo.gl/ePH6dcgBd6U1wnZV6",
-      "address": "Divyasree Technopark, EPIP Zone Whitefield Rd, Kundalahalli, Brookefield, Bengaluru, Karnataka 560066"
-    },
-    {
-      "id": "new-outlet-1781288221631",
-      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288236157-asdurefvmss.jpg",
-      "name": "Chai Days Jayanagar",
-      "email": "",
-      "hours": "Daily : 8am–1 am",
-      "phone": "09214766583",
-      "mapUrl": "https://maps.app.goo.gl/hCqrsyerrkB5HrbG9",
-      "address": "No. 147, Ground Floor, 3rd Main, opposite Tenet diagnostics, 27th Cross, Jayanagar 6th Block, Jayanagar, Bengaluru, Karnataka 560070"
-    },
-    {
-      "id": "new-outlet-1781288297440",
-      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288317096-7e4ib7ouz9.jpg",
-      "name": "Chai Days HRBR Layout",
-      "email": "",
-      "hours": "Daily : 8am–1 am",
-      "phone": "09980084666",
-      "mapUrl": "https://maps.app.goo.gl/XPbR8TLKQ9zbNYkX7",
-      "address": "2116, CMR Main Rd, HRBR Layout 2nd Block, HRBR Layout, Kalyan Nagar, Bengaluru, Karnataka 560043"
-    },
-    {
       "id": "new-outlet-1781288470802",
       "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288487631-kgjasqa3hyb.jpg",
       "name": "Chai Days Haralur",
@@ -566,16 +966,6 @@
       "phone": "",
       "mapUrl": "https://maps.app.goo.gl/Gosg4gv9AMdRX7vn6",
       "address": "Ground Floor, DMart Building, Silver County Rd, Haralur, Sai Meadows, HSR Layout, Bengaluru, Karnataka 560068"
-    },
-    {
-      "id": "new-outlet-1781288804352",
-      "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288841798-pz8v3k4bid.jpg",
-      "name": "Chai Days Indiranagar",
-      "email": "",
-      "hours": "Daily : 7.30 am–1 2am",
-      "phone": "09214766583",
-      "mapUrl": "https://maps.app.goo.gl/MTvnboAg7Kz8vVdYA",
-      "address": "100 Feet Rd, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka 560008"
     },
     {
       "id": "new-outlet-1781288990624",
@@ -599,8 +989,8 @@
     }
   ],
   "socials": {
-    "instagram": "https://www.instagram.com/chaidaysofficial?igsh=MXZidjRueHV5dGpzZQ==",
     "linkedin": "https://www.linkedin.com/company/chaidays/",
-    "whatsapp": "00917790000079"
+    "whatsapp": "00917790000079",
+    "instagram": "https://www.instagram.com/chaidaysofficial?igsh=MXZidjRueHV5dGpzZQ=="
   }
 }

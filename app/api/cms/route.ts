@@ -31,7 +31,9 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    
+    let saveSuccess = false;
+    let supabaseErrorDetails = null;
+
     // Save to Supabase if configured
     if (supabase) {
       const { error } = await supabase
@@ -40,13 +42,30 @@ export async function POST(request: Request) {
         
       if (error) {
         console.error("Supabase Save Error:", error);
+        supabaseErrorDetails = error.message;
+      } else {
+        saveSuccess = true;
       }
     }
 
-    // Always keep local file in sync as a backup/fallback
-    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
-    return NextResponse.json({ message: 'Data updated successfully' });
+    // Attempt local file sync (works in local dev, gracefully ignored on serverless like Vercel)
+    try {
+      fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
+      saveSuccess = true;
+    } catch (fsErr) {
+      console.warn("Local file write skipped or failed (expected on serverless platforms):", fsErr);
+    }
+
+    if (saveSuccess) {
+      return NextResponse.json({ message: 'Data updated successfully' });
+    } else {
+      return NextResponse.json(
+        { error: supabaseErrorDetails || 'Failed to update database.' },
+        { status: 500 }
+      );
+    }
   } catch (error) {
+    console.error("CMS POST route error:", error);
     return NextResponse.json({ error: 'Failed to update data' }, { status: 500 });
   }
 }
