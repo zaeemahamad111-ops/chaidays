@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
 import { getSiteData } from '@/lib/data';
 import ScrollNavigation from '@/components/ScrollNavigation';
+import MenuCategoryNav from '@/components/MenuCategoryNav';
 
 export const revalidate = 0;
 
@@ -108,7 +109,7 @@ export default async function MenuPage() {
       </section>
 
       {/* Sticky category nav */}
-      <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30 relative">
+      {/* <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30 relative">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-4 relative">
           <div className="flex items-center gap-6 overflow-x-auto flex-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory pr-10">
             {menuData.map((cat: any) => (
@@ -116,19 +117,23 @@ export default async function MenuPage() {
                 {cat.category}
               </a>
             ))}
-          </div>
+          </div> */}
           {/* Mobile scroll hint */}
-          <div className="md:hidden absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none flex items-center justify-end pr-4">
+          {/* <div className="md:hidden absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none flex items-center justify-end pr-4">
             <span className="material-symbols-outlined text-secondary animate-pulse text-[18px]">arrow_forward</span>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <MenuCategoryNav categories={menuData}/>
 
       {/* Dynamic Menu Categories */}
       {menuData.map((category: any, idx: number) => (
         <section 
           key={category.category} 
           id={category.category.toLowerCase().replace(/\s+/g, '-')} 
+          data-category={category.category}
+          data-menu-section
           className={`py-32 px-6 md:px-16 ${idx % 2 !== 0 ? 'bg-surface-container-low' : ''}`}
         >
           <div className="max-w-[1440px] mx-auto">
