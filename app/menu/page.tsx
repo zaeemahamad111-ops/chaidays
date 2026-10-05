@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
 import { getSiteData } from '@/lib/data';
+import ScrollNavigation from '@/components/ScrollNavigation';
 
 export const revalidate = 0;
 
@@ -12,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: ['chai menu bengaluru', 'masala chai menu', 'chai days menu', 'best chai bengaluru', 'cold beverages bengaluru', 'tea menu bengaluru', 'café menu koramangala'],
     alternates: { canonical: 'https://chaidays.vercel.app/menu' },
     openGraph: {
-      title: 'Menu | Chai Days — Bengaluru\'s Finest Chai Café',
+      title: 'Menu | Chai Days - Bengaluru\'s Finest Chai Café',
       description: 'Handcrafted chai, specialty coffee, cold beverages, Asian drinks, starters and desserts. Order online or visit us in Bengaluru.',
       url: 'https://chaidays.vercel.app/menu',
       images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Chai Days Menu — Bengaluru' }],
@@ -67,17 +68,18 @@ export default async function MenuPage() {
       />
       
       {/* Cinematic Video Header */}
-      <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden bg-[#0a0806] flex items-center justify-center">
+      <section className="relative w-full h-screen min-h-screen overflow-hidden bg-[#0a0806] flex items-center justify-center">
         <video
           src="/hero.mp4"
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60 pointer-events-none" />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60 pointer-events-none" /> */}
+        
+        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
         
         <div className="relative z-10 text-center px-6 mt-16 max-w-[1440px] mx-auto">
           <ScrollReveal>
@@ -102,6 +104,7 @@ export default async function MenuPage() {
             </p>
           </ScrollReveal>
         </div>
+        <ScrollNavigation/>
       </section>
 
       {/* Sticky category nav */}
