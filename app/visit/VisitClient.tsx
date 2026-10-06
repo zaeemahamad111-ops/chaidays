@@ -73,15 +73,15 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
 
       {/* ── Outlets Grid ── */}
       <section className="pb-32 px-6 md:px-16 max-w-[1440px] mx-auto">
-        <div className={`grid grid-cols-1 gap-10 ${displayOutlets.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : 'max-w-xl'}`}>
+        <div className={`grid grid-cols-1 gap-10 items-stretch ${displayOutlets.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : 'max-w-xl'}`}>
           {displayOutlets.map((outlet, index) => {
             const rawHours = outlet.hours || '';
             const hoursLines = rawHours.split('\n').filter((h: string) => h.trim() !== '');
             const formattedHours = hoursLines.length > 0 ? hoursLines : ['Daily Service: 08:00 – 22:00'];
 
             return (
-              <ScrollReveal key={index} delay={index * 100}>
-                <div className="group border border-outline-variant rounded-2xl overflow-hidden bg-surface-container-low hover:shadow-xl transition-shadow duration-500">
+              <ScrollReveal key={index} delay={index * 100} className='h-full'>
+                <div className="group h-full flex flex-col border border-outline-variant rounded-2xl overflow-hidden bg-surface-container-low hover:shadow-xl transition-shadow duration-500">
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
                     <Image
@@ -95,7 +95,7 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
                   </div>
 
                   {/* Details */}
-                  <div className="p-7 space-y-6">
+                  <div className="p-7 space-y-6 flex-1 flex flex-col">
                     {/* Name & Address */}
                     <div>
                       <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-secondary mb-2 block">Location</span>
@@ -131,7 +131,8 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
                     <div className="border-t border-outline-variant/50" />
 
                     {/* Contact */}
-                    <div>
+
+                    {/* <div>
                       <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-secondary mb-3 block">Contact</span>
                       <div className="space-y-1 font-sans text-sm text-on-surface-variant mb-4">
                         {outlet.email && <p>{outlet.email}</p>}
@@ -154,7 +155,8 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
                           </a>
                         )}
                       </div>
-                    </div>
+                    </div> */}
+
                   </div>
                 </div>
               </ScrollReveal>
