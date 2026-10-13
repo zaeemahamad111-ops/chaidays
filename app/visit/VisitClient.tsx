@@ -26,10 +26,64 @@ const jsonLd = {
 
 export default function VisitClient({ contentData = {}, outlets = [] }: { contentData?: any, outlets?: any[] }) {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [errors, setErros] = useState({name: "", email: "", message:""})
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const newErrors = {name:'', email:'', message:''}
+
+    const name = formState.name.trim();
+    const email = formState.email.trim();
+    const message = formState.message.trim();
+
+    if (!name){
+      newErrors.name = "Please enter your name"
+    }else if (name.length < 2){
+      newErrors.name = "Name must be at least 2 characters"
+    }else if (!/^[A-Za-z\s.'-]+$/.test(name)){
+      newErrors.name = "Please enter a valid name"
+    }
+
+    if (!email) {
+      newErrors.email = 'Please enter your email address.';
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
+    ) {
+      newErrors.email = 'Please enter a valid email address.';
+    }
+
+     if (!message) {
+      newErrors.message = 'Please enter your message.';
+    } else if (message.length < 7) {
+      newErrors.message = 'Message must be at least 7 characters.';
+    }
+
+    setErros(newErrors);
+
+    if(Object.values(newErrors).some((error)=> error !== '')){
+      return;
+    }
+
+    const subject = `Sales Inquiry from ${name}`
+
+    const body = `
+      Name: ${name}
+      Email: ${email}
+
+      Message:
+      ${message}
+        `.trim();
+
+        const mailtoUrl =
+          `mailto:sales@chaidays.in` +
+          `?cc=info@chaidays.in` +
+          `&subject=${encodeURIComponent(subject)}` +
+          `&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoUrl;
+
     setSubmitted(true);
   };
 
@@ -170,9 +224,9 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
       <section className="py-32 bg-surface-container-low">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
           <ScrollReveal className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6">{contentData.formTitle || 'Concierge Inquiry'}</h2>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6">{contentData.formTitle || "Let's Create Something Special"}</h2>
             <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-              {contentData.formDesc || 'Planning a visit or have a special request? Our concierge team is here to assist with your journey.'}
+              {contentData.formDesc || "Planning a special order, bulk requirement, or corporate gathering? Get in touch with our team and we'll be happy to assist you."}
             </p>
           </ScrollReveal>
 
@@ -188,19 +242,40 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
                 <div className="floating-label-group">
                   <input id="name" type="text" placeholder=" " required value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })} />
                   <label htmlFor="name">Full Name</label>
+
+                  {errors.name && (
+                    <p className='mt-2 text-xs text-red-600'>
+                      {errors.name}
+                    </p>
+                  )}
+
                 </div>
                 <div className="floating-label-group">
                   <input id="email" type="email" placeholder=" " required value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })} />
                   <label htmlFor="email">Email Address</label>
+
+                  {errors.email &&(
+                    <p className='mt-2 text-xs text-red-600'>
+                      {errors.email}
+                    </p>
+                  )}
+
                 </div>
               </div>
               <div className="floating-label-group">
                 <textarea id="message" placeholder=" " rows={4} required value={formState.message} onChange={(e) => setFormState({ ...formState, message: e.target.value })} style={{ resize: 'none' }} />
-                <label htmlFor="message">How Can We Assist You?</label>
+                <label htmlFor="message">Tell Us About Your Requirement</label>
+
+                {errors.message &&(
+                  <p className='mt-2 text-xs text-red-600'>
+                    {errors.message}
+                  </p>
+                )}
+
               </div>
               <div className="flex justify-center pt-4">
                 <button type="submit" className="bg-secondary text-white px-14 py-5 rounded-full font-sans text-[11px] tracking-widest uppercase hover:bg-[#6b3b00] hover:shadow-lg transition-all duration-300 active:scale-95">
-                  Send Invitation
+                  Send Inquiry
                 </button>
               </div>
             </form>

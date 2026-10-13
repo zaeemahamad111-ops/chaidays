@@ -223,6 +223,12 @@ export default async function MenuPage() {
                               {item.desc && (
                                 <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
                               )}
+
+                              {item.availableAt?.length > 0 && (
+                                <p className='font-sans text-[9px] md:text-[10px] text-secondary/70 tracking-[0.08em] uppercase mt-2'>
+                                  Available only at {item.availableAt.join(" · ")}
+                                </p>
+                              )}
                             </div>
                           </ScrollReveal>
                         ))}
