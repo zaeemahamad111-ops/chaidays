@@ -177,7 +177,8 @@
           "id": "new-item-1782286951054",
           "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782320996802-31f7g742o3m.png",
           "desc": "",
-          "name": "Slow Vietnamies Iced Latte"
+          "name": "Slow Vietnamies Iced Latte",
+          "availableAt": ["Koramangala", "BTM Layout"]
         },
         {
           "id": "new-item-1782286956399",
@@ -799,10 +800,10 @@
         "locImg": "/images/gallery/space-4.jpg",
         "heroImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781289314681-0ee8z9gx8lf.jpg",
         "locName": "Krishnappa Compound",
-        "formDesc": "Planning a visit or have a special request? Our concierge team is here to assist with your journey.",
+        "formDesc": "Planning a special order, bulk requirement, or corporate gathering? Get in touch with our team and we'll be happy to assist you.",
         "heroDesc": "Step away from the noise and rediscover intentional presence in a sanctuary curated for the art of the moment.",
         "locTitle": "Location",
-        "formTitle": "Concierge Inquiry",
+        "formTitle": "Let's Create Something Special",
         "heroTitle": "An Invitation to Pause",
         "hoursName": "Opening Hours",
         "quoteText": "&ldquo;We believe every cup of chai is an invitation to slow down and connect with oneself and others.&rdquo;",

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
 import { getSiteData } from '@/lib/data';
+import ScrollNavigation from '@/components/ScrollNavigation';
+import MenuCategoryNav from '@/components/MenuCategoryNav';
 
 export const revalidate = 0;
 
@@ -12,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: ['chai menu bengaluru', 'masala chai menu', 'chai days menu', 'best chai bengaluru', 'cold beverages bengaluru', 'tea menu bengaluru', 'café menu koramangala'],
     alternates: { canonical: 'https://chaidays.vercel.app/menu' },
     openGraph: {
-      title: 'Menu | Chai Days — Bengaluru\'s Finest Chai Café',
+      title: 'Menu | Chai Days - Bengaluru\'s Finest Chai Café',
       description: 'Handcrafted chai, specialty coffee, cold beverages, Asian drinks, starters and desserts. Order online or visit us in Bengaluru.',
       url: 'https://chaidays.vercel.app/menu',
       images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Chai Days Menu — Bengaluru' }],
@@ -67,17 +69,18 @@ export default async function MenuPage() {
       />
       
       {/* Cinematic Video Header */}
-      <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden bg-[#0a0806] flex items-center justify-center">
+      <section className="relative w-full h-screen min-h-screen overflow-hidden bg-[#0a0806] flex items-center justify-center">
         <video
           src="/hero.mp4"
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60 pointer-events-none" />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60 pointer-events-none" /> */}
+        
+        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
         
         <div className="relative z-10 text-center px-6 mt-16 max-w-[1440px] mx-auto">
           <ScrollReveal>
@@ -102,10 +105,11 @@ export default async function MenuPage() {
             </p>
           </ScrollReveal>
         </div>
+        <ScrollNavigation/>
       </section>
 
       {/* Sticky category nav */}
-      <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30 relative">
+      {/* <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30 relative">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-4 relative">
           <div className="flex items-center gap-6 overflow-x-auto flex-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory pr-10">
             {menuData.map((cat: any) => (
@@ -113,19 +117,23 @@ export default async function MenuPage() {
                 {cat.category}
               </a>
             ))}
-          </div>
+          </div> */}
           {/* Mobile scroll hint */}
-          <div className="md:hidden absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none flex items-center justify-end pr-4">
+          {/* <div className="md:hidden absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none flex items-center justify-end pr-4">
             <span className="material-symbols-outlined text-secondary animate-pulse text-[18px]">arrow_forward</span>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <MenuCategoryNav categories={menuData}/>
 
       {/* Dynamic Menu Categories */}
       {menuData.map((category: any, idx: number) => (
         <section 
           key={category.category} 
           id={category.category.toLowerCase().replace(/\s+/g, '-')} 
+          data-category={category.category}
+          data-menu-section
           className={`py-32 px-6 md:px-16 ${idx % 2 !== 0 ? 'bg-surface-container-low' : ''}`}
         >
           <div className="max-w-[1440px] mx-auto">
@@ -214,6 +222,12 @@ export default async function MenuPage() {
                               </div>
                               {item.desc && (
                                 <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
+                              )}
+
+                              {item.availableAt?.length > 0 && (
+                                <p className='font-sans text-[9px] md:text-[10px] text-secondary/70 tracking-[0.08em] uppercase mt-2'>
+                                  Available only at {item.availableAt.join(" · ")}
+                                </p>
                               )}
                             </div>
                           </ScrollReveal>
