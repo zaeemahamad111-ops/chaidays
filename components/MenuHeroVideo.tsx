@@ -78,9 +78,7 @@ export default function MenuHeroVideo({ heroData, contentData }: MenuHeroVideoPr
     };
   }, [isMobile]);
 
-  const videoSrc = isMobile
-    ? (contentData?.heroVideo || heroData?.mobileVideoUrl || '/hero-final-mobile.mp4')
-    : (contentData?.heroVideo || heroData?.desktopVideoUrl || '/hero-final-web.mp4');
+  const videoSrc = contentData?.heroVideo || heroData?.secondaryVideoUrl || '/hero.mp4';
 
   return (
     <section
