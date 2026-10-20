@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
 import { getSiteData } from '@/lib/data';
-import ScrollNavigation from '@/components/ScrollNavigation';
 import MenuCategoryNav from '@/components/MenuCategoryNav';
+import MenuHeroVideo from '@/components/MenuHeroVideo';
 
 export const revalidate = 0;
 
@@ -29,9 +29,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function MenuPage() {
   let menuData = [];
+  let heroData: any = undefined;
+  let contentData: any = {};
   try {
     const data = await getSiteData();
     if (data?.menu) menuData = data.menu;
+    if (data?.hero) heroData = data.hero;
+    if (data?.pages?.menu?.content) contentData = data.pages.menu.content;
   } catch (error) {
     console.error("Error loading menu data:", error);
   }
@@ -68,62 +72,8 @@ export default async function MenuPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      {/* Cinematic Video Header */}
-      <section className="relative w-full h-screen min-h-screen overflow-hidden bg-[#0a0806] flex items-center justify-center">
-        <video
-          src="/hero.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60 pointer-events-none" /> */}
-        
-        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-        
-        <div className="relative z-10 text-center px-6 mt-16 max-w-[1440px] mx-auto">
-          <ScrollReveal>
-            <p className="font-sans text-[11px] tracking-[0.4em] uppercase text-[#e8c8a0] mb-4">
-              Curated Collections
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={150}>
-            <h1 
-              className="font-serif text-[64px] md:text-[90px] text-white italic mb-6 leading-[1.1]" 
-              style={{ textShadow: '0 4px 40px rgba(0,0,0,0.6)' }}
-            >
-              A Cozy Modern Experience
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={300}>
-            <p 
-              className="font-sans text-lg text-white/90 max-w-2xl mx-auto leading-relaxed"
-              style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
-            >
-              A thoughtfully assembled selection of artisanal brews and hand-crafted bites, designed for slow living and intentional moments of pause.
-            </p>
-          </ScrollReveal>
-        </div>
-        <ScrollNavigation/>
-      </section>
-
-      {/* Sticky category nav */}
-      {/* <div className="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-y border-outline-variant/30 relative">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-4 relative">
-          <div className="flex items-center gap-6 overflow-x-auto flex-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory pr-10">
-            {menuData.map((cat: any) => (
-              <a key={cat.category} href={`#${cat.category.toLowerCase().replace(/\s+/g, '-')}`} className="snap-start shrink-0 font-sans text-[11px] font-semibold tracking-[0.15em] uppercase text-on-surface-variant hover:text-secondary transition-colors animated-link whitespace-nowrap">
-                {cat.category}
-              </a>
-            ))}
-          </div> */}
-          {/* Mobile scroll hint */}
-          {/* <div className="md:hidden absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface via-surface/80 to-transparent pointer-events-none flex items-center justify-end pr-4">
-            <span className="material-symbols-outlined text-secondary animate-pulse text-[18px]">arrow_forward</span>
-          </div>
-        </div>
-      </div> */}
+      {/* Cinematic Hero Video matching landing page design & frame */}
+      <MenuHeroVideo heroData={heroData} contentData={contentData} />
 
       <MenuCategoryNav categories={menuData}/>
 
