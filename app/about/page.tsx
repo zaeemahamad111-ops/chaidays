@@ -262,29 +262,21 @@ export default async function AboutPage() {
                     <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#e8c8a0] font-medium block mb-1">
                       Indiranagar · Bengaluru
                     </span>
-                    <p className="font-serif italic text-lg text-white/95">
+                    <p className="font-serif italic text-lg md:text-xl text-white/95 leading-snug">
                       100 Feet Road — Where the first brew began.
+                    </p>
+                    <p className="font-sans text-[10px] tracking-wider uppercase text-white/70 mt-1">
+                      Quality · Affordability · Community
                     </p>
                   </div>
                 </div>
 
                 {/* Floating Heritage Badge */}
-                <div className="absolute -top-6 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md px-6 py-4 rounded-xl shadow-xl border border-outline-variant/30 flex items-center gap-3.5">
+                <div className="absolute -top-6 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md px-6 py-4 rounded-xl shadow-xl border border-outline-variant/30 flex items-center gap-3.5 z-20">
                   <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse" />
                   <div>
                     <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-secondary font-bold block">Since 2018</span>
                     <span className="font-serif text-sm text-primary font-medium">Homegrown Café Brand</span>
-                  </div>
-                </div>
-
-                {/* 3 Pillars Badge */}
-                <div className="hidden sm:flex absolute -bottom-6 -right-6 bg-primary text-surface px-6 py-4 rounded-xl shadow-2xl border border-outline/20 items-center gap-4">
-                  <div className="w-8 h-8 rounded-full bg-secondary/30 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-secondary-container text-[18px]">verified</span>
-                  </div>
-                  <div>
-                    <span className="font-sans text-[8px] tracking-[0.2em] uppercase text-secondary-container font-semibold block">The 3 Principles</span>
-                    <span className="font-sans text-xs font-medium text-white/90">Quality · Affordability · Community</span>
                   </div>
                 </div>
               </div>
