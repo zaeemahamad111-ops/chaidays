@@ -72,7 +72,7 @@ export default async function AboutPage() {
           '@type': 'Organization',
           'name': 'Chai Days',
           'url': 'https://chaidays.vercel.app',
-          'foundingDate': '2020',
+          'foundingDate': '2018',
           'foundingLocation': {
             '@type': 'Place',
             'name': 'Bengaluru, Karnataka, India',
@@ -164,7 +164,7 @@ export default async function AboutPage() {
       <section className="pt-[140px] pb-20 px-6 md:px-16 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-20">
           <div className="md:col-span-7">
-            <p className="hero-text-1 font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-secondary mb-5">{contentData.heroSubtitle || 'Est. 2024'}</p>
+            <p className="hero-text-1 font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-secondary mb-5">{contentData.heroSubtitle || 'Est. 2018'}</p>
             <h1 className="hero-text-2 font-serif text-[64px] md:text-[80px] text-primary leading-[0.9]" dangerouslySetInnerHTML={{ __html: contentData.heroTitle || 'The Art of the<br /><em class="text-secondary-container">Slow Steam.</em>' }} />
           </div>
           <div className="md:col-span-5 pb-2">
@@ -186,7 +186,115 @@ export default async function AboutPage() {
         </ScrollReveal>
       </section>
 
-      <section className="py-32 bg-surface-container-low">
+      {/* ── Section 2: Our Story ── */}
+      <section className="py-28 md:py-36 bg-surface-container-low border-t border-outline-variant/30 relative overflow-hidden">
+        {/* Subtle warm glow background accent */}
+        <div className="absolute top-1/3 -right-24 w-96 h-96 bg-[#c9874a]/10 blur-[130px] rounded-full pointer-events-none" />
+
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Story Text Column */}
+            <ScrollReveal className="lg:col-span-7 space-y-8">
+              <div>
+                <span className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-secondary mb-3 block">
+                  {contentData.storyEyebrow || 'Our Story — Chai Days'}
+                </span>
+                <h2 className="font-serif text-4xl sm:text-5xl lg:text-[54px] text-primary leading-[1.1] tracking-tight">
+                  {contentData.storyTitle || 'From One Chai Outlet to a Growing Café Brand'}
+                </h2>
+              </div>
+
+              {/* Milestone Metrics Bar */}
+              <div className="grid grid-cols-3 gap-3 md:gap-4 py-4 border-y border-outline-variant/40">
+                <div className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-outline-variant/30">
+                  <span className="font-serif text-2xl md:text-3xl font-bold text-secondary block leading-none mb-1">6+</span>
+                  <span className="font-sans text-[10px] md:text-xs tracking-wider uppercase text-primary font-semibold block">Years of Growth</span>
+                </div>
+                <div className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-outline-variant/30">
+                  <span className="font-serif text-2xl md:text-3xl font-bold text-secondary block leading-none mb-1">10+</span>
+                  <span className="font-sans text-[10px] md:text-xs tracking-wider uppercase text-primary font-semibold block">Outlets</span>
+                </div>
+                <div className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-outline-variant/30">
+                  <span className="font-serif text-2xl md:text-3xl font-bold text-secondary block leading-none mb-1">1</span>
+                  <span className="font-sans text-[10px] md:text-xs tracking-wider uppercase text-primary font-semibold block">Consistent Vision</span>
+                </div>
+              </div>
+
+              {/* Narrative Copy */}
+              <div className="space-y-5 font-sans text-base md:text-lg text-on-surface-variant leading-relaxed">
+                <p>
+                  {contentData.storyDesc1 || 'Founded in Bengaluru in 2018, Chai Days began with a simple idea: make quality chai and delicious food accessible to everyone. Starting from 100 Feet Road, Indiranagar, we have grown into a homegrown café brand built on three principles — quality, affordability, and community.'}
+                </p>
+                <p>
+                  {contentData.storyDesc2 || 'Our journey reflects the power of a simple idea backed by persistence and a commitment to customer satisfaction. From thoughtfully brewed teas to innovative beverages, fresh bakery favourites, and satisfying snacks, we continue to evolve with changing tastes while staying connected to the everyday chai culture that inspired us.'}
+                </p>
+                <p>
+                  {contentData.storyDesc3 || 'As we expand into new markets, our focus remains on delivering consistent quality, accessible experiences, and welcoming spaces where people can connect.'}
+                </p>
+              </div>
+
+              {/* Brand Tagline Highlight */}
+              <div className="pt-4 border-l-2 border-secondary pl-6 mt-8">
+                <p className="font-serif italic text-2xl md:text-3xl text-primary font-medium">
+                  Chai Days — Bringing back <span className="text-secondary font-semibold">positiv.tea.</span>
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Story Visual Frame Column */}
+            <ScrollReveal delay={200} className="lg:col-span-5">
+              <div className="relative">
+                {/* Main Cafe Imagery */}
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative border border-outline-variant/30 group">
+                  <Image
+                    src={contentData.storyImg || "/images/gallery/space-1.jpg"}
+                    alt="Chai Days flagship café experience in Bengaluru"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Bottom Image Overlay Details */}
+                  <div className="absolute bottom-6 left-6 right-6 text-white z-10">
+                    <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#e8c8a0] font-medium block mb-1">
+                      Indiranagar · Bengaluru
+                    </span>
+                    <p className="font-serif italic text-lg text-white/95">
+                      100 Feet Road — Where the first brew began.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Floating Heritage Badge */}
+                <div className="absolute -top-6 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md px-6 py-4 rounded-xl shadow-xl border border-outline-variant/30 flex items-center gap-3.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse" />
+                  <div>
+                    <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-secondary font-bold block">Since 2018</span>
+                    <span className="font-serif text-sm text-primary font-medium">Homegrown Café Brand</span>
+                  </div>
+                </div>
+
+                {/* 3 Pillars Badge */}
+                <div className="hidden sm:flex absolute -bottom-6 -right-6 bg-primary text-surface px-6 py-4 rounded-xl shadow-2xl border border-outline/20 items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-secondary/30 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-secondary-container text-[18px]">verified</span>
+                  </div>
+                  <div>
+                    <span className="font-sans text-[8px] tracking-[0.2em] uppercase text-secondary-container font-semibold block">The 3 Principles</span>
+                    <span className="font-sans text-xs font-medium text-white/90">Quality · Affordability · Community</span>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 bg-surface">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <ScrollReveal className="order-2 md:order-1 space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-primary">{contentData.qualityTitle || 'Uncompromising Quality'}</h2>
@@ -210,7 +318,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="py-32 bg-surface">
+      <section className="py-32 bg-surface-container-low">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <ScrollReveal>
             <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-xl">

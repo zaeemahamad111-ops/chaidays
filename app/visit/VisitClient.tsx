@@ -155,11 +155,6 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
                       <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-secondary mb-2 block">Location</span>
                       <h3 className="font-serif text-2xl text-primary mb-3">{outlet.name || 'Store Location'}</h3>
                       <address className="font-sans text-sm text-on-surface-variant not-italic leading-relaxed" dangerouslySetInnerHTML={{ __html: outlet.address || 'Address not provided' }} />
-                      {outlet.mapUrl && (
-                        <a href={outlet.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-secondary font-sans font-semibold text-xs mt-3 hover:text-primary transition-colors">
-                          View on Map <span className="material-symbols-outlined text-[15px]">arrow_outward</span>
-                        </a>
-                      )}
                     </div>
 
                     <div className="border-t border-outline-variant/50" />
@@ -182,34 +177,29 @@ export default function VisitClient({ contentData = {}, outlets = [] }: { conten
                       </div>
                     </div>
 
-                    <div className="border-t border-outline-variant/50" />
+                    {/* Actions: Call button & Directions */}
+                    <div className="border-t border-outline-variant/50 pt-5 mt-auto flex items-center justify-between gap-3">
+                      <a
+                        href={`tel:${(outlet.phone || '+917022559991').replace(/\s/g, '')}`}
+                        className="inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-full font-sans text-xs font-semibold tracking-wider uppercase hover:bg-[#6b3b00] hover:shadow-md transition-all active:scale-95"
+                        aria-label={`Call ${outlet.name || 'outlet'}`}
+                      >
+                        <span className="material-symbols-outlined text-[16px]">call</span>
+                        <span>Call</span>
+                      </a>
 
-                    {/* Contact */}
-
-                    {/* <div>
-                      <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-secondary mb-3 block">Contact</span>
-                      <div className="space-y-1 font-sans text-sm text-on-surface-variant mb-4">
-                        {outlet.email && <p>{outlet.email}</p>}
-                        {outlet.phone && <p>{outlet.phone}</p>}
-                      </div>
-                      <div className="flex gap-4">
-                        {outlet.phone && (
-                          <a href={`tel:${(outlet.phone || '').replace(/\s/g, '')}`} className="text-primary hover:text-secondary transition-colors" title="Call">
-                            <span className="material-symbols-outlined">call</span>
-                          </a>
-                        )}
-                        {outlet.phone && (
-                          <a href={`https://wa.me/${(outlet.phone || '').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors" title="WhatsApp">
-                            <span className="material-symbols-outlined">chat_bubble</span>
-                          </a>
-                        )}
-                        {outlet.email && (
-                          <a href={`mailto:${outlet.email}`} className="text-primary hover:text-secondary transition-colors" title="Email">
-                            <span className="material-symbols-outlined">alternate_email</span>
-                          </a>
-                        )}
-                      </div>
-                    </div> */}
+                      {outlet.mapUrl && (
+                        <a
+                          href={outlet.mapUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-secondary font-sans font-semibold text-xs hover:text-primary transition-colors py-2 px-3 rounded-full hover:bg-surface-container"
+                        >
+                          <span>Directions</span>
+                          <span className="material-symbols-outlined text-[15px]">arrow_outward</span>
+                        </a>
+                      )}
+                    </div>
 
                   </div>
                 </div>

@@ -777,8 +777,14 @@
         "modernDesc1": "Today, Chai Days brings that sanctuary to the modern landscape. We bridge the gap between traditional spice-blending techniques and a clean, minimalist lifestyle.",
         "modernDesc2": "Our vision is to cultivate a global community that values quality over quantity, and presence over productivity. We believe in the power of the pause.",
         "modernTitle": "Modern Presence",
-        "qualityDesc": "Quality is our way of life. We source from the best estates and use expert techniques to ensure every item reflects our dedication to excellence.",
-        "heroSubtitle": "Est. 2024",
+        "heroSubtitle": "Est. 2018",
+        "storyEyebrow": "Our Story — Chai Days",
+        "storyTitle": "From One Chai Outlet to a Growing Café Brand",
+        "storyDesc1": "Founded in Bengaluru in 2018, Chai Days began with a simple idea: make quality chai and delicious food accessible to everyone. Starting from 100 Feet Road, Indiranagar, we have grown into a homegrown café brand built on three principles — quality, affordability, and community.",
+        "storyDesc2": "Our journey reflects the power of a simple idea backed by persistence and a commitment to customer satisfaction. From thoughtfully brewed teas to innovative beverages, fresh bakery favourites, and satisfying snacks, we continue to evolve with changing tastes while staying connected to the everyday chai culture that inspired us.",
+        "storyDesc3": "As we expand into new markets, our focus remains on delivering consistent quality, accessible experiences, and welcoming spaces where people can connect.",
+        "storyTagline": "Chai Days — Bringing back positiv.tea.",
+        "storyImg": "/images/gallery/space-1.jpg",
         "qualityTitle": "Uncompromising Quality",
         "quoteSubtitle": "The Chai Days Philosophy",
         "philosophyTitle": "Philosophy in Practice",
@@ -894,7 +900,7 @@
       "name": "Chai Days Indiranagar",
       "email": "",
       "hours": "Daily : 7.30 am–1 2am",
-      "phone": "09214766583",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/MTvnboAg7Kz8vVdYA",
       "address": "100 Feet Rd, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka 560008"
     },
@@ -904,7 +910,7 @@
       "name": "Chai Days HRBR Layout",
       "email": "",
       "hours": "Daily : 8am–1 am",
-      "phone": "09980084666",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/XPbR8TLKQ9zbNYkX7",
       "address": "2116, CMR Main Rd, HRBR Layout 2nd Block, HRBR Layout, Kalyan Nagar, Bengaluru, Karnataka 560043"
     },
@@ -914,7 +920,7 @@
       "name": "Chai Days Lit Box",
       "email": "",
       "hours": "Daily : 8am–1 2am",
-      "phone": "",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/ePH6dcgBd6U1wnZV6",
       "address": "Divyasree Technopark, EPIP Zone Whitefield Rd, Kundalahalli, Brookefield, Bengaluru, Karnataka 560066"
     },
@@ -924,7 +930,7 @@
       "name": "Chai Days Sarjapur Road",
       "email": "",
       "hours": "Daily : 6.30am–2 am",
-      "phone": "09214766583",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/xi7KopnDKP85e4LN9",
       "address": "No.53/1, Ashrith Aries, Sarjapur Main Rd, near Reliance Fashion Factory, Countryside Layout, Rainbow Drive, Doddakannelli, Bengaluru, Karnataka 560035"
     },
@@ -934,7 +940,7 @@
       "name": "Chai Days Jayanagar",
       "email": "",
       "hours": "Daily : 8am–1 am",
-      "phone": "09214766583",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/hCqrsyerrkB5HrbG9",
       "address": "No. 147, Ground Floor, 3rd Main, opposite Tenet diagnostics, 27th Cross, Jayanagar 6th Block, Jayanagar, Bengaluru, Karnataka 560070"
     },
@@ -944,7 +950,7 @@
       "name": "Chai Days Bellandur",
       "email": "09980094666",
       "hours": "Daily : 7 am–1 am",
-      "phone": "09980094666",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/uUBb16X5dkfgW6kc9",
       "address": "WMQV+8VQ infront of Cessna Business Park, WMQV+8VP Service road, Outer Ring Rd, Kadubeesanahalli, Bengaluru, Karnataka 560103"
     },
@@ -954,7 +960,7 @@
       "name": " Chai Days Koramangala",
       "email": "",
       "hours": "Daily : 7.30 am–1 am",
-      "phone": "09980084666",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/7DvnjCux69cm29nXA",
       "address": "Vijay Jatti Building, 104, 1st Main Rd, KHB Colony, 5th Block, Koramangala, Bengaluru, Karnataka 560095"
     },
@@ -964,7 +970,7 @@
       "name": "Chai Days Haralur",
       "email": "",
       "hours": "Daily: 7 am–3 am",
-      "phone": "",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/Gosg4gv9AMdRX7vn6",
       "address": "Ground Floor, DMart Building, Silver County Rd, Haralur, Sai Meadows, HSR Layout, Bengaluru, Karnataka 560068"
     },
@@ -974,7 +980,7 @@
       "name": "Chai Days BTM Layout",
       "email": "",
       "hours": "Daily : 8am–1 am",
-      "phone": "09980084666",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/JK6UPTWw7JvBDNjQ7",
       "address": "Royal Arcade, 902-934, 16th Main Rd, BTM 2nd Stage, Kuvempu Nagar, BTM Layout 2nd Stage, BTM Layout, Bengaluru, Karnataka 560076"
     },
@@ -984,7 +990,7 @@
       "name": "Chai Days Electronic City",
       "email": "",
       "hours": "Daily : 7.30 am–1 am",
-      "phone": "09980084666",
+      "phone": "+917022559991",
       "mapUrl": "https://maps.app.goo.gl/RruHKxHNjHCVy6wk7",
       "address": "152, 5, Neeladri Rd, Karuna Nagar, Electronic City Phase I, Electronic City, Doddathoguru, Karnataka 560100"
     }
