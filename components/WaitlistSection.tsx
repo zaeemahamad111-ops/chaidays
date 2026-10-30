@@ -168,7 +168,6 @@ export default function WaitlistSection({ socials, outlets }: { socials?: any, o
               <h4 className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-primary mb-6">Explore</h4>
               <ul className="space-y-4 font-sans text-sm text-on-surface-variant">
                 <li><Link href="/about" className="hover:text-secondary transition-colors">Our Story</Link></li>
-                <li><Link href="/experience" className="hover:text-secondary transition-colors">Experience</Link></li>
                 <li><Link href="/gallery" className="hover:text-secondary transition-colors">Gallery</Link></li>
               </ul>
             </div>

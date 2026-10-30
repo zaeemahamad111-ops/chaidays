@@ -155,82 +155,7 @@ export default async function HomePage() {
 
       <HeroVideo heroData={heroData} />
 
-      {/* ── Temporarily commented out: Experience Section ── */}
-      {/*
-      <section className="min-h-screen flex items-center py-32 md:py-48 bg-[#ebdcd0] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[40%] h-full bg-[#e3d1c1] -skew-x-12 translate-x-20 pointer-events-none" />
 
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-16 items-center relative z-10">
-          
-          <ScrollReveal className="md:col-span-6 lg:col-span-7 relative">
-            <div className="relative w-full max-w-lg md:mr-auto">
-              <div className="aspect-[4/5] overflow-hidden shadow-2xl">
-                <Image
-                  src={contentData.ambImg || contentData.expMainImg || "/images/curated-main.jpg"}
-                  alt="Barista crafting artisan chai at Chai Days"
-                  width={800}
-                  height={1000}
-                  className="w-full h-full object-cover scale-105 hover:scale-100 transition-all duration-[1.5s] ease-out"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                />
-              </div>
-              
-              <div className="absolute -bottom-12 -right-6 md:-right-16 w-[55%] aspect-square overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[8px] border-[#ebdcd0] hidden sm:block">
-                <Image
-                  src={contentData.ambAccentImg || contentData.expAccentImg || "/images/curated-accent.jpg"}
-                  alt="Leather reading nook"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-[1.5s] ease-out"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 0vw, 30vw"
-                />
-              </div>
-
-              <div className="absolute top-10 -left-6 md:-left-10 bg-[#fdf9f4]/90 backdrop-blur-md px-6 py-4 shadow-xl flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-secondary" />
-                <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-primary font-semibold">Quiet Luxury</span>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal className="md:col-span-6 lg:col-span-5 md:pl-8 space-y-10 mt-20 md:mt-0" delay={200}>
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-secondary" />
-              <span className="font-sans text-[11px] font-semibold tracking-[0.3em] uppercase text-secondary">
-                {contentData.expSubtitle || 'Curated Atmosphere'}
-              </span>
-            </div>
-            
-            <h2 className="font-serif text-5xl md:text-6xl text-primary leading-[1.1] tracking-tight" dangerouslySetInnerHTML={{ __html: contentData.expTitle || 'A Space Designed for <span class="italic">Intentionality.</span>' }} />
-            <p className="hero-text-3 font-sans text-lg text-on-surface-variant max-w-lg leading-relaxed">
-              {contentData.ambDesc || contentData.expDesc || 'Every sip is a meditation. Our environments are sculpted to foster restored focus and organic community.'}
-            </p>
-            
-            <div className="space-y-10 border-t border-outline-variant/40 pt-10">
-              <div className="space-y-6">
-                <h2 className="font-serif text-4xl md:text-5xl text-primary leading-tight">{contentData.stayTitle || 'Stay Awhile'}</h2>
-                <div className="w-16 h-1 bg-secondary-container" />
-                <p className="font-sans text-lg text-on-surface-variant leading-relaxed">
-                  {contentData.stayDesc || 'More than a café—a warm sanctuary to relax, unwind, and escape the daily bustle. Our cozy, vibrant spaces are designed to make you feel right at home.'}
-                </p>
-                <div className="pt-2">
-                  <Link href={contentData.stayBtnLink || "/visit"} className="inline-block border-b border-primary pb-1 font-sans text-xs tracking-widest uppercase text-primary hover:text-secondary hover:border-secondary transition-all">{contentData.stayBtnText || 'Find Your Sanctuary'}</Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6">
-              <Link href="/gallery" className="inline-flex items-center gap-3 font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-primary group hover:text-secondary transition-colors duration-300">
-                <span className="border-b border-primary/30 group-hover:border-secondary transition-colors pb-1">Explore Spaces</span>
-                <span className="material-symbols-outlined text-[18px] transform group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-      */}
 
       {/* ── Signature Selection ── */}
       <section className="py-32 bg-surface-container-low">
@@ -306,51 +231,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── Gallery Glimpses ── */}
-      <section className="py-32 bg-surface">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          <ScrollReveal className="text-center mb-20">
-            <h2 className="font-serif text-5xl text-primary italic">Glimpses of Comfort</h2>
-          </ScrollReveal>
-          <div className="grid grid-cols-12 gap-4 h-[600px] md:h-[900px]">
-            <ScrollReveal className="col-span-8 h-full overflow-hidden">
-              <Image
-                src="/images/gallery/gallery-updated-1.jpg"
-                alt="Chai Days café experience"
-                width={900}
-                height={900}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 66vw"
-              />
-            </ScrollReveal>
-            <div className="col-span-4 flex flex-col gap-4 h-full">
-              <ScrollReveal delay={150} className="h-1/3 overflow-hidden">
-                <Image
-                  src="/images/gallery/gallery-updated-2.jpg"
-                  alt="Atmospheric seating at Chai Days"
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </ScrollReveal>
-              <ScrollReveal delay={250} className="h-2/3 overflow-hidden">
-                <Image
-                  src="/images/gallery/gallery-updated-3.jpg"
-                  alt="Chai Days handcrafted brew"
-                  width={400}
-                  height={600}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── Ambience Split ── */}
       <section className="min-h-[80vh] flex flex-col md:flex-row">

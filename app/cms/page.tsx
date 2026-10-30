@@ -6,7 +6,7 @@ import { ChevronDown, ChevronRight, Image as ImageIcon, UploadCloud, ArrowUp, Ar
 
 type ContentData = any;
 
-const PAGES = ["home", "about", "experience", "gallery", "menu", "visit"];
+const PAGES = ["home", "about", "gallery", "menu", "visit"];
 
 export default function CMSPage() {
   const [data, setData] = useState<ContentData | null>(null);

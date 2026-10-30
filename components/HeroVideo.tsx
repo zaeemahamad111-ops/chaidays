@@ -203,7 +203,7 @@ export default function HeroVideo({ heroData }: { heroData?: HeroData }) {
             {heroData?.cta1Text || "Explore Menu"} <span className="text-[#e8c8a0]">→</span>
           </Link>
           <Link
-            href={heroData?.cta2Link || "/experience"}
+            href={heroData?.cta2Link || "/about"}
             className="font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white/55 hover:text-white border-b border-white/20 hover:border-white pb-0.5 transition-all duration-500"
           >
             {heroData?.cta2Text || "Our Story"}
