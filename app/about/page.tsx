@@ -175,7 +175,7 @@ export default async function AboutPage() {
         </div>
         <ScrollReveal className="aspect-[21/9] w-full overflow-hidden rounded-xl">
           <Image 
-            src={contentData.heroImg || "/images/philosophy.jpg"} 
+            src={contentData.heroImg || "/images/gallery/gallery-updated-1.jpg"} 
             alt="Chai Days minimalist tea bar cinematic view" 
             width={1440} 
             height={617} 
@@ -208,11 +208,11 @@ export default async function AboutPage() {
               {/* Milestone Metrics Bar */}
               <div className="grid grid-cols-3 gap-3 md:gap-4 py-4 border-y border-outline-variant/40">
                 <div className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-outline-variant/30">
-                  <span className="font-serif text-2xl md:text-3xl font-bold text-secondary block leading-none mb-1">6+</span>
-                  <span className="font-sans text-[10px] md:text-xs tracking-wider uppercase text-primary font-semibold block">Years of Growth</span>
+                  <span className="font-serif text-2xl md:text-3xl font-bold text-secondary block leading-none mb-1">8+</span>
+                  <span className="font-sans text-[10px] md:text-xs tracking-wider uppercase text-primary font-semibold block">Years of Experience</span>
                 </div>
                 <div className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-outline-variant/30">
-                  <span className="font-serif text-2xl md:text-3xl font-bold text-secondary block leading-none mb-1">10+</span>
+                  <span className="font-serif text-2xl md:text-3xl font-bold text-secondary block leading-none mb-1">14+</span>
                   <span className="font-sans text-[10px] md:text-xs tracking-wider uppercase text-primary font-semibold block">Outlets</span>
                 </div>
                 <div className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-outline-variant/30">
@@ -248,7 +248,7 @@ export default async function AboutPage() {
                 {/* Main Cafe Imagery */}
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative border border-outline-variant/30 group">
                   <Image
-                    src={contentData.storyImg || "/images/gallery/space-1.jpg"}
+                    src={contentData.storyImg || "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288841798-pz8v3k4bid.jpg"}
                     alt="Chai Days flagship café experience in Bengaluru"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-1000"
@@ -286,6 +286,8 @@ export default async function AboutPage() {
         </div>
       </section>
 
+      {/* ── Temporarily commented out: Uncompromising Quality section ── */}
+      {/*
       <section className="py-32 bg-surface">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <ScrollReveal className="order-2 md:order-1 space-y-8">
@@ -309,6 +311,7 @@ export default async function AboutPage() {
           </ScrollReveal>
         </div>
       </section>
+      */}
 
       <section className="py-32 bg-surface-container-low">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">

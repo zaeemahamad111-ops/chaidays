@@ -155,17 +155,15 @@ export default async function HomePage() {
 
       <HeroVideo heroData={heroData} />
 
-      {/* ── Experience Section ── */}
+      {/* ── Temporarily commented out: Experience Section ── */}
+      {/*
       <section className="min-h-screen flex items-center py-32 md:py-48 bg-[#ebdcd0] relative overflow-hidden">
-        {/* Subtle background decoration */}
         <div className="absolute top-0 right-0 w-[40%] h-full bg-[#e3d1c1] -skew-x-12 translate-x-20 pointer-events-none" />
 
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-16 items-center relative z-10">
           
-          {/* Images Column */}
           <ScrollReveal className="md:col-span-6 lg:col-span-7 relative">
             <div className="relative w-full max-w-lg md:mr-auto">
-              {/* Main Image */}
               <div className="aspect-[4/5] overflow-hidden shadow-2xl">
                 <Image
                   src={contentData.ambImg || contentData.expMainImg || "/images/curated-main.jpg"}
@@ -178,7 +176,6 @@ export default async function HomePage() {
                 />
               </div>
               
-              {/* Overlapping smaller accent image */}
               <div className="absolute -bottom-12 -right-6 md:-right-16 w-[55%] aspect-square overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[8px] border-[#ebdcd0] hidden sm:block">
                 <Image
                   src={contentData.ambAccentImg || contentData.expAccentImg || "/images/curated-accent.jpg"}
@@ -191,7 +188,6 @@ export default async function HomePage() {
                 />
               </div>
 
-              {/* Minimal floating badge */}
               <div className="absolute top-10 -left-6 md:-left-10 bg-[#fdf9f4]/90 backdrop-blur-md px-6 py-4 shadow-xl flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-secondary" />
                 <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-primary font-semibold">Quiet Luxury</span>
@@ -199,7 +195,6 @@ export default async function HomePage() {
             </div>
           </ScrollReveal>
 
-          {/* Text Column */}
           <ScrollReveal className="md:col-span-6 lg:col-span-5 md:pl-8 space-y-10 mt-20 md:mt-0" delay={200}>
             <div className="flex items-center gap-4">
               <span className="w-12 h-[1px] bg-secondary" />
@@ -235,6 +230,7 @@ export default async function HomePage() {
           </ScrollReveal>
         </div>
       </section>
+      */}
 
       {/* ── Signature Selection ── */}
       <section className="py-32 bg-surface-container-low">
@@ -319,8 +315,8 @@ export default async function HomePage() {
           <div className="grid grid-cols-12 gap-4 h-[600px] md:h-[900px]">
             <ScrollReveal className="col-span-8 h-full overflow-hidden">
               <Image
-                src="/images/gallery/drink-1.jpg"
-                alt="The Signature Cozy Chai"
+                src="/images/gallery/gallery-updated-1.jpg"
+                alt="Chai Days café experience"
                 width={900}
                 height={900}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
@@ -331,8 +327,8 @@ export default async function HomePage() {
             <div className="col-span-4 flex flex-col gap-4 h-full">
               <ScrollReveal delay={150} className="h-1/3 overflow-hidden">
                 <Image
-                  src="/images/gallery/space-2.jpg"
-                  alt="Atmospheric seating"
+                  src="/images/gallery/gallery-updated-2.jpg"
+                  alt="Atmospheric seating at Chai Days"
                   width={400}
                   height={300}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
@@ -342,8 +338,8 @@ export default async function HomePage() {
               </ScrollReveal>
               <ScrollReveal delay={250} className="h-2/3 overflow-hidden">
                 <Image
-                  src="/images/gallery/dessert-2.jpg"
-                  alt="Artisanal dessert pairing"
+                  src="/images/gallery/gallery-updated-3.jpg"
+                  alt="Chai Days handcrafted brew"
                   width={400}
                   height={600}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"

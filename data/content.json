@@ -14,7 +14,7 @@
   "hero": {
     "cta1Link": "/menu",
     "cta1Text": "Explore Menu",
-    "cta2Link": "/experience",
+    "cta2Link": "/about",
     "cta2Text": "Our Story",
     "topTextLarge": "Crafted Slow.<br />Savoured Long.",
     "topTextSmall": "A CHAI DAYS RITUAL",
@@ -178,7 +178,10 @@
           "img": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1782320996802-31f7g742o3m.png",
           "desc": "",
           "name": "Slow Vietnamies Iced Latte",
-          "availableAt": ["Koramangala", "BTM Layout"]
+          "availableAt": [
+            "Koramangala",
+            "BTM Layout"
+          ]
         },
         {
           "id": "new-item-1782286956399",
@@ -768,7 +771,7 @@
         "description": "Discover the journey of Chai Days."
       },
       "content": {
-        "heroImg": "/images/philosophy.jpg",
+        "heroImg": "/images/gallery/gallery-updated-1.jpg",
         "heroDesc": "At Chai Days, we've spent over four years perfecting the art of crafting the finest teas, snacks, and beverages.",
         "heroTitle": "The Art of the<br /><em class=\"text-secondary-container\">Slow Steam.</em>",
         "modernImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1784910321940-n5ffqc5ip.jpg",
@@ -784,7 +787,7 @@
         "storyDesc2": "Our journey reflects the power of a simple idea backed by persistence and a commitment to customer satisfaction. From thoughtfully brewed teas to innovative beverages, fresh bakery favourites, and satisfying snacks, we continue to evolve with changing tastes while staying connected to the everyday chai culture that inspired us.",
         "storyDesc3": "As we expand into new markets, our focus remains on delivering consistent quality, accessible experiences, and welcoming spaces where people can connect.",
         "storyTagline": "Chai Days — Bringing back positiv.tea.",
-        "storyImg": "/images/gallery/space-1.jpg",
+        "storyImg": "https://pagitbjgyozdsurswbsj.supabase.co/storage/v1/object/public/chaidays-media/uploads/1781288841798-pz8v3k4bid.jpg",
         "qualityTitle": "Uncompromising Quality",
         "quoteSubtitle": "The Chai Days Philosophy",
         "philosophyTitle": "Philosophy in Practice",
@@ -884,13 +887,94 @@
   },
   "gallery": [
     {
-      "id": "new-gal-1781290405737",
-      "alt": "",
-      "img": "",
-      "label": "NEW • 01",
-      "ratio": "aspect-square",
+      "id": 1,
+      "category": "space",
+      "label": "SPACE • 01",
+      "colSpan": "col-span-12 md:col-span-8",
+      "ratio": "aspect-[16/9]",
+      "img": "/images/gallery/gallery-updated-1.jpg",
+      "alt": "Chai Days café experience"
+    },
+    {
+      "id": 2,
+      "category": "space",
+      "label": "SPACE • 02",
       "colSpan": "col-span-12 md:col-span-4",
-      "category": "space"
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-2.jpg",
+      "alt": "Chai Days interior atmosphere"
+    },
+    {
+      "id": 3,
+      "category": "drinks",
+      "label": "DRINKS • 01",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-3.jpg",
+      "alt": "Chai Days signature beverage"
+    },
+    {
+      "id": 4,
+      "category": "space",
+      "label": "SPACE • 03",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-4.jpg",
+      "alt": "Chai Days cozy seating"
+    },
+    {
+      "id": 5,
+      "category": "drinks",
+      "label": "DRINKS • 02",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-5.jpg",
+      "alt": "Chai Days handcrafted brew"
+    },
+    {
+      "id": 6,
+      "category": "space",
+      "label": "SPACE • 04",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-6.jpg",
+      "alt": "Chai Days café aesthetic"
+    },
+    {
+      "id": 7,
+      "category": "drinks",
+      "label": "DRINKS • 03",
+      "colSpan": "col-span-12 md:col-span-6",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-7.jpg",
+      "alt": "Chai Days special pour"
+    },
+    {
+      "id": 8,
+      "category": "space",
+      "label": "SPACE • 05",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-8.jpg",
+      "alt": "Chai Days community corner"
+    },
+    {
+      "id": 9,
+      "category": "drinks",
+      "label": "DRINKS • 04",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-9.jpg",
+      "alt": "Chai Days freshly steeped chai"
+    },
+    {
+      "id": 10,
+      "category": "space",
+      "label": "SPACE • 06",
+      "colSpan": "col-span-12 md:col-span-4",
+      "ratio": "aspect-[3/4]",
+      "img": "/images/gallery/gallery-updated-10.jpg",
+      "alt": "Chai Days warm evening atmosphere"
     }
   ],
   "outlets": [

@@ -99,7 +99,7 @@ export default async function GalleryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <GalleryClient contentData={contentData} />
+      <GalleryClient contentData={contentData} initialItems={galleryItems} />
     </>
   );
 }

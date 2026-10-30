@@ -4,15 +4,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 
-const galleryItems = [
+export interface GalleryItem {
+  id: number | string;
+  category: string;
+  label: string;
+  colSpan: string;
+  ratio: string;
+  img: string;
+  alt: string;
+}
+
+const defaultGalleryItems: GalleryItem[] = [
   {
     id: 1,
     category: "space",
     label: "SPACE • 01",
     colSpan: "col-span-12 md:col-span-8",
     ratio: "aspect-[16/9]",
-    img: "/images/gallery/space-1.jpg",
-    alt: "Chai Days space 1"
+    img: "/images/gallery/gallery-updated-1.jpg",
+    alt: "Chai Days café experience"
   },
   {
     id: 2,
@@ -20,232 +30,95 @@ const galleryItems = [
     label: "SPACE • 02",
     colSpan: "col-span-12 md:col-span-4",
     ratio: "aspect-[3/4]",
-    img: "/images/gallery/space-2.jpg",
-    alt: "Chai Days space 2"
+    img: "/images/gallery/gallery-updated-2.jpg",
+    alt: "Chai Days interior atmosphere"
   },
   {
     id: 3,
-    category: "space",
-    label: "SPACE • 03",
+    category: "drinks",
+    label: "DRINKS • 01",
     colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-square",
-    img: "/images/gallery/space-3.jpg",
-    alt: "Chai Days space 3"
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/gallery-updated-3.jpg",
+    alt: "Chai Days signature beverage"
   },
   {
     id: 4,
     category: "space",
-    label: "SPACE • 04",
+    label: "SPACE • 03",
     colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-square",
-    img: "/images/gallery/space-4.jpg",
-    alt: "Chai Days space 4"
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/gallery-updated-4.jpg",
+    alt: "Chai Days cozy seating"
   },
   {
     id: 5,
-    category: "space",
-    label: "SPACE • 05",
+    category: "drinks",
+    label: "DRINKS • 02",
     colSpan: "col-span-12 md:col-span-4",
     ratio: "aspect-[3/4]",
-    img: "/images/gallery/space-5.jpg",
-    alt: "Chai Days space 5"
+    img: "/images/gallery/gallery-updated-5.jpg",
+    alt: "Chai Days handcrafted brew"
   },
   {
     id: 6,
     category: "space",
-    label: "SPACE • 06",
-    colSpan: "col-span-12 md:col-span-8",
-    ratio: "aspect-[16/9]",
-    img: "/images/gallery/space-6.jpg",
-    alt: "Chai Days space 6"
+    label: "SPACE • 04",
+    colSpan: "col-span-12 md:col-span-6",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/gallery-updated-6.jpg",
+    alt: "Chai Days café aesthetic"
   },
   {
     id: 7,
-    category: "space",
-    label: "SPACE • 07",
+    category: "drinks",
+    label: "DRINKS • 03",
     colSpan: "col-span-12 md:col-span-6",
-    ratio: "aspect-[4/3]",
-    img: "/images/gallery/space-7.jpg",
-    alt: "Chai Days space 7"
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/gallery-updated-7.jpg",
+    alt: "Chai Days special pour"
   },
   {
     id: 8,
-    category: "drinks",
-    label: "DRINKS • 01",
-    colSpan: "col-span-12 md:col-span-6",
-    ratio: "aspect-[4/3]",
-    img: "/images/gallery/drink-1.jpg",
-    alt: "Chai Days drinks 1"
+    category: "space",
+    label: "SPACE • 05",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/gallery-updated-8.jpg",
+    alt: "Chai Days community corner"
   },
   {
     id: 9,
     category: "drinks",
-    label: "DRINKS • 02",
-    colSpan: "col-span-12 md:col-span-8",
-    ratio: "aspect-[16/9]",
-    img: "/images/gallery/drink-2.jpg",
-    alt: "Chai Days drinks 2"
+    label: "DRINKS • 04",
+    colSpan: "col-span-12 md:col-span-4",
+    ratio: "aspect-[3/4]",
+    img: "/images/gallery/gallery-updated-9.jpg",
+    alt: "Chai Days freshly steeped chai"
   },
   {
     id: 10,
-    category: "drinks",
-    label: "DRINKS • 03",
+    category: "space",
+    label: "SPACE • 06",
     colSpan: "col-span-12 md:col-span-4",
     ratio: "aspect-[3/4]",
-    img: "/images/gallery/drink-3.jpg",
-    alt: "Chai Days drinks 3"
-  },
-  {
-    id: 11,
-    category: "drinks",
-    label: "DRINKS • 04",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-square",
-    img: "/images/gallery/drink-4.jpg",
-    alt: "Chai Days drinks 4"
-  },
-  {
-    id: 12,
-    category: "drinks",
-    label: "DRINKS • 05",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-square",
-    img: "/images/gallery/drink-5.jpg",
-    alt: "Chai Days drinks 5"
-  },
-  {
-    id: 13,
-    category: "drinks",
-    label: "DRINKS • 06",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-[3/4]",
-    img: "/images/gallery/drink-6.jpg",
-    alt: "Chai Days drinks 6"
-  },
-  {
-    id: 14,
-    category: "drinks",
-    label: "DRINKS • 07",
-    colSpan: "col-span-12 md:col-span-8",
-    ratio: "aspect-[16/9]",
-    img: "/images/gallery/drink-7.jpg",
-    alt: "Chai Days drinks 7"
-  },
-  {
-    id: 15,
-    category: "drinks",
-    label: "DRINKS • 08",
-    colSpan: "col-span-12 md:col-span-6",
-    ratio: "aspect-[4/3]",
-    img: "/images/gallery/drink-8.jpg",
-    alt: "Chai Days drinks 8"
-  },
-  {
-    id: 16,
-    category: "drinks",
-    label: "DRINKS • 09",
-    colSpan: "col-span-12 md:col-span-6",
-    ratio: "aspect-[4/3]",
-    img: "/images/gallery/drink-9.jpg",
-    alt: "Chai Days drinks 9"
-  },
-  {
-    id: 17,
-    category: "drinks",
-    label: "DRINKS • 10",
-    colSpan: "col-span-12 md:col-span-8",
-    ratio: "aspect-[16/9]",
-    img: "/images/gallery/drink-10.jpg",
-    alt: "Chai Days drinks 10"
-  },
-  {
-    id: 18,
-    category: "drinks",
-    label: "DRINKS • 11",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-[3/4]",
-    img: "/images/gallery/drink-11.jpg",
-    alt: "Chai Days drinks 11"
-  },
-  {
-    id: 19,
-    category: "drinks",
-    label: "DRINKS • 12",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-square",
-    img: "/images/gallery/drink-12.jpg",
-    alt: "Chai Days drinks 12"
-  },
-  {
-    id: 20,
-    category: "drinks",
-    label: "DRINKS • 13",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-square",
-    img: "/images/gallery/drink-13.jpg",
-    alt: "Chai Days drinks 13"
-  },
-  {
-    id: 21,
-    category: "drinks",
-    label: "DRINKS • 14",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-[3/4]",
-    img: "/images/gallery/drink-14.jpg",
-    alt: "Chai Days drinks 14"
-  },
-  {
-    id: 22,
-    category: "drinks",
-    label: "DRINKS • 15",
-    colSpan: "col-span-12 md:col-span-8",
-    ratio: "aspect-[16/9]",
-    img: "/images/gallery/drink-15.jpg",
-    alt: "Chai Days drinks 15"
-  },
-  {
-    id: 23,
-    category: "desserts",
-    label: "DESSERTS • 01",
-    colSpan: "col-span-12 md:col-span-6",
-    ratio: "aspect-[4/3]",
-    img: "/images/gallery/dessert-1.jpg",
-    alt: "Chai Days desserts 1"
-  },
-  {
-    id: 24,
-    category: "desserts",
-    label: "DESSERTS • 02",
-    colSpan: "col-span-12 md:col-span-6",
-    ratio: "aspect-[4/3]",
-    img: "/images/gallery/dessert-2.jpg",
-    alt: "Chai Days desserts 2"
-  },
-  {
-    id: 25,
-    category: "desserts",
-    label: "DESSERTS • 03",
-    colSpan: "col-span-12 md:col-span-8",
-    ratio: "aspect-[16/9]",
-    img: "/images/gallery/dessert-3.jpg",
-    alt: "Chai Days desserts 3"
-  },
-  {
-    id: 26,
-    category: "desserts",
-    label: "DESSERTS • 04",
-    colSpan: "col-span-12 md:col-span-4",
-    ratio: "aspect-[3/4]",
-    img: "/images/gallery/dessert-4.jpg",
-    alt: "Chai Days desserts 4"
+    img: "/images/gallery/gallery-updated-10.jpg",
+    alt: "Chai Days warm evening atmosphere"
   }
 ];
 
-const categories = ['all', 'drinks', 'space', 'desserts'];
+const categories = ['all', 'space', 'drinks'];
 
-export default function GalleryClient({ contentData = {} }: { contentData?: any }) {
+export default function GalleryClient({ 
+  contentData = {},
+  initialItems = []
+}: { 
+  contentData?: any;
+  initialItems?: GalleryItem[];
+}) {
+  const items = initialItems && initialItems.length > 0 ? initialItems : defaultGalleryItems;
   const [active, setActive] = useState('all');
-  const filtered = active === 'all' ? galleryItems : galleryItems.filter((i) => i.category === active);
+  const filtered = active === 'all' ? items : items.filter((i) => i.category === active);
 
   return (
     <>
@@ -262,7 +135,7 @@ export default function GalleryClient({ contentData = {} }: { contentData?: any 
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-8 py-3 rounded-full font-sans text-[11px] tracking-[0.15em] uppercase transition-all duration-300 ${
+            className={`px-8 py-3 rounded-full font-sans text-[11px] tracking-[0.15em] uppercase transition-all duration-300 cursor-pointer ${
               active === cat
                 ? 'bg-primary text-white shadow-lg shadow-primary/20'
                 : 'bg-surface-container text-on-surface-variant border border-outline-variant/50 hover:bg-surface-container-high'
